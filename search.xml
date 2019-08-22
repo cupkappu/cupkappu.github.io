@@ -46,6 +46,19 @@
       </tags>
   </entry>
   <entry>
+    <title><![CDATA[Hexo學習筆記 —— 多端同步、Github Pages部署、更改主題、評論功能（四）]]></title>
+    <url>%2F2019%2F08%2F20%2FHEXO_STUDY_4%2F</url>
+    <content type="text"><![CDATA[關於多端同步依然還有一些東西可以略微分享。我們可以使用Github的webhook功能，對儲存源碼和文章md文件的repo進行pull操作后，自動將網頁輸出然後push到博客端。]]></content>
+      <categories>
+        <category>技術相關</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+        <tag>博客</tag>
+        <tag>Github</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Hexo學習筆記 —— 多端同步、Github Pages部署、更改主題、評論功能（二）]]></title>
     <url>%2F2019%2F08%2F20%2F2019-08-20%2019_03_50%2F</url>
     <content type="text"><![CDATA[同步多端……真正麻煩的事情來了根據剛剛提到的文件目錄結構 12345678|-- _config.yml #配置文件|-- package.json #hexo的依賴，插件信息也保存在這文件內|-- scaffolds #標準模板，一般不需要關心|-- source #資源目錄，文章與各種附件也都保存在這 |-- _posts #文章文件夾|-- themes #主題|-- .gitignore #git同步的時候忽略的目錄與文件|-- public #生成後的靜態博客文件夾 有同步意義的是_config.yml, package.json, source/, themes 最重要的是source文件夾，裏面包含了可以引用的圖片、文章文件以及各種附加的小附件。 Google Drive, 百度網盤, Dropbox等同步網盤使用Google Drive一類簡單粗暴的多端同步網盤來同步我們的hexo文檔和配置，缺點就是node相關的文件也都會一並同步，好處就是特別省事。 直接將整個目錄復制到Google Drive即可，之後所有操作都在掛載後的Google Drive裏面進行。 在另外一臺機器，安裝Google Drive同步程序，然後將hexo目錄設置爲同步以及離線可用，之後整個Hexo端便會一直保持着最新的文件。 其他網盤同理 Github同步這個方案配置比較麻煩，但是後期使用問題較少，挺多大佬也是使用這個方案進行多端同步 以下是步驟 先在Github建立一個私人庫，專門存放Hexo部署程序 在Hexo的目錄下，運行git init 修改.gitignore爲以下內容 1234567.DS_StoreThumbs.dbdb.json*.lognode_modules/public/.deploy*/ 執行以下代碼，進行第一次推送代碼 1234git add .git commit -m "first commit"git remote add origin git@github.com:username/library.gitgit push -u origin master 創建一個名爲push的文件，將以下代碼輸入進去 12345#!/bin/bashgit add .git commit -m `date +%Y-%m-%d-%H%M`git push origin masterhexo g -d 輸入chmod +x push，給腳本增加運行權限 輸入./push嘗試推送 之後，新的機器先安裝Hexo，再輸入git clone git@github.com:username/library.git，再進入克隆目錄內，輸入npm install安裝依賴即可。 每次編輯完文章，輸入./push推送，換到另一臺電腦想繼續編輯時，輸入git pull拉取最新檔案下來即可。]]></content>
