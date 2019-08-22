@@ -68,12 +68,10 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="Proxmox,直通,">
 
 
 
-
-  
 
 
   <link rel="alternate" href="/atom.xml" title="木不子的窒息小茶室" type="application/atom+xml">
@@ -83,17 +81,20 @@
 
 
 
-<meta name="description" content="我 太 菜 了 請 教 教 我">
-<meta property="og:type" content="website">
-<meta property="og:title" content="分類">
-<meta property="og:url" content="https://cupkappu.github.io/categories/index.html">
+<meta name="description" content="前情提要話説我弟最近上中學，他開始需要使用電腦做學校的課業，而我家裏有一臺chromebook、台機和一臺特別破舊的超極本。 超極本的發熱已經接近70度，可以把人手烤焦，chromebook的系統不支援他學校的CD軟體，而我的臺機，有太多的不可見人的東西，更是不能給他使用。 但是教育乃一切之本，他的生日也臨近，想給他送個禮物，於是看到了我家不斷跑著OVM、ikuai、web-server和域名dd">
+<meta name="keywords" content="Proxmox,直通">
+<meta property="og:type" content="article">
+<meta property="og:title" content="實現家庭綜合服務器——給Proxmox VE中的Win10直通顯卡">
+<meta property="og:url" content="https://cupkappu.github.io/2019/08/20/實現家庭綜合服務器——給Proxmox VE中的Win10直通顯卡/index.html">
 <meta property="og:site_name" content="木不子的窒息小茶室">
-<meta property="og:description" content="我 太 菜 了 請 教 教 我">
+<meta property="og:description" content="前情提要話説我弟最近上中學，他開始需要使用電腦做學校的課業，而我家裏有一臺chromebook、台機和一臺特別破舊的超極本。 超極本的發熱已經接近70度，可以把人手烤焦，chromebook的系統不支援他學校的CD軟體，而我的臺機，有太多的不可見人的東西，更是不能給他使用。 但是教育乃一切之本，他的生日也臨近，想給他送個禮物，於是看到了我家不斷跑著OVM、ikuai、web-server和域名dd">
 <meta property="og:locale" content="zh-hk">
-<meta property="og:updated_time" content="2019-08-22T09:41:37.915Z">
+<meta property="og:image" content="https://cupkappu.github.io/images/01.png">
+<meta property="og:updated_time" content="2019-08-22T10:25:33.714Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="分類">
-<meta name="twitter:description" content="我 太 菜 了 請 教 教 我">
+<meta name="twitter:title" content="實現家庭綜合服務器——給Proxmox VE中的Win10直通顯卡">
+<meta name="twitter:description" content="前情提要話説我弟最近上中學，他開始需要使用電腦做學校的課業，而我家裏有一臺chromebook、台機和一臺特別破舊的超極本。 超極本的發熱已經接近70度，可以把人手烤焦，chromebook的系統不支援他學校的CD軟體，而我的臺機，有太多的不可見人的東西，更是不能給他使用。 但是教育乃一切之本，他的生日也臨近，想給他送個禮物，於是看到了我家不斷跑著OVM、ikuai、web-server和域名dd">
+<meta name="twitter:image" content="https://cupkappu.github.io/images/01.png">
 
 
 
@@ -123,13 +124,13 @@
 
 
 
-  <link rel="canonical" href="https://cupkappu.github.io/categories/">
+  <link rel="canonical" href="https://cupkappu.github.io/2019/08/20/實現家庭綜合服務器——給Proxmox VE中的Win10直通顯卡/">
 
 
 
 
 
-  <title>分類 | 木不子的窒息小茶室</title>
+  <title>實現家庭綜合服務器——給Proxmox VE中的Win10直通顯卡 | 木不子的窒息小茶室</title>
   
 
 
@@ -276,40 +277,279 @@
 
   <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://cupkappu.github.io/2019/08/20/實現家庭綜合服務器——給Proxmox VE中的Win10直通顯卡/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="木不子">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="木不子的窒息小茶室">
+    </span>
+
     
-    
-    <div class="post-block page">
       <header class="post-header">
 
-	<h1 class="post-title" itemprop="name headline">分類</h1>
-
-
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
         
         
-          <div class="category-all-page">
-            <div class="category-all-title">
-                目前共有 2 個分類
-            </div>
-            <div class="category-all">
-              <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/技術相關/">技術相關</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/生活心得/">生活心得</a><span class="category-list-count">1</span></li></ul>
-            </div>
-          </div>
+          <h1 class="post-title" itemprop="name headline">實現家庭綜合服務器——給Proxmox VE中的Win10直通顯卡</h1>
         
-      </div>
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">發表於</span>
+              
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2019-08-20T00:00:00+08:00">
+                2019-08-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分類於</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/技術相關/" itemprop="url" rel="index">
+                    <span itemprop="name">技術相關</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/08/20/實現家庭綜合服務器——給Proxmox VE中的Win10直通顯卡/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/08/20/實現家庭綜合服務器——給Proxmox VE中的Win10直通顯卡/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
       
+
+      
+        <h1 id="前情提要"><a href="#前情提要" class="headerlink" title="前情提要"></a>前情提要</h1><p>話説我弟最近上中學，他開始需要使用電腦做學校的課業，而我家裏有一臺chromebook、台機和一臺特別破舊的超極本。</p>
+<p>超極本的發熱已經接近70度，可以把人手烤焦，chromebook的系統不支援他學校的CD軟體，而我的臺機，有太多的不可見人的東西，更是不能給他使用。</p>
+<p>但是教育乃一切之本，他的生日也臨近，想給他送個禮物，於是看到了我家不斷跑著OVM、ikuai、web-server和域名ddns的伺服器，突然覺得，可以壓縮一下前面幾個服務的性能，給他搭建一個能用的電腦操作平臺。</p>
+<a id="more"></a>
+
+
+<p><strong>大致的想法就是買個基礎顯卡，買個固態硬盤直通到虛擬機，然後直通USB口，把這些綫捆成一坨拉到他的房間，給他個電腦屏幕和鍵盤。</strong></p>
+<p><strong><em>我還想把成本控制在1000塊錢以内來著</em></strong></p>
+<h1 id="原有機件介紹"><a href="#原有機件介紹" class="headerlink" title="原有機件介紹"></a>原有機件介紹</h1><p>服務器是一臺大致如下配置的服務器</p>
+<table>
+<thead>
+<tr>
+<th align="center">配件</th>
+<th align="center">型號</th>
+<th align="center">已用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">主板</td>
+<td align="center">B75</td>
+<td align="center">/</td>
+</tr>
+<tr>
+<td align="center">SATA口</td>
+<td align="center">2*3.0+4*2.0</td>
+<td align="center">已用3</td>
+</tr>
+<tr>
+<td align="center">PCI-E插槽</td>
+<td align="center">2条PCI-E*16</td>
+<td align="center">已用一條用於網卡</td>
+</tr>
+<tr>
+<td align="center">CPU</td>
+<td align="center">i5-3330</td>
+<td align="center">虛擬機1+1+4+4+2</td>
+</tr>
+<tr>
+<td align="center">RAM</td>
+<td align="center">8G*2 DDR3 1600</td>
+<td align="center">已用512M*3+1.5G+2G=5G</td>
+</tr>
+</tbody></table>
+<p><img src="/images/01.png" alt="Screenshot 2019-08-19 at 14.01.22.png"></p>
+<p>可以看到CPU部分略微吃緊，而RAM依然有機會分配8G給虛擬機使用，PCI-E插槽可以容納一張獨立顯卡，硬盤也可以插多一張SSD。</p>
+<p>找時間把各種吃CPU的服務搬出伺服器為上策。</p>
+<h1 id="需要添置的硬件"><a href="#需要添置的硬件" class="headerlink" title="需要添置的硬件"></a>需要添置的硬件</h1><p>由於我是要給現有的伺服器增加一個Win10，並給他加上顯卡與硬盤等等外設，還要讓他可以在遠處傳輸，於是這需要以下配件。</p>
+<table>
+<thead>
+<tr>
+<th align="center">配件</th>
+<th align="center">名稱</th>
+<th align="center">價格</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">顯卡</td>
+<td align="center">RX550 2G半高顯卡</td>
+<td align="center">333港幣</td>
+</tr>
+<tr>
+<td align="center">硬盤</td>
+<td align="center">240G臺電SSD</td>
+<td align="center">210港幣</td>
+</tr>
+<tr>
+<td align="center">USB延長綫</td>
+<td align="center">/</td>
+<td align="center">142港幣</td>
+</tr>
+<tr>
+<td align="center">HDMI延長綫</td>
+<td align="center">/</td>
+<td align="center">128港幣</td>
+</tr>
+<tr>
+<td align="center">總價</td>
+<td align="center"></td>
+<td align="center">814港幣</td>
+</tr>
+</tbody></table>
+<p>總而言之價格是控制在了1000港幣以内，算是完成目标。</p>
+<p><em>等到我有空，買完所有需要的配件就開搞</em></p>
+<hr>
+
       
     </div>
     
     
     
+
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>Post author：</strong>
+    木不子
+  </li>
+  <li class="post-copyright-link">
+    <strong>Post link：</strong>
+    <a href="https://cupkappu.github.io/2019/08/20/實現家庭綜合服務器——給Proxmox VE中的Win10直通顯卡/" title="實現家庭綜合服務器——給Proxmox VE中的Win10直通顯卡">https://cupkappu.github.io/2019/08/20/實現家庭綜合服務器——給Proxmox VE中的Win10直通顯卡/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice： </strong>
+    All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> unless stating additionally.
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Proxmox/" rel="tag"># Proxmox</a>
+          
+            <a href="/tags/直通/" rel="tag"># 直通</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/08/20/安裝Proxmox VE/" rel="prev" title="安裝Proxmox VE">
+                安裝Proxmox VE <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
   </div>
 
 
@@ -352,8 +592,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目錄
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            本站概覽
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -436,6 +685,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前情提要"><span class="nav-number">1.</span> <span class="nav-text">前情提要</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#原有機件介紹"><span class="nav-number">2.</span> <span class="nav-text">原有機件介紹</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#需要添置的硬件"><span class="nav-number">3.</span> <span class="nav-text">需要添置的硬件</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -644,9 +909,9 @@ show_date_time();
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'https://cupkappu.github.io/categories/index.html';
-          this.page.identifier = 'categories/index.html';
-          this.page.title = '分類';
+          this.page.url = 'https://cupkappu.github.io/2019/08/20/實現家庭綜合服務器——給Proxmox VE中的Win10直通顯卡/';
+          this.page.identifier = '2019/08/20/實現家庭綜合服務器——給Proxmox VE中的Win10直通顯卡/';
+          this.page.title = '實現家庭綜合服務器——給Proxmox VE中的Win10直通顯卡';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://cupkappu-blog.disqus.com/embed.js';
