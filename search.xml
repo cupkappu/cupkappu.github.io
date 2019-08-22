@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title><![CDATA[安裝Proxmox VE]]></title>
+    <url>%2F2019%2F08%2F22%2F%E5%AE%89%E8%A3%9DProxmox%20VE%2F</url>
+    <content type="text"><![CDATA[先決條件 支持VT-d或AMD-V的CPU 8G或以上的可完全擦除磁盤，或8G以上的U盤用作Proxmox VE的系統盤 另外一隻2G以上的U盤 下載Proxmox VE的安裝鏡像官方載點 安裝過程將ISO文件寫入2G以上大小的U盤，製作啟動介質 12dd if=~/Downloads/Proxmox.iso of=/dev/sdx# Proxmox.iso是你下載的鏡像，而/dev/sdx是你的U盤設備（2G以上） 寫入完畢之後，輸入命令reboot重啟電腦 進入電腦UEFI設置介面，開啟VT-d或AMD-V，設置2G的閃存盤為首啟動項 若你使用8G以上的U盤作為系統盤，請在這個時候插入 保存UEFI設置，重啟電腦 啟動Proxmox VE安裝程序，選擇Install Proxmox VE，進入自檢畫面，等待數秒至數分鐘 同意協議，按“Agree” 選擇硬盤，請根據磁盤容量選擇正確的硬盤 Proxmox VE安裝不可以選擇安裝在某個硬盤的某個分區 一旦選擇安裝，便會重新分區整個硬盤，請準備可以完全擦除的磁盤設備 設定國家、時區與鍵盤，在Country輸入China、Taiwan或Hong Kong都會直接填充時區信息 設定管理員root帳號密碼郵箱 設定主機名、IP、網關、掩碼與DNS，設置完畢後點擊Next開始安裝 安裝完畢需要手動重啟，點擊右下角Reboot重啟 Proxmox VE會在啟動後於主機的ttl控制台中顯示Web控制台的URL，此URL只接受HTTPS使用安裝的時候設置的root帳戶密碼，登入網頁端，顯示Proxmox VE的網頁控制台。]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[實現家庭綜合服務器——給Proxmox VE中的Win10直通顯卡]]></title>
+    <url>%2F2019%2F08%2F22%2F%E5%AF%A6%E7%8F%BE%E5%AE%B6%E5%BA%AD%E7%B6%9C%E5%90%88%E6%9C%8D%E5%8B%99%E5%99%A8%E2%80%94%E2%80%94%E7%B5%A6Proxmox%20VE%E4%B8%AD%E7%9A%84Win10%E7%9B%B4%E9%80%9A%E9%A1%AF%E5%8D%A1%2F</url>
+    <content type="text"><![CDATA[前情提要話説我弟最近上中學，他開始需要使用電腦做學校的課業，而我家裏有一臺chromebook、台機和一臺特別破舊的超極本。 超極本的發熱已經接近70度，可以把人手烤焦，chromebook的系統不支援他學校的CD軟體，而我的臺機，有太多的不可見人的東西，更是不能給他使用。 但是教育乃一切之本，他的生日也臨近，想給他送個禮物，於是看到了我家不斷跑著OVM、ikuai、web-server和域名ddns的伺服器，突然覺得，可以壓縮一下前面幾個服務的性能，給他搭建一個能用的電腦操作平臺。 大致的想法就是買個基礎顯卡，買個固態硬盤直通到虛擬機，然後直通USB口，把這些綫捆成一坨拉到他的房間，給他個電腦屏幕和鍵盤。 我還想把成本控制在1000塊錢以内來著 原有機件介紹服務器是一臺大致如下配置的服務器 配件 型號 已用 主板 B75 / SATA口 2*3.0+4*2.0 已用3 PCI-E插槽 2条PCI-E*16 已用一條用於網卡 CPU i5-3330 虛擬機1+1+4+4+2 RAM 8G*2 DDR3 1600 已用512M*3+1.5G+2G=5G 可以看到CPU部分略微吃緊，而RAM依然有機會分配8G給虛擬機使用，PCI-E插槽可以容納一張獨立顯卡，硬盤也可以插多一張SSD。 找時間把各種吃CPU的服務搬出伺服器為上策。 需要添置的硬件由於我是要給現有的伺服器增加一個Win10，並給他加上顯卡與硬盤等等外設，還要讓他可以在遠處傳輸，於是這需要以下配件。 配件 名稱 價格 顯卡 RX550 2G半高顯卡 333港幣 硬盤 240G臺電SSD 210港幣 USB延長綫 / 142港幣 HDMI延長綫 / 128港幣 總價 814港幣 總而言之價格是控制在了1000港幣以内，算是完成目标。 等到我有空，買完所有需要的配件就開搞]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[讓Markdown文檔一秒轉換為Keynote演示文檔 —— md2key學習筆記]]></title>
+    <url>%2F2019%2F08%2F22%2F%E8%AE%93Markdown%E6%96%87%E6%AA%94%E4%B8%80%E7%A7%92%E8%BD%89%E6%8F%9B%E7%82%BAKeynote%E6%BC%94%E7%A4%BA%E6%96%87%E6%AA%94%20%E2%80%94%E2%80%94%20md2key%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98%2F</url>
+    <content type="text"><![CDATA[引言Keynote是一個蘋果自家的演示文檔軟件，有許多強大的預設，動畫效果十分驚人md2key是一個讓Markdown格式的文檔轉換為Keynote文檔的工具，由k0kubun開發維護GitHub主頁 安裝12# 僅限macOS用戶gem install md2key 使用方法 創建一個Keynote文檔 添加一張你想要的樣式幻燈片作為封面，然後把第一張幻燈片刪除 創建第二張幻燈片，這張幻燈片的樣式作為內頁 保持文檔開啟，在終端直接輸入md2key markdown.md 進階用法 點擊右方的“編輯母版幻燈片” 在Keynote中給任何你將會用到的母版幻燈片命名為“cover”“h1”“h2”⋯⋯“h5” cover對應第一段“#”，第一個#之後的文字會印刷在封面頁，h1對應一個#，h2對應兩個#⋯⋯ 例如： 12345678910# The presentation@k0kubun## Hello worldI'm takashi kokubun- This is a pen- Nested item is available## How are you?- I'm fine thank you]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[在Proxmox中安裝macOS Mojave並設置直通顯卡]]></title>
+    <url>%2F2019%2F08%2F22%2F%E5%9C%A8Proxmox%E4%B8%AD%E5%AE%89%E8%A3%9DmacOS%20Mojave%E4%B8%A6%E8%A8%AD%E7%BD%AE%E7%9B%B4%E9%80%9A%E9%A1%AF%E5%8D%A1%2F</url>
+    <content type="text"><![CDATA[在PVE中安裝macOS Mojave並設置直通顯卡先決條件： 8G或以上內存 支持虛擬化以及SSE4.2的cpu 包括AMD與INTEL 1 安裝PVE安裝教程此處安裝方法與一般的方法相同，推薦將pve系統安裝到usb設備 2 創建macos安裝鏡像在linux或macos系統下運行以下命令 123wget https://raw.githubusercontent.com/thenickdude/OSX-KVM/master/fetch-macOS.pychmod +x fetch-macOS.py./fetch-macOS.py 在選單中選擇最新的iso，等待下載完成後，運行以下命令，將dmg包轉換成iso包 12345678# 安裝dmg2img 若你是deb包管理系以外的系統，可以自行查找如何安裝dmg2imgapt-get install dmg2img -y# 利用dmg2img將基本系統dmg鏡像轉為iso鏡像dmg2img BaseSystem.dmg Mojave-installer.iso# 若你是macOS，請使用以下命令hdiutil convert BaseSystem.dmg -format RdWr -o Mojave-installer.isomv Mojave-installer.iso.img Mojave-installer.iso 然後下載Clover 123456# Ubuntu &amp; Debianapt-get install unzip -y# Centos &amp; RHELyum install unzip -y# 取得cloverwget https://github.com/thenickdude/OSX-KVM/releases/download/clover-r4920/clover-r4920.iso.zip &amp;&amp; unzip clover-r4920.iso.zip 然後將clover-r4920.iso與Mojave-installer.iso上傳到PVE中 3 在網頁中創建虛擬機 OS頁面選擇Clover ISO進行引導 系統選擇其他（other） System頁面的顯示卡選擇VMware兼容 BIOS選擇OVMF Machine選擇q35 硬盤選擇SATA，緩存設置成Write back（不安全） CPU的類型設置成Penryn 網卡設置成Vmware vmxnet3 點開虛擬機的硬件選項卡，添加Mojave-installer.iso，選擇ide通道的cd-ram 先不要啟動虛擬機，在ssh中打開/etc/pve/qemu-server/你的VMID.conf 1nano /etc/pve/qemu-server/你的VMID.conf 然後輸入以下代碼 1args: -device isa-applesmc,osk=&quot;ourhardworkbythesewordsguardedpleasedontsteal(c)AppleComputerInc&quot; -smbios type=2 -cpu Penryn,kvm=on,vendor=GenuineIntel,+invtsc,vmware-cpuid-freq=on,+pcid,+ssse3,+sse4.2,+popcnt,+avx,+aes,+xsave,+xsaveopt,check -device usb-kbd,bus=ehci.0,port=2 將兩個驅動器的配置中的cdrom刪除，加入cache=unsafe最後的文檔應該看起來像這樣 1234567891011121314151617181920args: -device isa-applesmc,osk=&quot;ourhardworkbythesewordsguardedpleasedontsteal(c)AppleComputerInc&quot; -smbios type=2 -cpu Penryn,kvm=on,vendor=GenuineIntel,+invtsc,vmware-cpuid-freq=on,+pcid,+ssse3,+sse4.2,+popcnt,+avx,+aes,+xsave,+xsaveopt,check -device usb-kbd,bus=ehci.0,port=2balloon: 0bios: ovmfboot: cdnbootdisk: ide2cores: 4cpu: Penrynefidisk0: vms:vm-144-disk-1,size=128Kide0: isos:iso/Mojave.iso,cache=unsafeide2: isos:iso/clover-r4920.iso,cache=unsafemachine: q35memory: 8192name: mojavenet0: vmxnet3=xx:xx:xx:xx:xx:xx,bridge=vmbr0,firewall=1numa: 0ostype: othersata0: vms:vm-144-disk-0,cache=unsafe,size=64Gsmbios1: uuid=xxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxsockets: 1vga: vmware 設置完畢後，根據patch-ovmf-to-support-macos-in-proxmox-5-1 來安裝OVMF庫 For PVE 6 123456789101112131415161718192021# Add missing localeecho &quot;en_US.UTF-8 UTF-8&quot; &gt;&gt; /etc/locale.genlocale-genexport LC_ALL=en_US.UTF-8# Add tools and build dependencies:apt updateapt install build-essential git lintian debhelper iasl nasm \ python uuid-dev gcc-aarch64-linux-gnu bc python3-distutils -y# Clone my patched sourcegit clone -b macos-support-proxmox-6.0 https://github.com/thenickdude/pve-edk2-firmware.git# Build itcd pve-edk2-firmwaremakedpkg -i pve-edk2-firmware_*.deb# Prevent it from being replaced later by apt upgrade:apt-mark hold pve-edk2-firmware 4 設置直通首先，編輯grubvim /etc/default/grub將GRUB_CMDLINE_LINUX_DEFAULT=&quot;quiet&quot;改為GRUB_CMDLINE_LINUX_DEFAULT=&quot;quiet intel_iommu=on video=efifb:off&quot;（若是amd則改為amd_iommu=on） 執行update-grub命令更新grub信息最後輸入dmesg | grep -e DMAR -e IOMMU命令檢查是否有錯然後編輯/etc/modules nano /etc/modules在最尾加入以下四行 1234vfiovfio_iommu_type1vfio_pcivfio_virqfd 再次輸入dmesg | grep ecap命令檢查設備是否支持iommu然後執行以下命令將驅動加入黑名單 123echo &quot;blacklist radeon&quot; &gt;&gt; /etc/modprobe.d/blacklist.confecho &quot;blacklist nouveau&quot; &gt;&gt; /etc/modprobe.d/blacklist.confecho &quot;blacklist nvidia&quot; &gt;&gt; /etc/modprobe.d/blacklist.conf 執行update-initramfs -u命令更新信息執行lspci，找出顯卡的代號（例如01：00），然後執行lspci -n -s 01:00得到類似以下的輸出 1201:00.0 0300: 10de:1d01 (rev a1)01:00.1 0403: 10de:0fb8 (rev a1) 其中10de:1d01與10de:0fb8是vendor IDs將vendor IDs指定到VFIO模塊 1echo &quot;options vfio-pci ids=10de:1d01,10de:0fb8&quot; &gt; /etc/modprobe.d/vfio.conf 進入web管理介面 在vm的硬件選項卡中編輯添加PCI設備 選定顯卡對應的01:00.0與01:00.1 在01:00.0（顯示設備）中勾選 PCI-Express All Functions 主GPU 檢查文件/etc/pve/qemu-server/YOUR-VM-ID.conf 確保01:00後的參數正確 e.g.hostpci0: 01:00,x-vga=1,pcie=1 然後，直通鼠標鍵盤到VM中，添加USB設備，選擇鼠標鍵盤，然後添加到VM 5 安裝Mojave現在啟動你的虛擬機，若你設置了直通，啟動的一瞬間會發生以下事情 連接在你顯卡的顯示器應該會從PVE的ttl介面變為黑屏，然後變成OVMF UEFI啟動介面。 你的鍵盤鼠標這時候也可以直接控制虛擬機。 在啟動的時候趕快按下F2以進入OVMF設置畫面。 進入Device Manager 選擇OVMF platform configuration 設置分辨率為1920x1080 保存設置 在根菜單下選擇Reset（不是continue） 然後你應該進入了Clover，接下來跟著指引安裝系統全部安裝完畢之後，再次啟動時 手動按下F2 選定Clover啟動項 然後才會看到磁盤內的Mac系統。進入Mac系統後，打開終端，輸入diskutil list以檢查設備然後輸入sudo dd if=&lt;Clover CD的EFI分區&gt; of=&lt;硬盤的EFI分區&gt;將Clover安裝到硬盤中 你也可以忽略這一步，將Clover CD永久掛載在虛擬機下 關機，移除CLover CD，從硬盤啟動。]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[時間管理 —— 應該怎麼在爆炸的事項中開心生存]]></title>
+    <url>%2F2019%2F08%2F21%2F%E4%BB%BB%E5%8B%99%E7%AE%A1%E7%90%86%20%E2%80%94%E2%80%94%20%E6%87%89%E8%A9%B2%E6%80%8E%E9%BA%BC%E5%9C%A8%E7%88%86%E7%82%B8%E7%9A%84%E4%BA%8B%E9%A0%85%E4%B8%AD%E9%96%8B%E5%BF%83%E7%94%9F%E5%AD%98%2F</url>
+    <content type="text"><![CDATA[閱讀這篇文章所得的心得 目標與任務 目標是可量化的一個指標，表示未來將會透過某種方式達成這個指標 任務是可做到的某個動作，表示自己將會在某個時間進行此項動作 合適的時間管理不可以將達成後的目標和自己應該要做的任務混淆，否則會徒增迷惑。 周/日 目標法 每晚列出明天的任務清單，其中的代辦事項均來自於本周的清單 當完成清單後，任務便結束，絕不增加任何額外的任務 等到一周結束的時候，準備下一周的任務清單 任務清單的注意事項 每日、每周只列出有限的、明確的任務數量 把重心放在完成任務上，而不是一味的提高質量 掌握工作強度後，漸漸提高工作量，但要確保可以完成，絕不產生拖延 可以建立一個「彈性清單」，新添加任務的時候以此爲測試 在完成工作後，充分放鬆與休息 精力管理精力分爲以下幾種類型，並以以下方式保持充沛精力 體力 科學飲食、睡眠與鍛煉 動力 對工作成果的渴望 工作成果對自己的激勵 e.g. 整潔有序的工作環境 可以增強自尊感的工作目標 創造力 來源於大量的、廣泛的多方面閱讀 頭腦風暴 邏輯批判 目標分類 人生目標：對未來影響超過五年的 發展目標：對未來影響超過六個月的 即時目標：對未來影響短過六個月的 若爲了生存，側重點應該放在即時目標；若生存已經不是主要問題，那就將側重點放在1、2類 關於對項目的取舍 當項目與目標背離時，舍棄。 當任務與任意項目無聯系時候（孤兒任務） 少投入，或 舍棄 應該注意的雜項 設定起始與結束時間，忽略工作時長 避免僞工作：查收郵件，無目的瀏覽網頁 專心做、盡情玩。 保持人際聯系，明確表達自己什麼時候有空沒空 對於上網 做明確具體的事情 e.g. 固定時間查郵件 固定更新博客/信息 固定時間檢查聊天軟件/微博/推特 有意識的進行網絡齋戒 工具 日程本 清單軟件 GTD相關軟件 想說的話寫博客也是因爲自己沒法好好整理自己的知識，平時和別人分享心得也無從下手。 我因應自己的興趣略微研究了一段時間音樂，從小也對信息科技相關的知識十分感興趣。直到現在，除了用Excel做一份賬單，其他的信息處理方法我都相當的生疏。 前段時間試着教給別人識別吉他上面的音與鋼琴上面的音之間的對應關系，就這麼簡單的一個知識點，因爲我長期沒有整理自己的腦袋，足足教了半個多小時，這時候才發現自己的表達能力因爲長期停止寫作而退化到幾乎要不如小學生的階段。 閱讀過的書籍前段時間依然會使用紙筆寫下自己的心得，看過的動畫也會分享自己的感動之處。前不久依然會認認真真在聽完一首值得認真分析評論的歌之後，用記事本慢慢敲下和弦進行、表達方法相對應的情感等等信息。 畢業之後除了荒廢自我，每天除了上班下班以外幾乎都不想去整理自己，搞清楚自己究竟在做什麼了，直到我看到有同學畢業沒多久便達成了多項目標，終於醒了過來。 管理自己的行爲，管理自己的知識與管理自己的財富，才能活得令自己滿意。 共勉！]]></content>
+      <categories>
+        <category>生活心得</category>
+      </categories>
+      <tags>
+        <tag>時間管理</tag>
+        <tag>事項</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Hexo學習筆記 —— 多端同步、Github Pages部署、更改主題、評論功能（三）]]></title>
+    <url>%2F2019%2F08%2F20%2F2019-08-20%2021_59_40%2F</url>
+    <content type="text"><![CDATA[主題 —— NexT進入hexo目錄，然後下載主題 12$ cd hexo$ git clone https://github.com/theme-next/hexo-theme-next themes/next 編輯hexo目錄下的_config.yml，把主題改成改成theme: next。 然後編輯theme/next/_config.yml 搜索schemes關鍵詞，將scheme: Gemini前的#號去掉，然後注釋掉默認的scheme: Muse 運行以下命令更新主題（若你有根據上一篇編寫push腳本） 1./push 評論Hexo是一個靜態博客生成工具，生成的頁面僅有展示功能，而沒有提交功能。 以下內容參考 https://www.jianshu.com/p/d68de067ea74 如果需要實現評論，Hexo是沒法接收網頁傳來的表單信息的,則需要借助相關的服務。這裏使用的是Disqus 進入官方站點注冊後登錄，點擊GET START，然後按下下圖所示按鈕]]></content>
+      <categories>
+        <category>技術相關</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+        <tag>博客</tag>
+        <tag>Github</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Hexo學習筆記 —— 多端同步、Github Pages部署、更改主題、評論功能（二）]]></title>
+    <url>%2F2019%2F08%2F20%2F2019-08-20%2019_03_50%2F</url>
+    <content type="text"><![CDATA[同步多端……真正麻煩的事情來了根據剛剛提到的文件目錄結構 12345678|-- _config.yml #配置文件|-- package.json #hexo的依賴，插件信息也保存在這文件內|-- scaffolds #標準模板，一般不需要關心|-- source #資源目錄，文章與各種附件也都保存在這 |-- _posts #文章文件夾|-- themes #主題|-- .gitignore #git同步的時候忽略的目錄與文件|-- public #生成後的靜態博客文件夾 有同步意義的是_config.yml, package.json, source/, themes 最重要的是source文件夾，裏面包含了可以引用的圖片、文章文件以及各種附加的小附件。 Google Drive, 百度網盤, Dropbox等同步網盤使用Google Drive一類簡單粗暴的多端同步網盤來同步我們的hexo文檔和配置，缺點就是node相關的文件也都會一並同步，好處就是特別省事。 直接將整個目錄復制到Google Drive即可，之後所有操作都在掛載後的Google Drive裏面進行。 在另外一臺機器，安裝Google Drive同步程序，然後將hexo目錄設置爲同步以及離線可用，之後整個Hexo端便會一直保持着最新的文件。 其他網盤同理 Github同步這個方案配置比較麻煩，但是後期使用問題較少，挺多大佬也是使用這個方案進行多端同步 以下是步驟 先在Github建立一個私人庫，專門存放Hexo部署程序 在Hexo的目錄下，運行git init 修改.gitignore爲以下內容 1234567.DS_StoreThumbs.dbdb.json*.lognode_modules/public/.deploy*/ 執行以下代碼，進行第一次推送代碼 1234git add .git commit -m "first commit"git remote add origin git@github.com:username/library.gitgit push -u origin master 創建一個名爲push的文件，將以下代碼輸入進去 12345#!/bin/bashgit add .git commit -m `date +%Y-%m-%d-%H%M`git push origin masterhexo g -d 輸入chmod +x push，給腳本增加運行權限 輸入./push嘗試推送 之後，新的機器先安裝Hexo，再輸入git clone git@github.com:username/library.git，再進入克隆目錄內，輸入npm install安裝依賴即可。 每次編輯完文章，輸入./push推送，換到另一臺電腦想繼續編輯時，輸入git pull拉取最新檔案下來即可。]]></content>
+      <categories>
+        <category>技術相關</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+        <tag>博客</tag>
+        <tag>Github</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Hexo學習筆記 —— 多端同步、Github Pages部署、更改主題、評論功能（一）]]></title>
+    <url>%2F2019%2F08%2F20%2F20190820%2F</url>
+    <content type="text"><![CDATA[舊的博客是用Typecho做的，什麼都挺好，就是這個博客沒法直接上載.md文件，備份也顯得挺麻煩。 在15年的時候嘗試搭建Hexo博客，那時候的Hexo的配置流程比現在復雜特別多。現在比之前方便多了，想着要不要遷移到Hexo。 基本了解Hexo主要由三個部分組成 生成端 生成更新後的博客靜態頁面 推送端 負責把靜態頁面推送到網頁 網頁端 提供網頁瀏覽服務 一般生成端和推送端整合在一起，網頁端獨立部署在虛擬主機或者Github Pages、Coding Pages上。但是文章內容都是保存在生成端的source/_posts，要是換一臺機子就沒法同步文章，也沒法推送文章。 安裝hexo首先需要安裝nodejs與npm，在官網上也有不同系統使用包管理器安裝的指引 1234567891011# Using Ubuntucurl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -sudo apt-get install -y nodejs# Using Debian, as rootcurl -sL https://deb.nodesource.com/setup_12.x | bash -apt-get install -y nodejs# Using RHEL, CentOS, CloudLinux and Fedora, as rootcurl -sL https://rpm.nodesource.com/setup_12.x | bash - 安裝完nodejs之後使用node -v與npm -v查看nodejs與npm的版本。可以使用npm install npm進行升級，然後使用npm安裝hexo。 12345678mkdir blog &amp;&amp; cd blognpm install -g hexo-clihexo init #初始化hexo#輸入以下命令檢查網站雛形hexo new testhexo g #構建靜態頁面hexo s #開啓服務器 完成之後在瀏覽器輸入網址localhost:4000。應該會看到生成的test頁面和hello world頁面。 hexo的目錄結構如下 12345678|-- _config.yml #配置文件|-- package.json #hexo的依賴，插件信息也保存在這文件內|-- scaffolds #標準模板，一般不需要關心|-- source #資源目錄，文章與各種附件也都保存在這 |-- _posts #文章文件夾|-- themes #主題|-- .gitignore #git同步的時候忽略的目錄與文件|-- public #生成後的靜態博客文件夾 常用的命令有以下幾條 123456789101112131415npm install hexo -g #安装Hexonpm update hexo -g #升级hexo init #初始化博客#命令简写hexo n &quot;我的博客&quot; == hexo new &quot;我的博客&quot; #新建文章hexo g == hexo generate #生成hexo s == hexo server #啓動伺服器hexo d == hexo deploy #推送部署hexo server #Hexo監視文件變動並自動更新，無需重啓服務器hexo server -s #靜態模式，只監視public文件夾下的內容hexo server -p 5000 #更改端口hexo server -i 192.168.1.1 #自定義 IPhexo clean #清除緩存 而_posts內.md文件的文章大致結構如下 12345678910---title: [標題]date: [YYYY-MM-DD HH：MM：SS]tags:- [tag1]- [tag2]- [tag3]categories: [分類]---[文章內容] 推送網站剛剛介紹文件目錄結構提到有一個_config.yml配置文件，使用atom或你喜歡的編輯器打開這個文件，在最後幾行會看到以下字樣 123deploy: type: #推送類型 repo: 這個就是hexo自帶的網站推送功能的配置行，這次我使用Github中自帶的Github Pages當作網頁端，而這需要安裝hexo的git推送插件 1npm install hexo-deployer-git --save 然後修改_config.yml 1234deploy: type: git repo: yourname.github.com branch: master 可以看這裏查看如何配置Github以實現二級域名訪問 其他的部署渠道可以在這裏查看如何部署 修改完_config.yml後，分別輸入以下三條命令 123hexo cleanhexo ghexo d 然後你的第一次部署便完成了。訪問 yourname.github.com，應該可以看到你部署的hexo博客了。 接下來要處理的是如何同步多端。]]></content>
+      <categories>
+        <category>技術相關</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+        <tag>博客</tag>
+        <tag>Github</tag>
+      </tags>
+  </entry>
+</search>
