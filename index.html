@@ -399,7 +399,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &quot;your_email@example.com&quot;</span><br></pre></td></tr></table></figure>
 
 <p>然後複製~/.ssh/id_rsa.pub文件内的所有内容，打開github的setting中的<a href="https://github.com/settings/keys" target="_blank" rel="noopener">SSH and GPG keys</a></p>
-<p>添加SSH Key即可<br><img src="/image/github-setssh.png" alt></p>
+<p>添加SSH Key即可<br><img src="/images/github-setssh.png" alt></p>
 <h1 id="在VPS上克隆自己創建的庫"><a href="#在VPS上克隆自己創建的庫" class="headerlink" title="在VPS上克隆自己創建的庫"></a>在VPS上克隆自己創建的庫</h1><p>在第二篇文章中我們創建了一個同步庫，裏面存放著hexo的源碼，用來進行多端同步。現在將他克隆到vps上</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">mkdir auto</span><br><span class="line"><span class="built_in">cd</span> auto</span><br><span class="line">git <span class="built_in">clone</span> git@github.com:yourname/blog.git</span><br><span class="line"><span class="built_in">cd</span> blog</span><br><span class="line">npm install</span><br><span class="line">git pull</span><br></pre></td></tr></table></figure>
 
@@ -417,12 +417,12 @@
 
 <p>訪問vps的<code>http://ip:3000</code>。若你的ip為<code>100.100.100.100</code>，則訪問<code>http://100.100.100.100:3000</code>，不出意外網頁會返回<code>It works</code>，vps控制臺會輸出<code>deploy.</code></p>
 <p>按下<code>Ctrl</code>+<code>C</code>關閉node，輸入<code>pm2 start deploy.js</code>將服務運行在後臺，然後開始配置github</p>
-<h1 id="Github端的配置"><a href="#Github端的配置" class="headerlink" title="Github端的配置"></a>Github端的配置</h1><p>進入你的同步代碼倉庫，點擊上方的Setting。<br><img src="/image/github-repo-setting.png" alt></p>
-<p>然後點擊左方的Webhooks，添加新的webhook<br><img src="/image/github-repo-webhooks.png" alt></p>
+<h1 id="Github端的配置"><a href="#Github端的配置" class="headerlink" title="Github端的配置"></a>Github端的配置</h1><p>進入你的同步代碼倉庫，點擊上方的Setting。<br><img src="/images/github-repo-setting.png" alt></p>
+<p>然後點擊左方的Webhooks，添加新的webhook<br><img src="/images/github-repo-webhooks.png" alt></p>
 <p>進入后，</p>
 <ol>
 <li>在Payload URL中填入你剛剛訪問的網址（<strong>包括端口</strong>）</li>
-<li>直接點擊Add webhook。<br><img src="/image/github-repo-newwebhooks.png" alt></li>
+<li>直接點擊Add webhook。<br><img src="/images/github-repo-newwebhooks.png" alt></li>
 </ol>
 <p>然後使用另一臺機器，更改一下你的文章，將blog文件夾更新到github，觀察博客頁面有沒有變化。</p>
 
