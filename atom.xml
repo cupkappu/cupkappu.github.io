@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://cupkappu.github.io/"/>
-  <updated>2019-08-21T22:42:36.726Z</updated>
+  <updated>2019-08-22T08:43:14.050Z</updated>
   <id>https://cupkappu.github.io/</id>
   
   <author>
@@ -15,6 +15,37 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Hexo學習筆記 —— 多端同步、Github Pages部署、更改主題、評論功能（四）</title>
+    <link href="https://cupkappu.github.io/2019/08/22/HEXO_STUDY_4/"/>
+    <id>https://cupkappu.github.io/2019/08/22/HEXO_STUDY_4/</id>
+    <published>2019-08-22T08:42:18.000Z</published>
+    <updated>2019-08-22T08:43:14.050Z</updated>
+    
+    <content type="html"><![CDATA[<p>關於多端同步依然還有一些東西可以略微分享。我們可以使用Github的webhook功能，對儲存源碼和文章md文件的repo進行pull操作后，自動將網頁輸出然後push到博客端。</p><blockquote><p>講實話，這玩意真的挺麻煩，我折騰了特別久，結果還是最最最簡單的辦法：http訪問就推送，最爲方便。</p></blockquote>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;關於多端同步依然還有一些東西可以略微分享。我們可以使用Github的webhook功能，對儲存源碼和文章md文件的repo進行pull操作后，自動將網頁輸出然後push到博客端。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;講實話，這玩意真的挺麻煩，我折騰了特別久，結果還是最最
+      
+    
+    </summary>
+    
+      <category term="技術相關" scheme="https://cupkappu.github.io/categories/%E6%8A%80%E8%A1%93%E7%9B%B8%E9%97%9C/"/>
+    
+    
+      <category term="Hexo" scheme="https://cupkappu.github.io/tags/Hexo/"/>
+    
+      <category term="博客" scheme="https://cupkappu.github.io/tags/%E5%8D%9A%E5%AE%A2/"/>
+    
+      <category term="Github" scheme="https://cupkappu.github.io/tags/Github/"/>
+    
+  </entry>
   
   <entry>
     <title>安裝Proxmox VE</title>
@@ -128,37 +159,6 @@
       <category term="時間管理" scheme="https://cupkappu.github.io/tags/%E6%99%82%E9%96%93%E7%AE%A1%E7%90%86/"/>
     
       <category term="事項" scheme="https://cupkappu.github.io/tags/%E4%BA%8B%E9%A0%85/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Hexo學習筆記 —— 多端同步、Github Pages部署、更改主題、評論功能（四）</title>
-    <link href="https://cupkappu.github.io/2019/08/20/HEXO_STUDY_4/"/>
-    <id>https://cupkappu.github.io/2019/08/20/HEXO_STUDY_4/</id>
-    <published>2019-08-20T12:03:50.000Z</published>
-    <updated>2019-08-22T08:42:09.527Z</updated>
-    
-    <content type="html"><![CDATA[<p>關於多端同步依然還有一些東西可以略微分享。我們可以使用Github的webhook功能，對儲存源碼和文章md文件的repo進行pull操作后，自動將網頁輸出然後push到博客端。</p><blockquote><p>講實話，這玩意真的挺麻煩，我折騰了特別久，結果還是最最最簡單的辦法：http訪問就推送，最爲方便。</p></blockquote>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;關於多端同步依然還有一些東西可以略微分享。我們可以使用Github的webhook功能，對儲存源碼和文章md文件的repo進行pull操作后，自動將網頁輸出然後push到博客端。&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;講實話，這玩意真的挺麻煩，我折騰了特別久，結果還是最最
-      
-    
-    </summary>
-    
-      <category term="技術相關" scheme="https://cupkappu.github.io/categories/%E6%8A%80%E8%A1%93%E7%9B%B8%E9%97%9C/"/>
-    
-    
-      <category term="Hexo" scheme="https://cupkappu.github.io/tags/Hexo/"/>
-    
-      <category term="博客" scheme="https://cupkappu.github.io/tags/%E5%8D%9A%E5%AE%A2/"/>
-    
-      <category term="Github" scheme="https://cupkappu.github.io/tags/Github/"/>
     
   </entry>
   

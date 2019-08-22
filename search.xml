@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Hexo學習筆記 —— 多端同步、Github Pages部署、更改主題、評論功能（四）]]></title>
+    <url>%2F2019%2F08%2F22%2FHEXO_STUDY_4%2F</url>
+    <content type="text"><![CDATA[關於多端同步依然還有一些東西可以略微分享。我們可以使用Github的webhook功能，對儲存源碼和文章md文件的repo進行pull操作后，自動將網頁輸出然後push到博客端。 講實話，這玩意真的挺麻煩，我折騰了特別久，結果還是最最最簡單的辦法：http訪問就推送，最爲方便。]]></content>
+      <categories>
+        <category>技術相關</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+        <tag>博客</tag>
+        <tag>Github</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[安裝Proxmox VE]]></title>
     <url>%2F2019%2F08%2F22%2F%E5%AE%89%E8%A3%9DProxmox%20VE%2F</url>
     <content type="text"><![CDATA[先決條件 支持VT-d或AMD-V的CPU 8G或以上的可完全擦除磁盤，或8G以上的U盤用作Proxmox VE的系統盤 另外一隻2G以上的U盤 下載Proxmox VE的安裝鏡像官方載點 安裝過程將ISO文件寫入2G以上大小的U盤，製作啟動介質 12dd if=~/Downloads/Proxmox.iso of=/dev/sdx# Proxmox.iso是你下載的鏡像，而/dev/sdx是你的U盤設備（2G以上） 寫入完畢之後，輸入命令reboot重啟電腦 進入電腦UEFI設置介面，開啟VT-d或AMD-V，設置2G的閃存盤為首啟動項 若你使用8G以上的U盤作為系統盤，請在這個時候插入 保存UEFI設置，重啟電腦 啟動Proxmox VE安裝程序，選擇Install Proxmox VE，進入自檢畫面，等待數秒至數分鐘 同意協議，按“Agree” 選擇硬盤，請根據磁盤容量選擇正確的硬盤 Proxmox VE安裝不可以選擇安裝在某個硬盤的某個分區 一旦選擇安裝，便會重新分區整個硬盤，請準備可以完全擦除的磁盤設備 設定國家、時區與鍵盤，在Country輸入China、Taiwan或Hong Kong都會直接填充時區信息 設定管理員root帳號密碼郵箱 設定主機名、IP、網關、掩碼與DNS，設置完畢後點擊Next開始安裝 安裝完畢需要手動重啟，點擊右下角Reboot重啟 Proxmox VE會在啟動後於主機的ttl控制台中顯示Web控制台的URL，此URL只接受HTTPS使用安裝的時候設置的root帳戶密碼，登入網頁端，顯示Proxmox VE的網頁控制台。]]></content>
@@ -30,19 +43,6 @@
       <tags>
         <tag>時間管理</tag>
         <tag>事項</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[Hexo學習筆記 —— 多端同步、Github Pages部署、更改主題、評論功能（四）]]></title>
-    <url>%2F2019%2F08%2F20%2FHEXO_STUDY_4%2F</url>
-    <content type="text"><![CDATA[關於多端同步依然還有一些東西可以略微分享。我們可以使用Github的webhook功能，對儲存源碼和文章md文件的repo進行pull操作后，自動將網頁輸出然後push到博客端。 講實話，這玩意真的挺麻煩，我折騰了特別久，結果還是最最最簡單的辦法：http訪問就推送，最爲方便。]]></content>
-      <categories>
-        <category>技術相關</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-        <tag>博客</tag>
-        <tag>Github</tag>
       </tags>
   </entry>
   <entry>
