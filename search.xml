@@ -33,9 +33,9 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[Hexo學習筆記 —— 多端同步、Github Pages部署、更改主題、評論功能（三）]]></title>
-    <url>%2F2019%2F08%2F20%2F2019-08-20%2021_59_40%2F</url>
-    <content type="text"><![CDATA[主題 —— NexT進入hexo目錄，然後下載主題 12$ cd hexo$ git clone https://github.com/theme-next/hexo-theme-next themes/next 編輯hexo目錄下的_config.yml，把主題改成改成theme: next。 然後編輯theme/next/_config.yml 搜索schemes關鍵詞，將scheme: Gemini前的#號去掉，然後注釋掉默認的scheme: Muse 運行以下命令更新主題（若你有根據上一篇編寫push腳本） 1./push 評論Hexo是一個靜態博客生成工具，生成的頁面僅有展示功能，而沒有提交功能。 以下內容參考 https://www.jianshu.com/p/d68de067ea74 如果需要實現評論，Hexo是沒法接收網頁傳來的表單信息的,則需要借助相關的服務。這裏使用的是Disqus 進入官方站點注冊後登錄，點擊GET START，然後按下下圖所示按鈕]]></content>
+    <title><![CDATA[Hexo學習筆記 —— 多端同步、Github Pages部署、更改主題、評論功能（四）]]></title>
+    <url>%2F2019%2F08%2F20%2FHEXO_STUDY_4%2F</url>
+    <content type="text"><![CDATA[關於多端同步依然還有一些東西可以略微分享。我們可以使用Github的webhook功能，對儲存源碼和文章md文件的repo進行pull操作后，自動將網頁輸出然後push到博客端。 講實話，這玩意真的挺麻煩，我折騰了特別久，結果還是最最最簡單的辦法：http訪問就推送，最爲方便。]]></content>
       <categories>
         <category>技術相關</category>
       </categories>
@@ -46,9 +46,9 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[Hexo學習筆記 —— 多端同步、Github Pages部署、更改主題、評論功能（四）]]></title>
-    <url>%2F2019%2F08%2F20%2FHEXO_STUDY_4%2F</url>
-    <content type="text"><![CDATA[關於多端同步依然還有一些東西可以略微分享。我們可以使用Github的webhook功能，對儲存源碼和文章md文件的repo進行pull操作后，自動將網頁輸出然後push到博客端。]]></content>
+    <title><![CDATA[Hexo學習筆記 —— 多端同步、Github Pages部署、更改主題、評論功能（三）]]></title>
+    <url>%2F2019%2F08%2F20%2F2019-08-20%2021_59_40%2F</url>
+    <content type="text"><![CDATA[主題 —— NexT進入hexo目錄，然後下載主題 12$ cd hexo$ git clone https://github.com/theme-next/hexo-theme-next themes/next 編輯hexo目錄下的_config.yml，把主題改成改成theme: next。 然後編輯theme/next/_config.yml 搜索schemes關鍵詞，將scheme: Gemini前的#號去掉，然後注釋掉默認的scheme: Muse 運行以下命令更新主題（若你有根據上一篇編寫push腳本） 1./push 評論Hexo是一個靜態博客生成工具，生成的頁面僅有展示功能，而沒有提交功能。 以下內容參考 https://www.jianshu.com/p/d68de067ea74 如果需要實現評論，Hexo是沒法接收網頁傳來的表單信息的,則需要借助相關的服務。這裏使用的是Disqus 進入官方站點注冊後登錄，點擊GET START，然後按下下圖所示按鈕]]></content>
       <categories>
         <category>技術相關</category>
       </categories>
