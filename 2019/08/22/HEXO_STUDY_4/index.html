@@ -81,22 +81,22 @@
 
 
 
-<meta name="description" content="關於多端同步依然還有一些東西可以略微分享。我們可以使用Github的webhook功能，對儲存源碼和文章md文件的repo進行pull操作后，自動將網頁輸出然後push到博客端。  講實話，這玩意真的挺麻煩，我折騰了特別久，結果還是最最最簡單的辦法：http訪問就推送，最爲方便。  在VPS上安裝hexo的運行環境這方面已經在第一篇文章詳細講過，無非就是安裝nodejs, hexo-cli等等。">
+<meta name="description" content="關於多端同步依然還有一些東西可以略微分享。我們可以使用Github的webhook功能，對儲存源碼和文章md文件的repo進行pull操作后，自動將網頁輸出然後push到博客端。  講實話，這玩意真的挺麻煩，我折騰了特別久，結果還是最最最簡單的辦法：http訪問就推送，最爲方便。">
 <meta name="keywords" content="Hexo,博客,Github">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hexo學習筆記 —— 多端同步、Github Pages部署、更改主題、評論功能（四）">
 <meta property="og:url" content="https://cupkappu.github.io/2019/08/22/HEXO_STUDY_4/index.html">
 <meta property="og:site_name" content="木不子的窒息小茶室">
-<meta property="og:description" content="關於多端同步依然還有一些東西可以略微分享。我們可以使用Github的webhook功能，對儲存源碼和文章md文件的repo進行pull操作后，自動將網頁輸出然後push到博客端。  講實話，這玩意真的挺麻煩，我折騰了特別久，結果還是最最最簡單的辦法：http訪問就推送，最爲方便。  在VPS上安裝hexo的運行環境這方面已經在第一篇文章詳細講過，無非就是安裝nodejs, hexo-cli等等。">
+<meta property="og:description" content="關於多端同步依然還有一些東西可以略微分享。我們可以使用Github的webhook功能，對儲存源碼和文章md文件的repo進行pull操作后，自動將網頁輸出然後push到博客端。  講實話，這玩意真的挺麻煩，我折騰了特別久，結果還是最最最簡單的辦法：http訪問就推送，最爲方便。">
 <meta property="og:locale" content="zh-hk">
 <meta property="og:image" content="https://cupkappu.github.io/images/github-setssh.png">
 <meta property="og:image" content="https://cupkappu.github.io/images/github-repo-setting.png">
 <meta property="og:image" content="https://cupkappu.github.io/images/github-repo-webhooks.png">
 <meta property="og:image" content="https://cupkappu.github.io/images/github-repo-newwebhooks.png">
-<meta property="og:updated_time" content="2019-08-22T09:51:54.533Z">
+<meta property="og:updated_time" content="2019-08-22T10:08:25.668Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo學習筆記 —— 多端同步、Github Pages部署、更改主題、評論功能（四）">
-<meta name="twitter:description" content="關於多端同步依然還有一些東西可以略微分享。我們可以使用Github的webhook功能，對儲存源碼和文章md文件的repo進行pull操作后，自動將網頁輸出然後push到博客端。  講實話，這玩意真的挺麻煩，我折騰了特別久，結果還是最最最簡單的辦法：http訪問就推送，最爲方便。  在VPS上安裝hexo的運行環境這方面已經在第一篇文章詳細講過，無非就是安裝nodejs, hexo-cli等等。">
+<meta name="twitter:description" content="關於多端同步依然還有一些東西可以略微分享。我們可以使用Github的webhook功能，對儲存源碼和文章md文件的repo進行pull操作后，自動將網頁輸出然後push到博客端。  講實話，這玩意真的挺麻煩，我折騰了特別久，結果還是最最最簡單的辦法：http訪問就推送，最爲方便。">
 <meta name="twitter:image" content="https://cupkappu.github.io/images/github-setssh.png">
 
 
@@ -395,6 +395,7 @@
 <blockquote>
 <p>講實話，這玩意真的挺麻煩，我折騰了特別久，結果還是最最最簡單的辦法：http訪問就推送，最爲方便。</p>
 </blockquote>
+<a id="more"></a>
 <h1 id="在VPS上安裝hexo的運行環境"><a href="#在VPS上安裝hexo的運行環境" class="headerlink" title="在VPS上安裝hexo的運行環境"></a>在VPS上安裝hexo的運行環境</h1><p>這方面已經在<a href="/2019/08/20/20190820">第一篇文章</a>詳細講過，無非就是安裝nodejs, hexo-cli等等。</p>
 <p><strong>這裏不重複闡述</strong></p>
 <h1 id="給VPS設置在Github上的通用SSH授權"><a href="#給VPS設置在Github上的通用SSH授權" class="headerlink" title="給VPS設置在Github上的通用SSH授權"></a>給VPS設置在Github上的通用SSH授權</h1><p>輸入以下代碼創建一個ssh key</p>
@@ -479,8 +480,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/08/22/安裝Proxmox VE/" rel="next" title="安裝Proxmox VE">
-                <i class="fa fa-chevron-left"></i> 安裝Proxmox VE
+              <a href="/2019/08/21/任務管理 —— 應該怎麼在爆炸的事項中開心生存/" rel="next" title="時間管理 —— 應該怎麼在爆炸的事項中開心生存">
+                <i class="fa fa-chevron-left"></i> 時間管理 —— 應該怎麼在爆炸的事項中開心生存
               </a>
             
           </div>
@@ -488,6 +489,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/08/22/在Proxmox中安裝macOS Mojave並設置直通顯卡/" rel="prev" title="在Proxmox中安裝macOS Mojave並設置直通顯卡">
+                在Proxmox中安裝macOS Mojave並設置直通顯卡 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
