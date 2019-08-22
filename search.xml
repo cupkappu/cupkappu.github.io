@@ -40,7 +40,7 @@
   </entry>
   <entry>
     <title><![CDATA[Hexo學習筆記 —— 多端同步、Github Pages部署、更改主題、評論功能（三）]]></title>
-    <url>%2F2019%2F08%2F20%2F2019-08-20%2021_59_40%2F</url>
+    <url>%2F2019%2F08%2F20%2FHEXO_STUDY_3%2F</url>
     <content type="text"><![CDATA[主題 —— NexT進入hexo目錄，然後下載主題 12$ cd hexo$ git clone https://github.com/theme-next/hexo-theme-next themes/next 編輯hexo目錄下的_config.yml，把主題改成改成theme: next。 然後編輯theme/next/_config.yml 搜索schemes關鍵詞，將scheme: Gemini前的#號去掉，然後注釋掉默認的scheme: Muse 運行以下命令更新主題（若你有根據上一篇編寫push腳本） 1./push 評論Hexo是一個靜態博客生成工具，生成的頁面僅有展示功能，而沒有提交功能。 以下內容參考 https://www.jianshu.com/p/d68de067ea74 如果需要實現評論，Hexo是沒法接收網頁傳來的表單信息的,則需要借助相關的服務。這裏使用的是Disqus 進入官方站點注冊後登錄，點擊GET START，然後按下下圖所示按鈕]]></content>
       <categories>
         <category>技術相關</category>
@@ -53,7 +53,7 @@
   </entry>
   <entry>
     <title><![CDATA[Hexo學習筆記 —— 多端同步、Github Pages部署、更改主題、評論功能（二）]]></title>
-    <url>%2F2019%2F08%2F20%2F2019-08-20%2019_03_50%2F</url>
+    <url>%2F2019%2F08%2F20%2FHEXO_STUDY_2%2F</url>
     <content type="text"><![CDATA[同步多端……真正麻煩的事情來了根據剛剛提到的文件目錄結構 12345678|-- _config.yml #配置文件|-- package.json #hexo的依賴，插件信息也保存在這文件內|-- scaffolds #標準模板，一般不需要關心|-- source #資源目錄，文章與各種附件也都保存在這 |-- _posts #文章文件夾|-- themes #主題|-- .gitignore #git同步的時候忽略的目錄與文件|-- public #生成後的靜態博客文件夾 有同步意義的是_config.yml, package.json, source/, themes 最重要的是source文件夾，裏面包含了可以引用的圖片、文章文件以及各種附加的小附件。 Google Drive, 百度網盤, Dropbox等同步網盤使用Google Drive一類簡單粗暴的多端同步網盤來同步我們的hexo文檔和配置，缺點就是node相關的文件也都會一並同步，好處就是特別省事。 直接將整個目錄復制到Google Drive即可，之後所有操作都在掛載後的Google Drive裏面進行。 在另外一臺機器，安裝Google Drive同步程序，然後將hexo目錄設置爲同步以及離線可用，之後整個Hexo端便會一直保持着最新的文件。 其他網盤同理 Github同步這個方案配置比較麻煩，但是後期使用問題較少，挺多大佬也是使用這個方案進行多端同步 以下是步驟 先在Github建立一個私人庫，專門存放Hexo部署程序 在Hexo的目錄下，運行git init 修改.gitignore爲以下內容 1234567.DS_StoreThumbs.dbdb.json*.lognode_modules/public/.deploy*/ 執行以下代碼，進行第一次推送代碼 1234git add .git commit -m "first commit"git remote add origin git@github.com:username/library.gitgit push -u origin master 創建一個名爲push的文件，將以下代碼輸入進去 12345#!/bin/bashgit add .git commit -m `date +%Y-%m-%d-%H%M`git push origin masterhexo g -d 輸入chmod +x push，給腳本增加運行權限 輸入./push嘗試推送 之後，新的機器先安裝Hexo，再輸入git clone git@github.com:username/library.git，再進入克隆目錄內，輸入npm install安裝依賴即可。 每次編輯完文章，輸入./push推送，換到另一臺電腦想繼續編輯時，輸入git pull拉取最新檔案下來即可。 2019-08-22更新 如果你有自己的VPS服務器，可以使用github的webhook功能進行自動更新，具體可以查看這篇文章 需要將push文件修改成以下内容才能使用webhook自動更新網頁端 1234#!/bin/bashgit add .git commit -m `date +%Y-%m-%d-%H%M`git push origin master]]></content>
       <categories>
         <category>技術相關</category>
@@ -66,7 +66,7 @@
   </entry>
   <entry>
     <title><![CDATA[Hexo學習筆記 —— 多端同步、Github Pages部署、更改主題、評論功能（一）]]></title>
-    <url>%2F2019%2F08%2F20%2F20190820%2F</url>
+    <url>%2F2019%2F08%2F20%2FHEXO_STUDY_1%2F</url>
     <content type="text"><![CDATA[舊的博客是用Typecho做的，什麼都挺好，就是這個博客沒法直接上載.md文件，備份也顯得挺麻煩。 在15年的時候嘗試搭建Hexo博客，那時候的Hexo的配置流程比現在復雜特別多。現在比之前方便多了，想着要不要遷移到Hexo。 基本了解Hexo主要由三個部分組成 生成端 生成更新後的博客靜態頁面 推送端 負責把靜態頁面推送到網頁 網頁端 提供網頁瀏覽服務 一般生成端和推送端整合在一起，網頁端獨立部署在虛擬主機或者Github Pages、Coding Pages上。但是文章內容都是保存在生成端的source/_posts，要是換一臺機子就沒法同步文章，也沒法推送文章。 安裝hexo首先需要安裝nodejs與npm，在官網上也有不同系統使用包管理器安裝的指引 1234567891011# Using Ubuntucurl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -sudo apt-get install -y nodejs# Using Debian, as rootcurl -sL https://deb.nodesource.com/setup_12.x | bash -apt-get install -y nodejs# Using RHEL, CentOS, CloudLinux and Fedora, as rootcurl -sL https://rpm.nodesource.com/setup_12.x | bash - 安裝完nodejs之後使用node -v與npm -v查看nodejs與npm的版本。可以使用npm install npm進行升級，然後使用npm安裝hexo。 12345678mkdir blog &amp;&amp; cd blognpm install -g hexo-clihexo init #初始化hexo#輸入以下命令檢查網站雛形hexo new testhexo g #構建靜態頁面hexo s #開啓服務器 完成之後在瀏覽器輸入網址localhost:4000。應該會看到生成的test頁面和hello world頁面。 hexo的目錄結構如下 12345678|-- _config.yml #配置文件|-- package.json #hexo的依賴，插件信息也保存在這文件內|-- scaffolds #標準模板，一般不需要關心|-- source #資源目錄，文章與各種附件也都保存在這 |-- _posts #文章文件夾|-- themes #主題|-- .gitignore #git同步的時候忽略的目錄與文件|-- public #生成後的靜態博客文件夾 常用的命令有以下幾條 123456789101112131415npm install hexo -g #安装Hexonpm update hexo -g #升级hexo init #初始化博客#命令简写hexo n &quot;我的博客&quot; == hexo new &quot;我的博客&quot; #新建文章hexo g == hexo generate #生成hexo s == hexo server #啓動伺服器hexo d == hexo deploy #推送部署hexo server #Hexo監視文件變動並自動更新，無需重啓服務器hexo server -s #靜態模式，只監視public文件夾下的內容hexo server -p 5000 #更改端口hexo server -i 192.168.1.1 #自定義 IPhexo clean #清除緩存 而_posts內.md文件的文章大致結構如下 12345678910---title: [標題]date: [YYYY-MM-DD HH：MM：SS]tags:- [tag1]- [tag2]- [tag3]categories: [分類]---[文章內容] 推送網站剛剛介紹文件目錄結構提到有一個_config.yml配置文件，使用atom或你喜歡的編輯器打開這個文件，在最後幾行會看到以下字樣 123deploy: type: #推送類型 repo: 這個就是hexo自帶的網站推送功能的配置行，這次我使用Github中自帶的Github Pages當作網頁端，而這需要安裝hexo的git推送插件 1npm install hexo-deployer-git --save 然後修改_config.yml 1234deploy: type: git repo: yourname.github.com branch: master 可以看這裏查看如何配置Github以實現二級域名訪問 其他的部署渠道可以在這裏查看如何部署 修改完_config.yml後，分別輸入以下三條命令 123hexo cleanhexo ghexo d 然後你的第一次部署便完成了。訪問 yourname.github.com，應該可以看到你部署的hexo博客了。 接下來要處理的是如何同步多端。]]></content>
       <categories>
         <category>技術相關</category>
