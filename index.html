@@ -286,6 +286,166 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://cupkappu.github.io/2019/08/20/2019-08-20 19_03_50/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="木不子">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="木不子的窒息小茶室">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/08/20/2019-08-20 19_03_50/" itemprop="url">Hexo學習筆記 —— 多端同步、Github Pages部署、更改主題、評論功能（二）</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">發表於</span>
+              
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2019-08-20T19:03:50+08:00">
+                2019-08-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分類於</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/技術相關/" itemprop="url" rel="index">
+                    <span itemprop="name">技術相關</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/08/20/2019-08-20 19_03_50/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/08/20/2019-08-20 19_03_50/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h1 id="同步多端……真正麻煩的事情來了"><a href="#同步多端……真正麻煩的事情來了" class="headerlink" title="同步多端……真正麻煩的事情來了"></a>同步多端……真正麻煩的事情來了</h1><p>根據剛剛提到的<strong>文件目錄結構</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">|-- _config.yml <span class="comment">#配置文件</span></span><br><span class="line">|-- package.json <span class="comment">#hexo的依賴，插件信息也保存在這文件內</span></span><br><span class="line">|-- scaffolds <span class="comment">#標準模板，一般不需要關心</span></span><br><span class="line">|-- <span class="built_in">source</span> <span class="comment">#資源目錄，文章與各種附件也都保存在這</span></span><br><span class="line">   |-- _posts <span class="comment">#文章文件夾</span></span><br><span class="line">|-- themes <span class="comment">#主題</span></span><br><span class="line">|-- .gitignore <span class="comment">#git同步的時候忽略的目錄與文件</span></span><br><span class="line">|-- public <span class="comment">#生成後的靜態博客文件夾</span></span><br></pre></td></tr></table></figure>
+
+<p>有同步意義的是_config.yml, package.json, source/, themes</p>
+<p>最重要的是<code>source</code>文件夾，裏面包含了可以引用的圖片、文章文件以及各種附加的小附件。</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/08/20/2019-08-20 19_03_50/#more" rel="contents">
+              閱讀全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://cupkappu.github.io/2019/08/22/HEXO_STUDY_4/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -393,6 +553,38 @@
 <blockquote>
 <p>講實話，這玩意真的挺麻煩，我折騰了特別久，結果還是最最最簡單的辦法：http訪問就推送，最爲方便。</p>
 </blockquote>
+<h1 id="在VPS上安裝hexo的運行環境"><a href="#在VPS上安裝hexo的運行環境" class="headerlink" title="在VPS上安裝hexo的運行環境"></a>在VPS上安裝hexo的運行環境</h1><p>這方面已經在<a href="/2019/08/20/20190820">第一篇文章</a>詳細講過，無非就是安裝nodejs, hexo-cli等等。</p>
+<p><strong>這裏不重複闡述</strong></p>
+<h1 id="給VPS設置在Github上的通用SSH授權"><a href="#給VPS設置在Github上的通用SSH授權" class="headerlink" title="給VPS設置在Github上的通用SSH授權"></a>給VPS設置在Github上的通用SSH授權</h1><p>輸入以下代碼創建一個ssh key</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &quot;your_email@example.com&quot;</span><br></pre></td></tr></table></figure>
+
+<p>然後複製~/.ssh/id_rsa.pub文件内的所有内容，打開github的setting中的<a href="https://github.com/settings/keys" target="_blank" rel="noopener">SSH and GPG keys</a></p>
+<p>添加SSH Key即可<br><img src="/image/github-setssh.png" alt></p>
+<h1 id="在VPS上克隆自己創建的庫"><a href="#在VPS上克隆自己創建的庫" class="headerlink" title="在VPS上克隆自己創建的庫"></a>在VPS上克隆自己創建的庫</h1><p>在第二篇文章中我們創建了一個同步庫，裏面存放著hexo的源碼，用來進行多端同步。現在將他克隆到vps上</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">mkdir auto</span><br><span class="line"><span class="built_in">cd</span> auto</span><br><span class="line">git <span class="built_in">clone</span> git@github.com:yourname/blog.git</span><br><span class="line"><span class="built_in">cd</span> blog</span><br><span class="line">npm install</span><br><span class="line">git pull</span><br></pre></td></tr></table></figure>
+
+<p>然後安裝pm2管理後臺應用</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g pm2</span><br></pre></td></tr></table></figure>
+
+<p>之後，在本地創建一個<code>deploy.js</code>，用nodejs寫一個監聽http請求的脚本</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> http = <span class="built_in">require</span>(<span class="string">'http'</span>);</span><br><span class="line"><span class="keyword">var</span> port = <span class="number">3000</span>; <span class="comment">//監聽端口</span></span><br><span class="line"><span class="keyword">var</span> command = <span class="string">'sh ./deploy.sh'</span> <span class="comment">//運行指令</span></span><br><span class="line"></span><br><span class="line">http.createServer(<span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>)</span>&#123;</span><br><span class="line">    res.writeHead(<span class="number">200</span>, &#123;<span class="string">'content-type'</span>: <span class="string">'text/plain'</span>&#125;);</span><br><span class="line">    deploy = <span class="built_in">require</span>(<span class="string">'child_process'</span>).exec(command,&#123;&#125;,<span class="function"><span class="keyword">function</span>(<span class="params">err,stdout,stderr</span>)</span>&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">'deploy.'</span>)</span><br><span class="line">    &#125;);</span><br><span class="line">    res.end(<span class="string">'It works'</span>);</span><br><span class="line">&#125;).listen(port);</span><br></pre></td></tr></table></figure>
+
+<p>再創建一個<code>deploy.sh</code>進行<code>pull</code>和<code>hexo g -d</code>操作。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line">git pull</span><br><span class="line">hexo clean</span><br><span class="line">hexo g -d</span><br></pre></td></tr></table></figure>
+
+<p>這時候監聽服務應該可以運作了。先在別的設備更改一下hexo源碼並push到github，然後試著運行以下代碼。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">node ./deploy.js</span><br></pre></td></tr></table></figure>
+
+<p>訪問vps的<code>http://ip:3000</code>。若你的ip為<code>100.100.100.100</code>，則訪問<code>http://100.100.100.100:3000</code>，不出意外網頁會返回<code>It works</code>，vps控制臺會輸出<code>deploy.</code></p>
+<p>按下<code>Ctrl</code>+<code>C</code>關閉node，輸入<code>pm2 start deploy.js</code>將服務運行在後臺，然後開始配置github</p>
+<h1 id="Github端的配置"><a href="#Github端的配置" class="headerlink" title="Github端的配置"></a>Github端的配置</h1><p>進入你的同步代碼倉庫，點擊上方的Setting。<br><img src="/image/github-repo-setting.png" alt></p>
+<p>然後點擊左方的Webhooks，添加新的webhook<br><img src="/image/github-repo-webhooks.png" alt></p>
+<p>進入后，</p>
+<ol>
+<li>在Payload URL中填入你剛剛訪問的網址（<strong>包括端口</strong>）</li>
+<li>直接點擊Add webhook。<br><img src="/image/github-repo-newwebhooks.png" alt></li>
+</ol>
+<p>然後使用另一臺機器，更改一下你的文章，將blog文件夾更新到github，觀察博客頁面有沒有變化。</p>
 
           
         
@@ -801,166 +993,6 @@
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2019/08/22/讓Markdown文檔一秒轉換為Keynote演示文檔 —— md2key學習筆記/#more" rel="contents">
-              閱讀全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://cupkappu.github.io/2019/08/20/2019-08-20 19_03_50/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="木不子">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="木不子的窒息小茶室">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/08/20/2019-08-20 19_03_50/" itemprop="url">Hexo學習筆記 —— 多端同步、Github Pages部署、更改主題、評論功能（二）</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">發表於</span>
-              
-              <time title="創建於" itemprop="dateCreated datePublished" datetime="2019-08-20T19:03:50+08:00">
-                2019-08-20
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分類於</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/技術相關/" itemprop="url" rel="index">
-                    <span itemprop="name">技術相關</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2019/08/20/2019-08-20 19_03_50/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/08/20/2019-08-20 19_03_50/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h1 id="同步多端……真正麻煩的事情來了"><a href="#同步多端……真正麻煩的事情來了" class="headerlink" title="同步多端……真正麻煩的事情來了"></a>同步多端……真正麻煩的事情來了</h1><p>根據剛剛提到的<strong>文件目錄結構</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">|-- _config.yml <span class="comment">#配置文件</span></span><br><span class="line">|-- package.json <span class="comment">#hexo的依賴，插件信息也保存在這文件內</span></span><br><span class="line">|-- scaffolds <span class="comment">#標準模板，一般不需要關心</span></span><br><span class="line">|-- <span class="built_in">source</span> <span class="comment">#資源目錄，文章與各種附件也都保存在這</span></span><br><span class="line">   |-- _posts <span class="comment">#文章文件夾</span></span><br><span class="line">|-- themes <span class="comment">#主題</span></span><br><span class="line">|-- .gitignore <span class="comment">#git同步的時候忽略的目錄與文件</span></span><br><span class="line">|-- public <span class="comment">#生成後的靜態博客文件夾</span></span><br></pre></td></tr></table></figure>
-
-<p>有同步意義的是_config.yml, package.json, source/, themes</p>
-<p>最重要的是<code>source</code>文件夾，裏面包含了可以引用的圖片、文章文件以及各種附加的小附件。</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/08/20/2019-08-20 19_03_50/#more" rel="contents">
               閱讀全文 &raquo;
             </a>
           </div>

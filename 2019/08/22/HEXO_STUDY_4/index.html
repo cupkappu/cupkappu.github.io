@@ -81,18 +81,23 @@
 
 
 
-<meta name="description" content="關於多端同步依然還有一些東西可以略微分享。我們可以使用Github的webhook功能，對儲存源碼和文章md文件的repo進行pull操作后，自動將網頁輸出然後push到博客端。  講實話，這玩意真的挺麻煩，我折騰了特別久，結果還是最最最簡單的辦法：http訪問就推送，最爲方便。">
+<meta name="description" content="關於多端同步依然還有一些東西可以略微分享。我們可以使用Github的webhook功能，對儲存源碼和文章md文件的repo進行pull操作后，自動將網頁輸出然後push到博客端。  講實話，這玩意真的挺麻煩，我折騰了特別久，結果還是最最最簡單的辦法：http訪問就推送，最爲方便。  在VPS上安裝hexo的運行環境這方面已經在第一篇文章詳細講過，無非就是安裝nodejs, hexo-cli等等。">
 <meta name="keywords" content="Hexo,博客,Github">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hexo學習筆記 —— 多端同步、Github Pages部署、更改主題、評論功能（四）">
 <meta property="og:url" content="https://cupkappu.github.io/2019/08/22/HEXO_STUDY_4/index.html">
 <meta property="og:site_name" content="木不子的窒息小茶室">
-<meta property="og:description" content="關於多端同步依然還有一些東西可以略微分享。我們可以使用Github的webhook功能，對儲存源碼和文章md文件的repo進行pull操作后，自動將網頁輸出然後push到博客端。  講實話，這玩意真的挺麻煩，我折騰了特別久，結果還是最最最簡單的辦法：http訪問就推送，最爲方便。">
+<meta property="og:description" content="關於多端同步依然還有一些東西可以略微分享。我們可以使用Github的webhook功能，對儲存源碼和文章md文件的repo進行pull操作后，自動將網頁輸出然後push到博客端。  講實話，這玩意真的挺麻煩，我折騰了特別久，結果還是最最最簡單的辦法：http訪問就推送，最爲方便。  在VPS上安裝hexo的運行環境這方面已經在第一篇文章詳細講過，無非就是安裝nodejs, hexo-cli等等。">
 <meta property="og:locale" content="zh-hk">
-<meta property="og:updated_time" content="2019-08-22T08:43:14.050Z">
+<meta property="og:image" content="https://cupkappu.github.io/image/github-setssh.png">
+<meta property="og:image" content="https://cupkappu.github.io/image/github-repo-setting.png">
+<meta property="og:image" content="https://cupkappu.github.io/image/github-repo-webhooks.png">
+<meta property="og:image" content="https://cupkappu.github.io/image/github-repo-newwebhooks.png">
+<meta property="og:updated_time" content="2019-08-22T09:19:41.797Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo學習筆記 —— 多端同步、Github Pages部署、更改主題、評論功能（四）">
-<meta name="twitter:description" content="關於多端同步依然還有一些東西可以略微分享。我們可以使用Github的webhook功能，對儲存源碼和文章md文件的repo進行pull操作后，自動將網頁輸出然後push到博客端。  講實話，這玩意真的挺麻煩，我折騰了特別久，結果還是最最最簡單的辦法：http訪問就推送，最爲方便。">
+<meta name="twitter:description" content="關於多端同步依然還有一些東西可以略微分享。我們可以使用Github的webhook功能，對儲存源碼和文章md文件的repo進行pull操作后，自動將網頁輸出然後push到博客端。  講實話，這玩意真的挺麻煩，我折騰了特別久，結果還是最最最簡單的辦法：http訪問就推送，最爲方便。  在VPS上安裝hexo的運行環境這方面已經在第一篇文章詳細講過，無非就是安裝nodejs, hexo-cli等等。">
+<meta name="twitter:image" content="https://cupkappu.github.io/image/github-setssh.png">
 
 
 
@@ -390,6 +395,38 @@
 <blockquote>
 <p>講實話，這玩意真的挺麻煩，我折騰了特別久，結果還是最最最簡單的辦法：http訪問就推送，最爲方便。</p>
 </blockquote>
+<h1 id="在VPS上安裝hexo的運行環境"><a href="#在VPS上安裝hexo的運行環境" class="headerlink" title="在VPS上安裝hexo的運行環境"></a>在VPS上安裝hexo的運行環境</h1><p>這方面已經在<a href="/2019/08/20/20190820">第一篇文章</a>詳細講過，無非就是安裝nodejs, hexo-cli等等。</p>
+<p><strong>這裏不重複闡述</strong></p>
+<h1 id="給VPS設置在Github上的通用SSH授權"><a href="#給VPS設置在Github上的通用SSH授權" class="headerlink" title="給VPS設置在Github上的通用SSH授權"></a>給VPS設置在Github上的通用SSH授權</h1><p>輸入以下代碼創建一個ssh key</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &quot;your_email@example.com&quot;</span><br></pre></td></tr></table></figure>
+
+<p>然後複製~/.ssh/id_rsa.pub文件内的所有内容，打開github的setting中的<a href="https://github.com/settings/keys" target="_blank" rel="noopener">SSH and GPG keys</a></p>
+<p>添加SSH Key即可<br><img src="/image/github-setssh.png" alt></p>
+<h1 id="在VPS上克隆自己創建的庫"><a href="#在VPS上克隆自己創建的庫" class="headerlink" title="在VPS上克隆自己創建的庫"></a>在VPS上克隆自己創建的庫</h1><p>在第二篇文章中我們創建了一個同步庫，裏面存放著hexo的源碼，用來進行多端同步。現在將他克隆到vps上</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">mkdir auto</span><br><span class="line"><span class="built_in">cd</span> auto</span><br><span class="line">git <span class="built_in">clone</span> git@github.com:yourname/blog.git</span><br><span class="line"><span class="built_in">cd</span> blog</span><br><span class="line">npm install</span><br><span class="line">git pull</span><br></pre></td></tr></table></figure>
+
+<p>然後安裝pm2管理後臺應用</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g pm2</span><br></pre></td></tr></table></figure>
+
+<p>之後，在本地創建一個<code>deploy.js</code>，用nodejs寫一個監聽http請求的脚本</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> http = <span class="built_in">require</span>(<span class="string">'http'</span>);</span><br><span class="line"><span class="keyword">var</span> port = <span class="number">3000</span>; <span class="comment">//監聽端口</span></span><br><span class="line"><span class="keyword">var</span> command = <span class="string">'sh ./deploy.sh'</span> <span class="comment">//運行指令</span></span><br><span class="line"></span><br><span class="line">http.createServer(<span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>)</span>&#123;</span><br><span class="line">    res.writeHead(<span class="number">200</span>, &#123;<span class="string">'content-type'</span>: <span class="string">'text/plain'</span>&#125;);</span><br><span class="line">    deploy = <span class="built_in">require</span>(<span class="string">'child_process'</span>).exec(command,&#123;&#125;,<span class="function"><span class="keyword">function</span>(<span class="params">err,stdout,stderr</span>)</span>&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">'deploy.'</span>)</span><br><span class="line">    &#125;);</span><br><span class="line">    res.end(<span class="string">'It works'</span>);</span><br><span class="line">&#125;).listen(port);</span><br></pre></td></tr></table></figure>
+
+<p>再創建一個<code>deploy.sh</code>進行<code>pull</code>和<code>hexo g -d</code>操作。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line">git pull</span><br><span class="line">hexo clean</span><br><span class="line">hexo g -d</span><br></pre></td></tr></table></figure>
+
+<p>這時候監聽服務應該可以運作了。先在別的設備更改一下hexo源碼並push到github，然後試著運行以下代碼。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">node ./deploy.js</span><br></pre></td></tr></table></figure>
+
+<p>訪問vps的<code>http://ip:3000</code>。若你的ip為<code>100.100.100.100</code>，則訪問<code>http://100.100.100.100:3000</code>，不出意外網頁會返回<code>It works</code>，vps控制臺會輸出<code>deploy.</code></p>
+<p>按下<code>Ctrl</code>+<code>C</code>關閉node，輸入<code>pm2 start deploy.js</code>將服務運行在後臺，然後開始配置github</p>
+<h1 id="Github端的配置"><a href="#Github端的配置" class="headerlink" title="Github端的配置"></a>Github端的配置</h1><p>進入你的同步代碼倉庫，點擊上方的Setting。<br><img src="/image/github-repo-setting.png" alt></p>
+<p>然後點擊左方的Webhooks，添加新的webhook<br><img src="/image/github-repo-webhooks.png" alt></p>
+<p>進入后，</p>
+<ol>
+<li>在Payload URL中填入你剛剛訪問的網址（<strong>包括端口</strong>）</li>
+<li>直接點擊Add webhook。<br><img src="/image/github-repo-newwebhooks.png" alt></li>
+</ol>
+<p>然後使用另一臺機器，更改一下你的文章，將blog文件夾更新到github，觀察博客頁面有沒有變化。</p>
 
       
     </div>
@@ -512,8 +549,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目錄
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            本站概覽
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -596,6 +642,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#在VPS上安裝hexo的運行環境"><span class="nav-number">1.</span> <span class="nav-text">在VPS上安裝hexo的運行環境</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#給VPS設置在Github上的通用SSH授權"><span class="nav-number">2.</span> <span class="nav-text">給VPS設置在Github上的通用SSH授權</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#在VPS上克隆自己創建的庫"><span class="nav-number">3.</span> <span class="nav-text">在VPS上克隆自己創建的庫</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Github端的配置"><span class="nav-number">4.</span> <span class="nav-text">Github端的配置</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
