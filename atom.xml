@@ -5,9 +5,9 @@
   <subtitle>技術、音樂、影視、動畫的茶室</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="https://cupkappu.github.io/"/>
+  <link href="https://www.kappu.ml/"/>
   <updated>2019-08-23T07:07:14.101Z</updated>
-  <id>https://cupkappu.github.io/</id>
+  <id>https://www.kappu.ml/</id>
   
   <author>
     <name>木不子</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>時間管理（二） —— 利用間隙時間慢慢完成麻煩的事情</title>
-    <link href="https://cupkappu.github.io/2019/08/23/MISSION_MANAGEMENT_2/"/>
-    <id>https://cupkappu.github.io/2019/08/23/MISSION_MANAGEMENT_2/</id>
+    <link href="https://www.kappu.ml/2019/08/23/MISSION_MANAGEMENT_2/"/>
+    <id>https://www.kappu.ml/2019/08/23/MISSION_MANAGEMENT_2/</id>
     <published>2019-08-23T05:30:20.000Z</published>
     <updated>2019-08-23T07:07:14.101Z</updated>
     
@@ -34,19 +34,19 @@
     
     </summary>
     
-      <category term="生活心得" scheme="https://cupkappu.github.io/categories/%E7%94%9F%E6%B4%BB%E5%BF%83%E5%BE%97/"/>
+      <category term="生活心得" scheme="https://www.kappu.ml/categories/%E7%94%9F%E6%B4%BB%E5%BF%83%E5%BE%97/"/>
     
     
-      <category term="時間管理" scheme="https://cupkappu.github.io/tags/%E6%99%82%E9%96%93%E7%AE%A1%E7%90%86/"/>
+      <category term="時間管理" scheme="https://www.kappu.ml/tags/%E6%99%82%E9%96%93%E7%AE%A1%E7%90%86/"/>
     
-      <category term="學習經驗" scheme="https://cupkappu.github.io/tags/%E5%AD%B8%E7%BF%92%E7%B6%93%E9%A9%97/"/>
+      <category term="學習經驗" scheme="https://www.kappu.ml/tags/%E5%AD%B8%E7%BF%92%E7%B6%93%E9%A9%97/"/>
     
   </entry>
   
   <entry>
     <title>Hexo學習筆記 —— 多端同步、Github Pages部署、更改主題、評論功能（四）</title>
-    <link href="https://cupkappu.github.io/2019/08/22/HEXO_STUDY_4/"/>
-    <id>https://cupkappu.github.io/2019/08/22/HEXO_STUDY_4/</id>
+    <link href="https://www.kappu.ml/2019/08/22/HEXO_STUDY_4/"/>
+    <id>https://www.kappu.ml/2019/08/22/HEXO_STUDY_4/</id>
     <published>2019-08-22T08:42:18.000Z</published>
     <updated>2019-08-22T10:08:25.668Z</updated>
     
@@ -61,21 +61,21 @@
     
     </summary>
     
-      <category term="技術相關" scheme="https://cupkappu.github.io/categories/%E6%8A%80%E8%A1%93%E7%9B%B8%E9%97%9C/"/>
+      <category term="技術相關" scheme="https://www.kappu.ml/categories/%E6%8A%80%E8%A1%93%E7%9B%B8%E9%97%9C/"/>
     
     
-      <category term="Hexo" scheme="https://cupkappu.github.io/tags/Hexo/"/>
+      <category term="Hexo" scheme="https://www.kappu.ml/tags/Hexo/"/>
     
-      <category term="博客" scheme="https://cupkappu.github.io/tags/%E5%8D%9A%E5%AE%A2/"/>
+      <category term="博客" scheme="https://www.kappu.ml/tags/%E5%8D%9A%E5%AE%A2/"/>
     
-      <category term="Github" scheme="https://cupkappu.github.io/tags/Github/"/>
+      <category term="Github" scheme="https://www.kappu.ml/tags/Github/"/>
     
   </entry>
   
   <entry>
     <title>時間管理（一） —— 應該怎麼在爆炸的事項中開心生存</title>
-    <link href="https://cupkappu.github.io/2019/08/21/MISSION_MANAGEMENT_1/"/>
-    <id>https://cupkappu.github.io/2019/08/21/MISSION_MANAGEMENT_1/</id>
+    <link href="https://www.kappu.ml/2019/08/21/MISSION_MANAGEMENT_1/"/>
+    <id>https://www.kappu.ml/2019/08/21/MISSION_MANAGEMENT_1/</id>
     <published>2019-08-21T13:18:01.000Z</published>
     <updated>2019-08-23T07:07:14.100Z</updated>
     
@@ -92,19 +92,19 @@
     
     </summary>
     
-      <category term="生活心得" scheme="https://cupkappu.github.io/categories/%E7%94%9F%E6%B4%BB%E5%BF%83%E5%BE%97/"/>
+      <category term="生活心得" scheme="https://www.kappu.ml/categories/%E7%94%9F%E6%B4%BB%E5%BF%83%E5%BE%97/"/>
     
     
-      <category term="時間管理" scheme="https://cupkappu.github.io/tags/%E6%99%82%E9%96%93%E7%AE%A1%E7%90%86/"/>
+      <category term="時間管理" scheme="https://www.kappu.ml/tags/%E6%99%82%E9%96%93%E7%AE%A1%E7%90%86/"/>
     
-      <category term="事項" scheme="https://cupkappu.github.io/tags/%E4%BA%8B%E9%A0%85/"/>
+      <category term="事項" scheme="https://www.kappu.ml/tags/%E4%BA%8B%E9%A0%85/"/>
     
   </entry>
   
   <entry>
     <title>讓Markdown文檔一秒轉換為Keynote演示文檔 —— md2key學習筆記</title>
-    <link href="https://cupkappu.github.io/2019/08/21/%E8%AE%93Markdown%E6%96%87%E6%AA%94%E4%B8%80%E7%A7%92%E8%BD%89%E6%8F%9B%E7%82%BAKeynote%E6%BC%94%E7%A4%BA%E6%96%87%E6%AA%94%20%E2%80%94%E2%80%94%20md2key%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98/"/>
-    <id>https://cupkappu.github.io/2019/08/21/讓Markdown文檔一秒轉換為Keynote演示文檔 —— md2key學習筆記/</id>
+    <link href="https://www.kappu.ml/2019/08/21/%E8%AE%93Markdown%E6%96%87%E6%AA%94%E4%B8%80%E7%A7%92%E8%BD%89%E6%8F%9B%E7%82%BAKeynote%E6%BC%94%E7%A4%BA%E6%96%87%E6%AA%94%20%E2%80%94%E2%80%94%20md2key%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98/"/>
+    <id>https://www.kappu.ml/2019/08/21/讓Markdown文檔一秒轉換為Keynote演示文檔 —— md2key學習筆記/</id>
     <published>2019-08-20T16:00:00.000Z</published>
     <updated>2019-08-22T10:25:33.714Z</updated>
     
@@ -116,21 +116,21 @@
     
     </summary>
     
-      <category term="技術相關" scheme="https://cupkappu.github.io/categories/%E6%8A%80%E8%A1%93%E7%9B%B8%E9%97%9C/"/>
+      <category term="技術相關" scheme="https://www.kappu.ml/categories/%E6%8A%80%E8%A1%93%E7%9B%B8%E9%97%9C/"/>
     
     
-      <category term="Markdown" scheme="https://cupkappu.github.io/tags/Markdown/"/>
+      <category term="Markdown" scheme="https://www.kappu.ml/tags/Markdown/"/>
     
-      <category term="Keynote" scheme="https://cupkappu.github.io/tags/Keynote/"/>
+      <category term="Keynote" scheme="https://www.kappu.ml/tags/Keynote/"/>
     
-      <category term="PPT" scheme="https://cupkappu.github.io/tags/PPT/"/>
+      <category term="PPT" scheme="https://www.kappu.ml/tags/PPT/"/>
     
   </entry>
   
   <entry>
     <title>Hexo學習筆記 —— 多端同步、Github Pages部署、更改主題、評論功能（三）</title>
-    <link href="https://cupkappu.github.io/2019/08/20/HEXO_STUDY_3/"/>
-    <id>https://cupkappu.github.io/2019/08/20/HEXO_STUDY_3/</id>
+    <link href="https://www.kappu.ml/2019/08/20/HEXO_STUDY_3/"/>
+    <id>https://www.kappu.ml/2019/08/20/HEXO_STUDY_3/</id>
     <published>2019-08-20T12:03:50.000Z</published>
     <updated>2019-08-22T10:29:44.950Z</updated>
     
@@ -153,25 +153,25 @@
     
     </summary>
     
-      <category term="技術相關" scheme="https://cupkappu.github.io/categories/%E6%8A%80%E8%A1%93%E7%9B%B8%E9%97%9C/"/>
+      <category term="技術相關" scheme="https://www.kappu.ml/categories/%E6%8A%80%E8%A1%93%E7%9B%B8%E9%97%9C/"/>
     
     
-      <category term="Hexo" scheme="https://cupkappu.github.io/tags/Hexo/"/>
+      <category term="Hexo" scheme="https://www.kappu.ml/tags/Hexo/"/>
     
-      <category term="博客" scheme="https://cupkappu.github.io/tags/%E5%8D%9A%E5%AE%A2/"/>
+      <category term="博客" scheme="https://www.kappu.ml/tags/%E5%8D%9A%E5%AE%A2/"/>
     
-      <category term="Github" scheme="https://cupkappu.github.io/tags/Github/"/>
+      <category term="Github" scheme="https://www.kappu.ml/tags/Github/"/>
     
   </entry>
   
   <entry>
     <title>Hexo學習筆記 —— 多端同步、Github Pages部署、更改主題、評論功能（二）</title>
-    <link href="https://cupkappu.github.io/2019/08/20/HEXO_STUDY_2/"/>
-    <id>https://cupkappu.github.io/2019/08/20/HEXO_STUDY_2/</id>
+    <link href="https://www.kappu.ml/2019/08/20/HEXO_STUDY_2/"/>
+    <id>https://www.kappu.ml/2019/08/20/HEXO_STUDY_2/</id>
     <published>2019-08-20T11:03:50.000Z</published>
     <updated>2019-08-22T10:29:44.950Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="同步多端……真正麻煩的事情來了"><a href="#同步多端……真正麻煩的事情來了" class="headerlink" title="同步多端……真正麻煩的事情來了"></a>同步多端……真正麻煩的事情來了</h1><p>根據剛剛提到的<strong>文件目錄結構</strong></p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">|-- _config.yml <span class="comment">#配置文件</span></span><br><span class="line">|-- package.json <span class="comment">#hexo的依賴，插件信息也保存在這文件內</span></span><br><span class="line">|-- scaffolds <span class="comment">#標準模板，一般不需要關心</span></span><br><span class="line">|-- <span class="built_in">source</span> <span class="comment">#資源目錄，文章與各種附件也都保存在這</span></span><br><span class="line">   |-- _posts <span class="comment">#文章文件夾</span></span><br><span class="line">|-- themes <span class="comment">#主題</span></span><br><span class="line">|-- .gitignore <span class="comment">#git同步的時候忽略的目錄與文件</span></span><br><span class="line">|-- public <span class="comment">#生成後的靜態博客文件夾</span></span><br></pre></td></tr></table></figure><p>有同步意義的是_config.yml, package.json, source/, themes</p><p>最重要的是<code>source</code>文件夾，裏面包含了可以引用的圖片、文章文件以及各種附加的小附件。</p><a id="more"></a><h2 id="Google-Drive-百度網盤-Dropbox等同步網盤"><a href="#Google-Drive-百度網盤-Dropbox等同步網盤" class="headerlink" title="Google Drive, 百度網盤, Dropbox等同步網盤"></a>Google Drive, 百度網盤, Dropbox等同步網盤</h2><p>使用<a href="https://drive.google.com" target="_blank" rel="noopener">Google Drive</a>一類簡單粗暴的多端同步網盤來同步我們的hexo文檔和配置，缺點就是node相關的文件也都會一並同步，好處就是特別省事。</p><p>直接將整個目錄復制到Google Drive即可，之後所有操作都在掛載後的Google Drive裏面進行。</p><p>在另外一臺機器，安裝Google Drive同步程序，然後將hexo目錄設置爲同步以及離線可用，之後整個Hexo端便會一直保持着最新的文件。</p><p><strong>其他網盤同理</strong></p><h2 id="Github同步"><a href="#Github同步" class="headerlink" title="Github同步"></a>Github同步</h2><p>這個方案配置比較麻煩，但是後期使用問題較少，挺多大佬也是使用這個方案進行多端同步</p><p>以下是步驟</p><ol><li><p>先在Github建立一個私人庫，專門存放Hexo部署程序</p></li><li><p>在Hexo的目錄下，運行<code>git init</code></p></li><li><p>修改<code>.gitignore</code>爲以下內容</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">.DS_Store</span><br><span class="line">Thumbs.db</span><br><span class="line">db.json</span><br><span class="line">*.log</span><br><span class="line">node_modules/</span><br><span class="line">public/</span><br><span class="line">.deploy*/</span><br></pre></td></tr></table></figure></li><li><p>執行以下代碼，進行第一次推送代碼</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git add .</span><br><span class="line">git commit -m <span class="string">"first commit"</span></span><br><span class="line">git remote add origin git@github.com:username/library.git</span><br><span class="line">git push -u origin master</span><br></pre></td></tr></table></figure></li><li><p>創建一個名爲push的文件，將以下代碼輸入進去</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line">git add .</span><br><span class="line">git commit -m `date +%Y-%m-%d-%H%M`</span><br><span class="line">git push origin master</span><br><span class="line">hexo g -d</span><br></pre></td></tr></table></figure></li><li><p>輸入<code>chmod +x push</code>，給腳本增加運行權限</p></li><li><p>輸入<code>./push</code>嘗試推送</p></li></ol><p>之後，新的機器先安裝Hexo，再輸入<code>git clone git@github.com:username/library.git</code>，再進入克隆目錄內，輸入<code>npm install</code>安裝依賴即可。</p><p>每次編輯完文章，輸入<code>./push</code>推送，換到另一臺電腦想繼續編輯時，輸入<code>git pull</code>拉取最新檔案下來即可。</p><blockquote><p>2019-08-22更新</p><p>如果你有自己的VPS服務器，可以使用github的webhook功能進行自動更新，具體可以查看<a href="https://cupkappu.github.io/2019/08/22/HEXO_STUDY_4/">這篇文章</a></p><p>需要將push文件修改成以下内容才能使用webhook自動更新網頁端</p></blockquote><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/bash</span><br><span class="line">git add .</span><br><span class="line">git commit -m `date +%Y-%m-%d-%H%M`</span><br><span class="line">git push origin master</span><br></pre></td></tr></table></figure>]]></content>
+    <content type="html"><![CDATA[<h1 id="同步多端……真正麻煩的事情來了"><a href="#同步多端……真正麻煩的事情來了" class="headerlink" title="同步多端……真正麻煩的事情來了"></a>同步多端……真正麻煩的事情來了</h1><p>根據剛剛提到的<strong>文件目錄結構</strong></p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">|-- _config.yml <span class="comment">#配置文件</span></span><br><span class="line">|-- package.json <span class="comment">#hexo的依賴，插件信息也保存在這文件內</span></span><br><span class="line">|-- scaffolds <span class="comment">#標準模板，一般不需要關心</span></span><br><span class="line">|-- <span class="built_in">source</span> <span class="comment">#資源目錄，文章與各種附件也都保存在這</span></span><br><span class="line">   |-- _posts <span class="comment">#文章文件夾</span></span><br><span class="line">|-- themes <span class="comment">#主題</span></span><br><span class="line">|-- .gitignore <span class="comment">#git同步的時候忽略的目錄與文件</span></span><br><span class="line">|-- public <span class="comment">#生成後的靜態博客文件夾</span></span><br></pre></td></tr></table></figure><p>有同步意義的是_config.yml, package.json, source/, themes</p><p>最重要的是<code>source</code>文件夾，裏面包含了可以引用的圖片、文章文件以及各種附加的小附件。</p><a id="more"></a><h2 id="Google-Drive-百度網盤-Dropbox等同步網盤"><a href="#Google-Drive-百度網盤-Dropbox等同步網盤" class="headerlink" title="Google Drive, 百度網盤, Dropbox等同步網盤"></a>Google Drive, 百度網盤, Dropbox等同步網盤</h2><p>使用<a href="https://drive.google.com" target="_blank" rel="noopener">Google Drive</a>一類簡單粗暴的多端同步網盤來同步我們的hexo文檔和配置，缺點就是node相關的文件也都會一並同步，好處就是特別省事。</p><p>直接將整個目錄復制到Google Drive即可，之後所有操作都在掛載後的Google Drive裏面進行。</p><p>在另外一臺機器，安裝Google Drive同步程序，然後將hexo目錄設置爲同步以及離線可用，之後整個Hexo端便會一直保持着最新的文件。</p><p><strong>其他網盤同理</strong></p><h2 id="Github同步"><a href="#Github同步" class="headerlink" title="Github同步"></a>Github同步</h2><p>這個方案配置比較麻煩，但是後期使用問題較少，挺多大佬也是使用這個方案進行多端同步</p><p>以下是步驟</p><ol><li><p>先在Github建立一個私人庫，專門存放Hexo部署程序</p></li><li><p>在Hexo的目錄下，運行<code>git init</code></p></li><li><p>修改<code>.gitignore</code>爲以下內容</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">.DS_Store</span><br><span class="line">Thumbs.db</span><br><span class="line">db.json</span><br><span class="line">*.log</span><br><span class="line">node_modules/</span><br><span class="line">public/</span><br><span class="line">.deploy*/</span><br></pre></td></tr></table></figure></li><li><p>執行以下代碼，進行第一次推送代碼</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git add .</span><br><span class="line">git commit -m <span class="string">"first commit"</span></span><br><span class="line">git remote add origin git@github.com:username/library.git</span><br><span class="line">git push -u origin master</span><br></pre></td></tr></table></figure></li><li><p>創建一個名爲push的文件，將以下代碼輸入進去</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line">git add .</span><br><span class="line">git commit -m `date +%Y-%m-%d-%H%M`</span><br><span class="line">git push origin master</span><br><span class="line">hexo g -d</span><br></pre></td></tr></table></figure></li><li><p>輸入<code>chmod +x push</code>，給腳本增加運行權限</p></li><li><p>輸入<code>./push</code>嘗試推送</p></li></ol><p>之後，新的機器先安裝Hexo，再輸入<code>git clone git@github.com:username/library.git</code>，再進入克隆目錄內，輸入<code>npm install</code>安裝依賴即可。</p><p>每次編輯完文章，輸入<code>./push</code>推送，換到另一臺電腦想繼續編輯時，輸入<code>git pull</code>拉取最新檔案下來即可。</p><blockquote><p>2019-08-22更新</p><p>如果你有自己的VPS服務器，可以使用github的webhook功能進行自動更新，具體可以查看<a href="https://cupkappu.github.io/2019/08/22/HEXO_STUDY_4/" target="_blank" rel="noopener">這篇文章</a></p><p>需要將push文件修改成以下内容才能使用webhook自動更新網頁端</p></blockquote><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/bash</span><br><span class="line">git add .</span><br><span class="line">git commit -m `date +%Y-%m-%d-%H%M`</span><br><span class="line">git push origin master</span><br></pre></td></tr></table></figure>]]></content>
     
     <summary type="html">
     
@@ -183,21 +183,21 @@
     
     </summary>
     
-      <category term="技術相關" scheme="https://cupkappu.github.io/categories/%E6%8A%80%E8%A1%93%E7%9B%B8%E9%97%9C/"/>
+      <category term="技術相關" scheme="https://www.kappu.ml/categories/%E6%8A%80%E8%A1%93%E7%9B%B8%E9%97%9C/"/>
     
     
-      <category term="Hexo" scheme="https://cupkappu.github.io/tags/Hexo/"/>
+      <category term="Hexo" scheme="https://www.kappu.ml/tags/Hexo/"/>
     
-      <category term="博客" scheme="https://cupkappu.github.io/tags/%E5%8D%9A%E5%AE%A2/"/>
+      <category term="博客" scheme="https://www.kappu.ml/tags/%E5%8D%9A%E5%AE%A2/"/>
     
-      <category term="Github" scheme="https://cupkappu.github.io/tags/Github/"/>
+      <category term="Github" scheme="https://www.kappu.ml/tags/Github/"/>
     
   </entry>
   
   <entry>
     <title>Hexo學習筆記 —— 多端同步、Github Pages部署、更改主題、評論功能（一）</title>
-    <link href="https://cupkappu.github.io/2019/08/20/HEXO_STUDY_1/"/>
-    <id>https://cupkappu.github.io/2019/08/20/HEXO_STUDY_1/</id>
+    <link href="https://www.kappu.ml/2019/08/20/HEXO_STUDY_1/"/>
+    <id>https://www.kappu.ml/2019/08/20/HEXO_STUDY_1/</id>
     <published>2019-08-20T09:23:30.000Z</published>
     <updated>2019-08-22T10:29:44.884Z</updated>
     
@@ -210,25 +210,25 @@
     
     </summary>
     
-      <category term="技術相關" scheme="https://cupkappu.github.io/categories/%E6%8A%80%E8%A1%93%E7%9B%B8%E9%97%9C/"/>
+      <category term="技術相關" scheme="https://www.kappu.ml/categories/%E6%8A%80%E8%A1%93%E7%9B%B8%E9%97%9C/"/>
     
     
-      <category term="Hexo" scheme="https://cupkappu.github.io/tags/Hexo/"/>
+      <category term="Hexo" scheme="https://www.kappu.ml/tags/Hexo/"/>
     
-      <category term="博客" scheme="https://cupkappu.github.io/tags/%E5%8D%9A%E5%AE%A2/"/>
+      <category term="博客" scheme="https://www.kappu.ml/tags/%E5%8D%9A%E5%AE%A2/"/>
     
-      <category term="Github" scheme="https://cupkappu.github.io/tags/Github/"/>
+      <category term="Github" scheme="https://www.kappu.ml/tags/Github/"/>
     
   </entry>
   
   <entry>
     <title>在Proxmox中安裝macOS Mojave並設置直通顯卡</title>
-    <link href="https://cupkappu.github.io/2019/08/20/%E5%9C%A8Proxmox%E4%B8%AD%E5%AE%89%E8%A3%9DmacOS%20Mojave%E4%B8%A6%E8%A8%AD%E7%BD%AE%E7%9B%B4%E9%80%9A%E9%A1%AF%E5%8D%A1/"/>
-    <id>https://cupkappu.github.io/2019/08/20/在Proxmox中安裝macOS Mojave並設置直通顯卡/</id>
+    <link href="https://www.kappu.ml/2019/08/20/%E5%9C%A8Proxmox%E4%B8%AD%E5%AE%89%E8%A3%9DmacOS%20Mojave%E4%B8%A6%E8%A8%AD%E7%BD%AE%E7%9B%B4%E9%80%9A%E9%A1%AF%E5%8D%A1/"/>
+    <id>https://www.kappu.ml/2019/08/20/在Proxmox中安裝macOS Mojave並設置直通顯卡/</id>
     <published>2019-08-19T16:00:00.000Z</published>
     <updated>2019-08-22T10:25:33.713Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="在PVE中安裝macOS-Mojave並設置直通顯卡"><a href="#在PVE中安裝macOS-Mojave並設置直通顯卡" class="headerlink" title="在PVE中安裝macOS Mojave並設置直通顯卡"></a>在PVE中安裝macOS Mojave並設置直通顯卡</h1><h2 id="先決條件："><a href="#先決條件：" class="headerlink" title="先決條件："></a>先決條件：</h2><ul><li>8G或以上內存</li><li>支持虛擬化以及SSE4.2的cpu</li></ul><blockquote><p><em>包括AMD與INTEL</em></p></blockquote><a id="more"></a><h2 id="1-安裝PVE"><a href="#1-安裝PVE" class="headerlink" title="1 安裝PVE"></a>1 安裝PVE</h2><p><a href="http://www.kappu.ml/index.php/archives/3/" target="_blank" rel="noopener">安裝教程</a><br>此處安裝方法與一般的方法相同，推薦將pve系統安裝到usb設備</p><h2 id="2-創建macos安裝鏡像"><a href="#2-創建macos安裝鏡像" class="headerlink" title="2 創建macos安裝鏡像"></a>2 創建macos安裝鏡像</h2><p>在linux或macos系統下運行以下命令</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">wget  https://raw.githubusercontent.com/thenickdude/OSX-KVM/master/fetch-macOS.py</span><br><span class="line">chmod +x fetch-macOS.py</span><br><span class="line">./fetch-macOS.py</span><br></pre></td></tr></table></figure><p>在選單中選擇最新的iso，等待下載完成後，運行以下命令，將dmg包轉換成iso包</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># 安裝dmg2img 若你是deb包管理系以外的系統，可以自行查找如何安裝dmg2img</span><br><span class="line">apt-get install dmg2img -y</span><br><span class="line"># 利用dmg2img將基本系統dmg鏡像轉為iso鏡像</span><br><span class="line">dmg2img BaseSystem.dmg Mojave-installer.iso</span><br><span class="line"></span><br><span class="line"># 若你是macOS，請使用以下命令</span><br><span class="line">hdiutil convert BaseSystem.dmg -format RdWr -o Mojave-installer.iso</span><br><span class="line">mv Mojave-installer.iso.img Mojave-installer.iso</span><br></pre></td></tr></table></figure><p>然後下載Clover</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># Ubuntu &amp; Debian</span><br><span class="line">apt-get install unzip -y</span><br><span class="line"># Centos &amp; RHEL</span><br><span class="line">yum install unzip -y</span><br><span class="line"># 取得clover</span><br><span class="line">wget https://github.com/thenickdude/OSX-KVM/releases/download/clover-r4920/clover-r4920.iso.zip &amp;&amp; unzip clover-r4920.iso.zip</span><br></pre></td></tr></table></figure><p>然後將clover-r4920.iso與Mojave-installer.iso上傳到PVE中</p><h2 id="3-在網頁中創建虛擬機"><a href="#3-在網頁中創建虛擬機" class="headerlink" title="3 在網頁中創建虛擬機"></a>3 在網頁中創建虛擬機</h2><ol><li>OS頁面選擇Clover ISO進行引導</li><li>系統選擇其他（other）</li><li>System頁面的顯示卡選擇VMware兼容</li><li>BIOS選擇OVMF</li><li>Machine選擇q35</li><li>硬盤選擇SATA，緩存設置成Write back（不安全）</li><li>CPU的類型設置成Penryn</li><li>網卡設置成Vmware vmxnet3</li></ol><p>點開虛擬機的硬件選項卡，添加Mojave-installer.iso，選擇ide通道的cd-ram</p><p>先不要啟動虛擬機，在ssh中打開/etc/pve/qemu-server/你的VMID.conf</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nano /etc/pve/qemu-server/你的VMID.conf</span><br></pre></td></tr></table></figure><p>然後輸入以下代碼</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">args: -device isa-applesmc,osk=&quot;ourhardworkbythesewordsguardedpleasedontsteal(c)AppleComputerInc&quot; -smbios type=2 -cpu Penryn,kvm=on,vendor=GenuineIntel,+invtsc,vmware-cpuid-freq=on,+pcid,+ssse3,+sse4.2,+popcnt,+avx,+aes,+xsave,+xsaveopt,check -device usb-kbd,bus=ehci.0,port=2</span><br></pre></td></tr></table></figure><p>將兩個驅動器的配置中的cdrom刪除，加入cache=unsafe<br>最後的文檔應該看起來像這樣</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">args: -device isa-applesmc,osk=&quot;ourhardworkbythesewordsguardedpleasedontsteal(c)AppleComputerInc&quot; -smbios type=2 -cpu Penryn,kvm=on,vendor=GenuineIntel,+invtsc,vmware-cpuid-freq=on,+pcid,+ssse3,+sse4.2,+popcnt,+avx,+aes,+xsave,+xsaveopt,check -device usb-kbd,bus=ehci.0,port=2</span><br><span class="line">balloon: 0</span><br><span class="line">bios: ovmf</span><br><span class="line">boot: cdn</span><br><span class="line">bootdisk: ide2</span><br><span class="line">cores: 4</span><br><span class="line">cpu: Penryn</span><br><span class="line">efidisk0: vms:vm-144-disk-1,size=128K</span><br><span class="line">ide0: isos:iso/Mojave.iso,cache=unsafe</span><br><span class="line">ide2: isos:iso/clover-r4920.iso,cache=unsafe</span><br><span class="line">machine: q35</span><br><span class="line">memory: 8192</span><br><span class="line">name: mojave</span><br><span class="line">net0: vmxnet3=xx:xx:xx:xx:xx:xx,bridge=vmbr0,firewall=1</span><br><span class="line">numa: 0</span><br><span class="line">ostype: other</span><br><span class="line">sata0: vms:vm-144-disk-0,cache=unsafe,size=64G</span><br><span class="line">smbios1: uuid=xxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx</span><br><span class="line">sockets: 1</span><br><span class="line">vga: vmware</span><br></pre></td></tr></table></figure><p>設置完畢後，根據<a href="https://www.nicksherlock.com/2018/04/patch-ovmf-to-support-macos-in-proxmox-5-1/" target="_blank" rel="noopener">patch-ovmf-to-support-macos-in-proxmox-5-1 </a>來安裝OVMF庫</p><blockquote><p>For PVE 6</p></blockquote><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"># Add missing locale</span><br><span class="line">echo &quot;en_US.UTF-8 UTF-8&quot; &gt;&gt; /etc/locale.gen</span><br><span class="line">locale-gen</span><br><span class="line">export LC_ALL=en_US.UTF-8</span><br><span class="line"></span><br><span class="line"># Add tools and build dependencies:</span><br><span class="line">apt update</span><br><span class="line">apt install build-essential git lintian debhelper iasl nasm \</span><br><span class="line">  python uuid-dev gcc-aarch64-linux-gnu bc python3-distutils -y</span><br><span class="line"></span><br><span class="line"># Clone my patched source</span><br><span class="line">git clone -b macos-support-proxmox-6.0 https://github.com/thenickdude/pve-edk2-firmware.git</span><br><span class="line"></span><br><span class="line"># Build it</span><br><span class="line">cd pve-edk2-firmware</span><br><span class="line">make</span><br><span class="line"></span><br><span class="line">dpkg -i pve-edk2-firmware_*.deb</span><br><span class="line"></span><br><span class="line"># Prevent it from being replaced later by apt upgrade:</span><br><span class="line">apt-mark hold pve-edk2-firmware</span><br></pre></td></tr></table></figure><h2 id="4-設置直通"><a href="#4-設置直通" class="headerlink" title="4 設置直通"></a>4 設置直通</h2><p>首先，編輯grub<code>vim /etc/default/grub</code><br>將<code>GRUB_CMDLINE_LINUX_DEFAULT=&quot;quiet&quot;</code>改為<code>GRUB_CMDLINE_LINUX_DEFAULT=&quot;quiet intel_iommu=on video=efifb:off&quot;</code><br><strong>（若是amd則改為amd_iommu=on）</strong></p><p>執行<code>update-grub</code>命令更新grub信息<br>最後輸入<code>dmesg | grep -e DMAR -e IOMMU</code>命令檢查是否有錯<br>然後編輯/etc/modules <code>nano /etc/modules</code><br>在最尾加入以下四行</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">vfio</span><br><span class="line">vfio_iommu_type1</span><br><span class="line">vfio_pci</span><br><span class="line">vfio_virqfd</span><br></pre></td></tr></table></figure><p>再次輸入<code>dmesg | grep ecap</code>命令檢查設備是否支持iommu<br>然後執行以下命令將驅動加入黑名單</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">echo &quot;blacklist radeon&quot; &gt;&gt; /etc/modprobe.d/blacklist.conf</span><br><span class="line">echo &quot;blacklist nouveau&quot; &gt;&gt; /etc/modprobe.d/blacklist.conf</span><br><span class="line">echo &quot;blacklist nvidia&quot; &gt;&gt; /etc/modprobe.d/blacklist.conf</span><br></pre></td></tr></table></figure><p>執行<code>update-initramfs -u</code>命令更新信息<br>執行<code>lspci</code>，找出顯卡的代號（例如01：00），然後執行<code>lspci -n -s 01:00</code><br>得到類似以下的輸出</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">01:00.0 0300: 10de:1d01 (rev a1)</span><br><span class="line">01:00.1 0403: 10de:0fb8 (rev a1)</span><br></pre></td></tr></table></figure><p>其中<code>10de:1d01</code>與<code>10de:0fb8</code>是vendor IDs<br>將vendor IDs指定到VFIO模塊</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo &quot;options vfio-pci ids=10de:1d01,10de:0fb8&quot; &gt; /etc/modprobe.d/vfio.conf</span><br></pre></td></tr></table></figure><p>進入web管理介面</p><ul><li>在vm的硬件選項卡中編輯添加PCI設備</li><li>選定顯卡對應的<code>01:00.0</code>與<code>01:00.1</code></li><li>在<code>01:00.0</code>（顯示設備）中勾選<ul><li>PCI-Express</li><li>All Functions</li><li>主GPU</li></ul></li><li>檢查文件<code>/etc/pve/qemu-server/YOUR-VM-ID.conf</code><ul><li>確保01:00後的參數正確</li></ul></li></ul><p><strong>e.g.</strong><code>hostpci0: 01:00,x-vga=1,pcie=1</code></p><p>然後，直通鼠標鍵盤到VM中，添加USB設備，選擇鼠標鍵盤，然後添加到VM</p><h2 id="5-安裝Mojave"><a href="#5-安裝Mojave" class="headerlink" title="5 安裝Mojave"></a>5 安裝Mojave</h2><p>現在啟動你的虛擬機，若你設置了直通，啟動的一瞬間會發生以下事情</p><ul><li>連接在你顯卡的顯示器應該會從PVE的ttl介面變為黑屏，然後變成OVMF UEFI啟動介面。</li><li>你的鍵盤鼠標這時候也可以直接控制虛擬機。</li></ul><p>在啟動的時候趕快按下F2以進入OVMF設置畫面。</p><ol><li>進入Device Manager</li><li>選擇OVMF platform configuration</li><li>設置分辨率為1920x1080</li><li>保存設置</li><li>在根菜單下選擇Reset（不是continue）</li></ol><p>然後你應該進入了Clover，接下來跟著指引安裝系統<br>全部安裝完畢之後，再次啟動時</p><ol><li>手動按下F2</li><li>選定Clover啟動項</li></ol><p>然後才會看到磁盤內的Mac系統。<br>進入Mac系統後，打開終端，輸入<code>diskutil list</code><br>以檢查設備<br>然後輸入<code>sudo dd if=&lt;Clover CD的EFI分區&gt; of=&lt;硬盤的EFI分區&gt;</code><br>將Clover安裝到硬盤中</p><blockquote><p>你也可以忽略這一步，將Clover CD永久掛載在虛擬機下</p></blockquote><p>關機，移除CLover CD，從硬盤啟動。</p>]]></content>
+    <content type="html"><![CDATA[<h1 id="在PVE中安裝macOS-Mojave並設置直通顯卡"><a href="#在PVE中安裝macOS-Mojave並設置直通顯卡" class="headerlink" title="在PVE中安裝macOS Mojave並設置直通顯卡"></a>在PVE中安裝macOS Mojave並設置直通顯卡</h1><h2 id="先決條件："><a href="#先決條件：" class="headerlink" title="先決條件："></a>先決條件：</h2><ul><li>8G或以上內存</li><li>支持虛擬化以及SSE4.2的cpu</li></ul><blockquote><p><em>包括AMD與INTEL</em></p></blockquote><a id="more"></a><h2 id="1-安裝PVE"><a href="#1-安裝PVE" class="headerlink" title="1 安裝PVE"></a>1 安裝PVE</h2><p><a href="http://www.kappu.ml/index.php/archives/3/">安裝教程</a><br>此處安裝方法與一般的方法相同，推薦將pve系統安裝到usb設備</p><h2 id="2-創建macos安裝鏡像"><a href="#2-創建macos安裝鏡像" class="headerlink" title="2 創建macos安裝鏡像"></a>2 創建macos安裝鏡像</h2><p>在linux或macos系統下運行以下命令</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">wget  https://raw.githubusercontent.com/thenickdude/OSX-KVM/master/fetch-macOS.py</span><br><span class="line">chmod +x fetch-macOS.py</span><br><span class="line">./fetch-macOS.py</span><br></pre></td></tr></table></figure><p>在選單中選擇最新的iso，等待下載完成後，運行以下命令，將dmg包轉換成iso包</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># 安裝dmg2img 若你是deb包管理系以外的系統，可以自行查找如何安裝dmg2img</span><br><span class="line">apt-get install dmg2img -y</span><br><span class="line"># 利用dmg2img將基本系統dmg鏡像轉為iso鏡像</span><br><span class="line">dmg2img BaseSystem.dmg Mojave-installer.iso</span><br><span class="line"></span><br><span class="line"># 若你是macOS，請使用以下命令</span><br><span class="line">hdiutil convert BaseSystem.dmg -format RdWr -o Mojave-installer.iso</span><br><span class="line">mv Mojave-installer.iso.img Mojave-installer.iso</span><br></pre></td></tr></table></figure><p>然後下載Clover</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># Ubuntu &amp; Debian</span><br><span class="line">apt-get install unzip -y</span><br><span class="line"># Centos &amp; RHEL</span><br><span class="line">yum install unzip -y</span><br><span class="line"># 取得clover</span><br><span class="line">wget https://github.com/thenickdude/OSX-KVM/releases/download/clover-r4920/clover-r4920.iso.zip &amp;&amp; unzip clover-r4920.iso.zip</span><br></pre></td></tr></table></figure><p>然後將clover-r4920.iso與Mojave-installer.iso上傳到PVE中</p><h2 id="3-在網頁中創建虛擬機"><a href="#3-在網頁中創建虛擬機" class="headerlink" title="3 在網頁中創建虛擬機"></a>3 在網頁中創建虛擬機</h2><ol><li>OS頁面選擇Clover ISO進行引導</li><li>系統選擇其他（other）</li><li>System頁面的顯示卡選擇VMware兼容</li><li>BIOS選擇OVMF</li><li>Machine選擇q35</li><li>硬盤選擇SATA，緩存設置成Write back（不安全）</li><li>CPU的類型設置成Penryn</li><li>網卡設置成Vmware vmxnet3</li></ol><p>點開虛擬機的硬件選項卡，添加Mojave-installer.iso，選擇ide通道的cd-ram</p><p>先不要啟動虛擬機，在ssh中打開/etc/pve/qemu-server/你的VMID.conf</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nano /etc/pve/qemu-server/你的VMID.conf</span><br></pre></td></tr></table></figure><p>然後輸入以下代碼</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">args: -device isa-applesmc,osk=&quot;ourhardworkbythesewordsguardedpleasedontsteal(c)AppleComputerInc&quot; -smbios type=2 -cpu Penryn,kvm=on,vendor=GenuineIntel,+invtsc,vmware-cpuid-freq=on,+pcid,+ssse3,+sse4.2,+popcnt,+avx,+aes,+xsave,+xsaveopt,check -device usb-kbd,bus=ehci.0,port=2</span><br></pre></td></tr></table></figure><p>將兩個驅動器的配置中的cdrom刪除，加入cache=unsafe<br>最後的文檔應該看起來像這樣</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">args: -device isa-applesmc,osk=&quot;ourhardworkbythesewordsguardedpleasedontsteal(c)AppleComputerInc&quot; -smbios type=2 -cpu Penryn,kvm=on,vendor=GenuineIntel,+invtsc,vmware-cpuid-freq=on,+pcid,+ssse3,+sse4.2,+popcnt,+avx,+aes,+xsave,+xsaveopt,check -device usb-kbd,bus=ehci.0,port=2</span><br><span class="line">balloon: 0</span><br><span class="line">bios: ovmf</span><br><span class="line">boot: cdn</span><br><span class="line">bootdisk: ide2</span><br><span class="line">cores: 4</span><br><span class="line">cpu: Penryn</span><br><span class="line">efidisk0: vms:vm-144-disk-1,size=128K</span><br><span class="line">ide0: isos:iso/Mojave.iso,cache=unsafe</span><br><span class="line">ide2: isos:iso/clover-r4920.iso,cache=unsafe</span><br><span class="line">machine: q35</span><br><span class="line">memory: 8192</span><br><span class="line">name: mojave</span><br><span class="line">net0: vmxnet3=xx:xx:xx:xx:xx:xx,bridge=vmbr0,firewall=1</span><br><span class="line">numa: 0</span><br><span class="line">ostype: other</span><br><span class="line">sata0: vms:vm-144-disk-0,cache=unsafe,size=64G</span><br><span class="line">smbios1: uuid=xxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx</span><br><span class="line">sockets: 1</span><br><span class="line">vga: vmware</span><br></pre></td></tr></table></figure><p>設置完畢後，根據<a href="https://www.nicksherlock.com/2018/04/patch-ovmf-to-support-macos-in-proxmox-5-1/" target="_blank" rel="noopener">patch-ovmf-to-support-macos-in-proxmox-5-1 </a>來安裝OVMF庫</p><blockquote><p>For PVE 6</p></blockquote><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"># Add missing locale</span><br><span class="line">echo &quot;en_US.UTF-8 UTF-8&quot; &gt;&gt; /etc/locale.gen</span><br><span class="line">locale-gen</span><br><span class="line">export LC_ALL=en_US.UTF-8</span><br><span class="line"></span><br><span class="line"># Add tools and build dependencies:</span><br><span class="line">apt update</span><br><span class="line">apt install build-essential git lintian debhelper iasl nasm \</span><br><span class="line">  python uuid-dev gcc-aarch64-linux-gnu bc python3-distutils -y</span><br><span class="line"></span><br><span class="line"># Clone my patched source</span><br><span class="line">git clone -b macos-support-proxmox-6.0 https://github.com/thenickdude/pve-edk2-firmware.git</span><br><span class="line"></span><br><span class="line"># Build it</span><br><span class="line">cd pve-edk2-firmware</span><br><span class="line">make</span><br><span class="line"></span><br><span class="line">dpkg -i pve-edk2-firmware_*.deb</span><br><span class="line"></span><br><span class="line"># Prevent it from being replaced later by apt upgrade:</span><br><span class="line">apt-mark hold pve-edk2-firmware</span><br></pre></td></tr></table></figure><h2 id="4-設置直通"><a href="#4-設置直通" class="headerlink" title="4 設置直通"></a>4 設置直通</h2><p>首先，編輯grub<code>vim /etc/default/grub</code><br>將<code>GRUB_CMDLINE_LINUX_DEFAULT=&quot;quiet&quot;</code>改為<code>GRUB_CMDLINE_LINUX_DEFAULT=&quot;quiet intel_iommu=on video=efifb:off&quot;</code><br><strong>（若是amd則改為amd_iommu=on）</strong></p><p>執行<code>update-grub</code>命令更新grub信息<br>最後輸入<code>dmesg | grep -e DMAR -e IOMMU</code>命令檢查是否有錯<br>然後編輯/etc/modules <code>nano /etc/modules</code><br>在最尾加入以下四行</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">vfio</span><br><span class="line">vfio_iommu_type1</span><br><span class="line">vfio_pci</span><br><span class="line">vfio_virqfd</span><br></pre></td></tr></table></figure><p>再次輸入<code>dmesg | grep ecap</code>命令檢查設備是否支持iommu<br>然後執行以下命令將驅動加入黑名單</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">echo &quot;blacklist radeon&quot; &gt;&gt; /etc/modprobe.d/blacklist.conf</span><br><span class="line">echo &quot;blacklist nouveau&quot; &gt;&gt; /etc/modprobe.d/blacklist.conf</span><br><span class="line">echo &quot;blacklist nvidia&quot; &gt;&gt; /etc/modprobe.d/blacklist.conf</span><br></pre></td></tr></table></figure><p>執行<code>update-initramfs -u</code>命令更新信息<br>執行<code>lspci</code>，找出顯卡的代號（例如01：00），然後執行<code>lspci -n -s 01:00</code><br>得到類似以下的輸出</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">01:00.0 0300: 10de:1d01 (rev a1)</span><br><span class="line">01:00.1 0403: 10de:0fb8 (rev a1)</span><br></pre></td></tr></table></figure><p>其中<code>10de:1d01</code>與<code>10de:0fb8</code>是vendor IDs<br>將vendor IDs指定到VFIO模塊</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo &quot;options vfio-pci ids=10de:1d01,10de:0fb8&quot; &gt; /etc/modprobe.d/vfio.conf</span><br></pre></td></tr></table></figure><p>進入web管理介面</p><ul><li>在vm的硬件選項卡中編輯添加PCI設備</li><li>選定顯卡對應的<code>01:00.0</code>與<code>01:00.1</code></li><li>在<code>01:00.0</code>（顯示設備）中勾選<ul><li>PCI-Express</li><li>All Functions</li><li>主GPU</li></ul></li><li>檢查文件<code>/etc/pve/qemu-server/YOUR-VM-ID.conf</code><ul><li>確保01:00後的參數正確</li></ul></li></ul><p><strong>e.g.</strong><code>hostpci0: 01:00,x-vga=1,pcie=1</code></p><p>然後，直通鼠標鍵盤到VM中，添加USB設備，選擇鼠標鍵盤，然後添加到VM</p><h2 id="5-安裝Mojave"><a href="#5-安裝Mojave" class="headerlink" title="5 安裝Mojave"></a>5 安裝Mojave</h2><p>現在啟動你的虛擬機，若你設置了直通，啟動的一瞬間會發生以下事情</p><ul><li>連接在你顯卡的顯示器應該會從PVE的ttl介面變為黑屏，然後變成OVMF UEFI啟動介面。</li><li>你的鍵盤鼠標這時候也可以直接控制虛擬機。</li></ul><p>在啟動的時候趕快按下F2以進入OVMF設置畫面。</p><ol><li>進入Device Manager</li><li>選擇OVMF platform configuration</li><li>設置分辨率為1920x1080</li><li>保存設置</li><li>在根菜單下選擇Reset（不是continue）</li></ol><p>然後你應該進入了Clover，接下來跟著指引安裝系統<br>全部安裝完畢之後，再次啟動時</p><ol><li>手動按下F2</li><li>選定Clover啟動項</li></ol><p>然後才會看到磁盤內的Mac系統。<br>進入Mac系統後，打開終端，輸入<code>diskutil list</code><br>以檢查設備<br>然後輸入<code>sudo dd if=&lt;Clover CD的EFI分區&gt; of=&lt;硬盤的EFI分區&gt;</code><br>將Clover安裝到硬盤中</p><blockquote><p>你也可以忽略這一步，將Clover CD永久掛載在虛擬機下</p></blockquote><p>關機，移除CLover CD，從硬盤啟動。</p>]]></content>
     
     <summary type="html">
     
@@ -242,23 +242,23 @@
     
     </summary>
     
-      <category term="技術相關" scheme="https://cupkappu.github.io/categories/%E6%8A%80%E8%A1%93%E7%9B%B8%E9%97%9C/"/>
+      <category term="技術相關" scheme="https://www.kappu.ml/categories/%E6%8A%80%E8%A1%93%E7%9B%B8%E9%97%9C/"/>
     
     
-      <category term="Proxmox" scheme="https://cupkappu.github.io/tags/Proxmox/"/>
+      <category term="Proxmox" scheme="https://www.kappu.ml/tags/Proxmox/"/>
     
-      <category term="黑蘋果" scheme="https://cupkappu.github.io/tags/%E9%BB%91%E8%98%8B%E6%9E%9C/"/>
+      <category term="黑蘋果" scheme="https://www.kappu.ml/tags/%E9%BB%91%E8%98%8B%E6%9E%9C/"/>
     
-      <category term="macOS" scheme="https://cupkappu.github.io/tags/macOS/"/>
+      <category term="macOS" scheme="https://www.kappu.ml/tags/macOS/"/>
     
-      <category term="直通" scheme="https://cupkappu.github.io/tags/%E7%9B%B4%E9%80%9A/"/>
+      <category term="直通" scheme="https://www.kappu.ml/tags/%E7%9B%B4%E9%80%9A/"/>
     
   </entry>
   
   <entry>
     <title>安裝Proxmox VE</title>
-    <link href="https://cupkappu.github.io/2019/08/20/%E5%AE%89%E8%A3%9DProxmox%20VE/"/>
-    <id>https://cupkappu.github.io/2019/08/20/安裝Proxmox VE/</id>
+    <link href="https://www.kappu.ml/2019/08/20/%E5%AE%89%E8%A3%9DProxmox%20VE/"/>
+    <id>https://www.kappu.ml/2019/08/20/安裝Proxmox VE/</id>
     <published>2019-08-19T16:00:00.000Z</published>
     <updated>2019-08-22T10:25:33.713Z</updated>
     
@@ -276,19 +276,19 @@
     
     </summary>
     
-      <category term="技術相關" scheme="https://cupkappu.github.io/categories/%E6%8A%80%E8%A1%93%E7%9B%B8%E9%97%9C/"/>
+      <category term="技術相關" scheme="https://www.kappu.ml/categories/%E6%8A%80%E8%A1%93%E7%9B%B8%E9%97%9C/"/>
     
     
-      <category term="Proxmox" scheme="https://cupkappu.github.io/tags/Proxmox/"/>
+      <category term="Proxmox" scheme="https://www.kappu.ml/tags/Proxmox/"/>
     
-      <category term="教程" scheme="https://cupkappu.github.io/tags/%E6%95%99%E7%A8%8B/"/>
+      <category term="教程" scheme="https://www.kappu.ml/tags/%E6%95%99%E7%A8%8B/"/>
     
   </entry>
   
   <entry>
     <title>實現家庭綜合服務器——給Proxmox VE中的Win10直通顯卡</title>
-    <link href="https://cupkappu.github.io/2019/08/20/%E5%AF%A6%E7%8F%BE%E5%AE%B6%E5%BA%AD%E7%B6%9C%E5%90%88%E6%9C%8D%E5%8B%99%E5%99%A8%E2%80%94%E2%80%94%E7%B5%A6Proxmox%20VE%E4%B8%AD%E7%9A%84Win10%E7%9B%B4%E9%80%9A%E9%A1%AF%E5%8D%A1/"/>
-    <id>https://cupkappu.github.io/2019/08/20/實現家庭綜合服務器——給Proxmox VE中的Win10直通顯卡/</id>
+    <link href="https://www.kappu.ml/2019/08/20/%E5%AF%A6%E7%8F%BE%E5%AE%B6%E5%BA%AD%E7%B6%9C%E5%90%88%E6%9C%8D%E5%8B%99%E5%99%A8%E2%80%94%E2%80%94%E7%B5%A6Proxmox%20VE%E4%B8%AD%E7%9A%84Win10%E7%9B%B4%E9%80%9A%E9%A1%AF%E5%8D%A1/"/>
+    <id>https://www.kappu.ml/2019/08/20/實現家庭綜合服務器——給Proxmox VE中的Win10直通顯卡/</id>
     <published>2019-08-19T16:00:00.000Z</published>
     <updated>2019-08-22T10:25:33.714Z</updated>
     
@@ -302,12 +302,12 @@
     
     </summary>
     
-      <category term="技術相關" scheme="https://cupkappu.github.io/categories/%E6%8A%80%E8%A1%93%E7%9B%B8%E9%97%9C/"/>
+      <category term="技術相關" scheme="https://www.kappu.ml/categories/%E6%8A%80%E8%A1%93%E7%9B%B8%E9%97%9C/"/>
     
     
-      <category term="Proxmox" scheme="https://cupkappu.github.io/tags/Proxmox/"/>
+      <category term="Proxmox" scheme="https://www.kappu.ml/tags/Proxmox/"/>
     
-      <category term="直通" scheme="https://cupkappu.github.io/tags/%E7%9B%B4%E9%80%9A/"/>
+      <category term="直通" scheme="https://www.kappu.ml/tags/%E7%9B%B4%E9%80%9A/"/>
     
   </entry>
   
