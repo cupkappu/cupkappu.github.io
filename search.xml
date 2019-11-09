@@ -1,6 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[如何使用Windows版本的dd工具]]></title>
+    <url>%2F2019%2F11%2F09%2FUsege_dd_for_windows%2F</url>
+    <content type="text"><![CDATA[Windows版本的dd與Linux / macOS下的差異不大，只不過驅動器名稱相當的詭異。在windows下，dd命令使用以下標識來代表驅動器 1\\.\a: #a代表盤符 將1.img刻入e盤即為 1dd.exe if=1.img of=\\.\e]]></content>
+      <categories>
+        <category>技術相關</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>Windows</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[系統學習框架 —— 如何開始學習完全不懂的一樣學科]]></title>
+    <url>%2F2019%2F10%2F27%2FStudying_system_theory%2F</url>
+    <content type="text"><![CDATA[任何的學習都需要一定的耐心、通過不斷的實踐纍積經驗。不過，“學習”具體是什麽，我們是如何學習的？老師是如何教導我們知識的？ 基礎的要素任何的學習都需要瞭解以下幾個學科要素 術語：任何理論都需要一套術語對學科内發生的現象進行描述或總結，方便邏輯思考。 舉例而言，音樂中的CDEFGAB七個音的名稱是用於描述7個音高的，拍子數是用於描述音之間的時間關係的。 思維模式：任意的理論]]></content>
+      <categories>
+        <category>生活心得</category>
+      </categories>
+      <tags>
+        <tag>學習</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[時間管理（三） —— 初步實踐：拆分一首曲子的創作流程]]></title>
     <url>%2F2019%2F08%2F24%2FMISSION_MANAGEMENT_3%2F</url>
     <content type="text"><![CDATA[上一篇討論了如何將需要連續進行的事情拆分爲小事件。 先開坑，之後有空補上。]]></content>

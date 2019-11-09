@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.kappu.ml/"/>
-  <updated>2019-08-24T02:29:43.345Z</updated>
+  <updated>2019-11-09T16:32:41.423Z</updated>
   <id>https://www.kappu.ml/</id>
   
   <author>
@@ -15,6 +15,56 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>如何使用Windows版本的dd工具</title>
+    <link href="https://www.kappu.ml/2019/11/09/Usege_dd_for_windows/"/>
+    <id>https://www.kappu.ml/2019/11/09/Usege_dd_for_windows/</id>
+    <published>2019-11-09T14:30:00.000Z</published>
+    <updated>2019-11-09T16:32:41.423Z</updated>
+    
+    <content type="html"><![CDATA[<p>Windows版本的dd與Linux / macOS下的差異不大，只不過驅動器名稱相當的詭異。<br>在windows下，dd命令使用以下標識來代表驅動器</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\\.\a: #a代表盤符</span><br></pre></td></tr></table></figure><p>將<code>1.img</code>刻入e盤即為</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dd.exe if=1.img of=\\.\e</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;Windows版本的dd與Linux / macOS下的差異不大，只不過驅動器名稱相當的詭異。&lt;br&gt;在windows下，dd命令使用以下標識來代表驅動器&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;g
+      
+    
+    </summary>
+    
+      <category term="技術相關" scheme="https://www.kappu.ml/categories/%E6%8A%80%E8%A1%93%E7%9B%B8%E9%97%9C/"/>
+    
+    
+      <category term="Linux" scheme="https://www.kappu.ml/tags/Linux/"/>
+    
+      <category term="Windows" scheme="https://www.kappu.ml/tags/Windows/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>系統學習框架 —— 如何開始學習完全不懂的一樣學科</title>
+    <link href="https://www.kappu.ml/2019/10/27/Studying_system_theory/"/>
+    <id>https://www.kappu.ml/2019/10/27/Studying_system_theory/</id>
+    <published>2019-10-26T16:08:00.000Z</published>
+    <updated>2019-11-09T16:32:41.423Z</updated>
+    
+    <content type="html"><![CDATA[<p>任何的學習都需要一定的耐心、通過不斷的實踐纍積經驗。不過，“學習”具體是什麽，我們是如何學習的？老師是如何教導我們知識的？</p><a id="more"></a><h1 id="基礎的要素"><a href="#基礎的要素" class="headerlink" title="基礎的要素"></a>基礎的要素</h1><p>任何的學習都需要瞭解以下幾個學科要素</p><ol><li><p><strong>術語</strong>：任何理論都需要一套術語對學科内發生的現象進行描述或總結，方便邏輯思考。</p><p>舉例而言，音樂中的CDEFGAB七個音的名稱是用於描述7個音高的，拍子數是用於描述音之間的時間關係的。</p></li><li><p><strong>思維模式</strong>：任意的理論</p></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;任何的學習都需要一定的耐心、通過不斷的實踐纍積經驗。不過，“學習”具體是什麽，我們是如何學習的？老師是如何教導我們知識的？&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="生活心得" scheme="https://www.kappu.ml/categories/%E7%94%9F%E6%B4%BB%E5%BF%83%E5%BE%97/"/>
+    
+    
+      <category term="學習" scheme="https://www.kappu.ml/tags/%E5%AD%B8%E7%BF%92/"/>
+    
+  </entry>
   
   <entry>
     <title>時間管理（三） —— 初步實踐：拆分一首曲子的創作流程</title>
