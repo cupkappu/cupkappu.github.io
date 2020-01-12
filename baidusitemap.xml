@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://www.kappu.ml/2020/01/13/%E8%A8%98%E9%8C%84B%E7%AB%99ban%E4%BA%86%E6%B5%B7%E5%A4%96%E7%9B%B4%E6%92%AD%E4%B9%8B%E5%BE%8C%E7%9A%84%E8%89%B1%E8%BE%9B%E5%8F%8D%E5%90%91%E7%BF%BB%E5%A2%BB%E6%AD%B7%E7%A8%8B/</loc>
+    <lastmod>2020-01-12</lastmod>
+  </url>  <url>
+    <loc>https://www.kappu.ml/2019/11/10/study_of_rsa/</loc>
+    <lastmod>2019-11-09</lastmod>
+  </url>  <url>
+    <loc>https://www.kappu.ml/2019/11/10/manjaro_kde_passwd/</loc>
+    <lastmod>2019-11-09</lastmod>
+  </url>  <url>
     <loc>https://www.kappu.ml/2019/10/27/Studying_system_theory/</loc>
     <lastmod>2019-11-09</lastmod>
   </url>  <url>
@@ -16,10 +25,10 @@
     <loc>https://www.kappu.ml/2019/08/21/MISSION_MANAGEMENT_1/</loc>
     <lastmod>2019-08-23</lastmod>
   </url>  <url>
-    <loc>https://www.kappu.ml/2019/08/20/HEXO_STUDY_3/</loc>
+    <loc>https://www.kappu.ml/2019/08/20/HEXO_STUDY_2/</loc>
     <lastmod>2019-08-22</lastmod>
   </url>  <url>
-    <loc>https://www.kappu.ml/2019/08/20/HEXO_STUDY_2/</loc>
+    <loc>https://www.kappu.ml/2019/08/20/HEXO_STUDY_3/</loc>
     <lastmod>2019-08-22</lastmod>
   </url>  <url>
     <loc>https://www.kappu.ml/2019/08/20/HEXO_STUDY_1/</loc>
@@ -31,10 +40,10 @@
     <loc>https://www.kappu.ml/2019/08/21/%E8%AE%93Markdown%E6%96%87%E6%AA%94%E4%B8%80%E7%A7%92%E8%BD%89%E6%8F%9B%E7%82%BAKeynote%E6%BC%94%E7%A4%BA%E6%96%87%E6%AA%94%20%E2%80%94%E2%80%94%20md2key%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98/</loc>
     <lastmod>2019-08-22</lastmod>
   </url>  <url>
-    <loc>https://www.kappu.ml/2019/08/20/%E5%AE%89%E8%A3%9DProxmox%20VE/</loc>
+    <loc>https://www.kappu.ml/2019/08/20/%E5%9C%A8Proxmox%E4%B8%AD%E5%AE%89%E8%A3%9DmacOS%20Mojave%E4%B8%A6%E8%A8%AD%E7%BD%AE%E7%9B%B4%E9%80%9A%E9%A1%AF%E5%8D%A1/</loc>
     <lastmod>2019-08-22</lastmod>
   </url>  <url>
-    <loc>https://www.kappu.ml/2019/08/20/%E5%9C%A8Proxmox%E4%B8%AD%E5%AE%89%E8%A3%9DmacOS%20Mojave%E4%B8%A6%E8%A8%AD%E7%BD%AE%E7%9B%B4%E9%80%9A%E9%A1%AF%E5%8D%A1/</loc>
+    <loc>https://www.kappu.ml/2019/08/20/%E5%AE%89%E8%A3%9DProxmox%20VE/</loc>
     <lastmod>2019-08-22</lastmod>
   </url>  <url>
     <loc>https://www.kappu.ml/2019/08/22/HEXO_STUDY_4/</loc>

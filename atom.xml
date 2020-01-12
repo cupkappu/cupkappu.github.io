@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.kappu.ml/"/>
-  <updated>2019-11-09T16:32:41.423Z</updated>
+  <updated>2020-01-12T19:12:52.887Z</updated>
   <id>https://www.kappu.ml/</id>
   
   <author>
@@ -15,6 +15,86 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>記錄B站ban了海外直播后的艱辛反向翻墻歷程</title>
+    <link href="https://www.kappu.ml/2020/01/13/%E8%A8%98%E9%8C%84B%E7%AB%99ban%E4%BA%86%E6%B5%B7%E5%A4%96%E7%9B%B4%E6%92%AD%E4%B9%8B%E5%BE%8C%E7%9A%84%E8%89%B1%E8%BE%9B%E5%8F%8D%E5%90%91%E7%BF%BB%E5%A2%BB%E6%AD%B7%E7%A8%8B/"/>
+    <id>https://www.kappu.ml/2020/01/13/記錄B站ban了海外直播之後的艱辛反向翻墻歷程/</id>
+    <published>2020-01-12T16:00:00.000Z</published>
+    <updated>2020-01-12T19:12:52.887Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="發生了什麽"><a href="#發生了什麽" class="headerlink" title="發生了什麽"></a>發生了什麽</h1><p>事情緣起于2018年我有一天突發奇想想在Bilibili直播玩游戲，或者稍微編編曲。於是我開開心心的打開了我常用的B站賬號，打開直播中心，按下開始直播按鍵，<strong>它提示我系統升級維護中</strong>。我就乖乖的等了幾天，再次打開，仍然是升級維護中。</p><p>於是我找了客服，詢問是什麽升級維護。客服回答得含含糊糊，口齒不清，就是一股不想回答的氣息，<strong>氣得我反向抽烟燙到自己嘴巴</strong>。我放下這個事情，把心思擺回到工作學習上。慢慢忘了這檔子事情。</p><p>三個月後，開始看vtuber。那時候已經是9102年，vtuber也時不時會在b站做做b限。在dd的途中，我突然又想起來關於我直播間的那檔事情。再去開了一下，<strong>依然是系統升級維護中</strong>。這時候我感到事情并不簡單。</p><p>質問了一輪客服，問了問不同的大佬，大概瞭解到是部分海外人士在b站直播的時候提及敏感話題（就是台灣香港南北韓兩伊印度新疆西藏balabala），導致只有b站做了這種一刀切的劣質處理。本來作爲一個剛剛起步的小公司，一刀切一段時間整頓這個玩意也是無可厚非，畢竟是在中國大陸做生意，有些規則確實需要遵循。我心想沒準過多幾個月就能研討出整套的解決方案了吧。</p><p>於是到了2019年年尾，我想給群友演示編曲和游戲的時候，感覺qq的直播極爲弱智，突然又回想到了b站的事情。再上去一看，<strong>仍然是系統升級維護中</strong>。</p><p>成，那我自己看看你到底在維護什麽。</p><h1 id="身份認同與身份證明"><a href="#身份認同與身份證明" class="headerlink" title="身份認同與身份證明"></a>身份認同與身份證明</h1><p>香港居民不配當中國人，全中國的互聯網公司都是這麽定義的。現在，港臺居民注冊b站想要“開通直播功能”，据b站官方所稱需要拍護照或者回鄉證進行實名認證。實際上，我早在2016年已經完成實名認證，2017年也確實可以正常直播，但到了2018年，這個條款説明也沒有變更，不過我就是無法正常開啓直播功能了。</p><p>据不同的消息來源所稱，現在免報備直播主要受到以下兩點限制：</p><ol><li>僅允許大陸IP進行免報備直播</li><li>僅允許大陸居民身份證實名認證用戶進行免報備直播</li></ol><blockquote><p>報備：向b站官方進行活動審核，以進行直播</p></blockquote><p>據我所知，無大陸居民身份證實名認證的賬戶無論是否大陸IP與是否報備，一般都不會允許進行直播。也就是説，在B站現今實際情況下，港澳臺與海外用戶是無法通過正常的手段進行個人直播的。而且，包括港澳臺和海外用戶，<strong>所有的實名認證操作均不可逆不可更改</strong>。</p><p><em>在B站，你想自由的直播，需要僞裝成一個住在大陸的大陸人。</em></p><h1 id="手段"><a href="#手段" class="headerlink" title="手段"></a>手段</h1><p>進入正篇。</p><p><strong>第一個問題：</strong> 僅允許大陸IP進行免報備直播。解決方法其實挺簡單明瞭。只需要在大陸購置一臺vps架設代理服務器便解決了問題。</p><p>不過，畢竟只有直播軟件和瀏覽器會受到b站的ip審查，如果通過普通的代理方法，要麽只能代理瀏覽器，要麽就是全局代理。這個情況和大陸居民翻出來YouTube進行直播的情況是極爲類似的。我在這裏使用了以下兩個工具：</p><ol><li>SSR-win：將SSR協議轉換爲HTTP協議。</li><li>Proxifier：為不同的軟件配置不同的網路方案，這軟件支持HTTP代理協議。</li></ol><p>Proxifier的教程不少，如果有一點點代理相關知識的人應該知道代理實際上就是讓你的代理服務器成爲你的軟件請求的代理人。我們只需要把OBS以及一個專門用來訪問B站的瀏覽器（例如Firefox）代理到大陸，別的軟件不需要回國。具體的教程網上很多，這裏不過多贅述，僅僅提一點。</p><p><strong>規則設置中，OBS安裝目錄下的所有exe麻煩全部勾上去，完成後，方案下被代理的軟件列表應如下：</strong></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">obs64.exe; obs-ffmpeg-mux.exe; obs-browser-page.exe; vlc.exe; node.exe</span><br></pre></td></tr></table></figure><p>再提一個比較重要的事情。大陸的Vps服務器近兩年價格愈加嚇人，一般的1M VPS月租都要六七十塊錢，3M帶寬的甚至需要上三四百塊錢的月租，所以現在可能有許多人會選擇<strong>NAT VPS</strong>。</p><p><strong>但要注意，NAT VPS在不同的綫路下的表現差距特別大</strong>。一般來説，接近上海和深圳這兩個出口點的服務器都會比較優質，電信的出口綫路質量一般都比另外兩大運營商要優秀。如果你和我一樣在香港，便宜的NAT VPS服務器裏可能只有東莞的VPS可以選擇。深圳地價高沒什麽小廠商會去開機房，大部分機房都在江蘇安徽浙江一帶，那一帶的對外綫路質量又參差不齊。具體可以上網查找別人關於翻墻中轉NAT VPS的選擇心得。</p><p>第二點，或許有兩個方法。</p><p>第一個方法，也是我本人用的方法，就是<strong>請求信任的人幫忙認證，注冊新的賬號，成爲你在B站上的靈魂</strong>。這個方法簡單且快捷，但是實行起來卻會有不少疑慮和擔心。而且，如果是特純種香港人台灣人，和大陸聯係不多，這個方法更是比較難適用。</p><p>第二個方法，就是返回大陸申請居住證，用居住證進行實名認證。這個方法我沒有實證過，關於如何申請居住證以及有什麽條件，我也沒有實際操作過。這裏僅僅是提出一種可能性。（但僅僅爲了閑暇時間直播而申請居住證，未免太大費周章）</p><h1 id="怠惰"><a href="#怠惰" class="headerlink" title="怠惰"></a>怠惰</h1><p>總而言之，B站作爲一個互聯網公司，坐擁全國最多的綜合視頻流量，身爲全國綜合視頻和直播的壟斷龍頭，理應有相應的執行力和技術能力解決政治言論上的杯葛。即便是報備，也可以將報備流程做的系統化和程序化，在網頁上實現類似視頻和封面審核的報備流程。但是這并沒有發生，實際原因爲何，也不得而知，只能任我們猜想。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;發生了什麽&quot;&gt;&lt;a href=&quot;#發生了什麽&quot; class=&quot;headerlink&quot; title=&quot;發生了什麽&quot;&gt;&lt;/a&gt;發生了什麽&lt;/h1&gt;&lt;p&gt;事情緣起于2018年我有一天突發奇想想在Bilibili直播玩游戲，或者稍微編編曲。於是我開開心心的打開了我常用的B
+      
+    
+    </summary>
+    
+      <category term="生活心得" scheme="https://www.kappu.ml/categories/%E7%94%9F%E6%B4%BB%E5%BF%83%E5%BE%97/"/>
+    
+    
+      <category term="心得" scheme="https://www.kappu.ml/tags/%E5%BF%83%E5%BE%97/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>RSA非對稱加密算法學習筆記</title>
+    <link href="https://www.kappu.ml/2019/11/10/study_of_rsa/"/>
+    <id>https://www.kappu.ml/2019/11/10/study_of_rsa/</id>
+    <published>2019-11-09T16:00:00.000Z</published>
+    <updated>2019-11-09T18:38:29.508Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="這是啥"><a href="#這是啥" class="headerlink" title="這是啥"></a>這是啥</h1><p>RSA算法是一種非對稱加密算法，他的原理完全基於歐拉定理，而歐拉定理基於歐拉函數……歐拉函數基於互質……互質則確定了兩個數字之間的唯一性……</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">歐拉函數：φ(n) = n-1</span><br><span class="line">歐拉定理：如果兩個正整數a和n互質，則n的歐拉函數 φ(n) 可以讓下面的等式成立：a^φ(n)%n=1</span><br><span class="line">其中%是取餘數之含義</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;這是啥&quot;&gt;&lt;a href=&quot;#這是啥&quot; class=&quot;headerlink&quot; title=&quot;這是啥&quot;&gt;&lt;/a&gt;這是啥&lt;/h1&gt;&lt;p&gt;RSA算法是一種非對稱加密算法，他的原理完全基於歐拉定理，而歐拉定理基於歐拉函數……歐拉函數基於互質……互質則確定了兩個數字之間的唯
+      
+    
+    </summary>
+    
+      <category term="技術相關" scheme="https://www.kappu.ml/categories/%E6%8A%80%E8%A1%93%E7%9B%B8%E9%97%9C/"/>
+    
+    
+      <category term="學習筆記" scheme="https://www.kappu.ml/tags/%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98/"/>
+    
+      <category term="加密" scheme="https://www.kappu.ml/tags/%E5%8A%A0%E5%AF%86/"/>
+    
+      <category term="安全" scheme="https://www.kappu.ml/tags/%E5%AE%89%E5%85%A8/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>manjaro的KDE安裝包之默認密碼</title>
+    <link href="https://www.kappu.ml/2019/11/10/manjaro_kde_passwd/"/>
+    <id>https://www.kappu.ml/2019/11/10/manjaro_kde_passwd/</id>
+    <published>2019-11-09T16:00:00.000Z</published>
+    <updated>2019-11-09T18:38:29.508Z</updated>
+    
+    <content type="html"><![CDATA[<p>manjaro安裝過程中會自動鎖屏，而且系統自帶密碼，manjaro賬戶的默認密碼為<code>manjaro</code>。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;manjaro安裝過程中會自動鎖屏，而且系統自帶密碼，manjaro賬戶的默認密碼為&lt;code&gt;manjaro&lt;/code&gt;。&lt;/p&gt;
+
+      
+    
+    </summary>
+    
+      <category term="技術相關" scheme="https://www.kappu.ml/categories/%E6%8A%80%E8%A1%93%E7%9B%B8%E9%97%9C/"/>
+    
+    
+      <category term="Linux" scheme="https://www.kappu.ml/tags/Linux/"/>
+    
+  </entry>
   
   <entry>
     <title>如何使用Windows版本的dd工具</title>
@@ -127,7 +207,7 @@
     <link href="https://www.kappu.ml/2019/08/22/HEXO_STUDY_4/"/>
     <id>https://www.kappu.ml/2019/08/22/HEXO_STUDY_4/</id>
     <published>2019-08-22T08:42:18.000Z</published>
-    <updated>2019-08-22T10:08:25.668Z</updated>
+    <updated>2019-08-22T10:08:25.669Z</updated>
     
     <content type="html"><![CDATA[<p>關於多端同步依然還有一些東西可以略微分享。我們可以使用Github的webhook功能，對儲存源碼和文章md文件的repo進行pull操作后，自動將網頁輸出然後push到博客端。</p><blockquote><p>講實話，這玩意真的挺麻煩，我折騰了特別久，結果還是最最最簡單的辦法：http訪問就推送，最爲方便。</p></blockquote><a id="more"></a><h1 id="在VPS上安裝hexo的運行環境"><a href="#在VPS上安裝hexo的運行環境" class="headerlink" title="在VPS上安裝hexo的運行環境"></a>在VPS上安裝hexo的運行環境</h1><p>這方面已經在<a href="/2019/08/20/20190820">第一篇文章</a>詳細講過，無非就是安裝nodejs, hexo-cli等等。</p><p><strong>這裏不重複闡述</strong></p><h1 id="給VPS設置在Github上的通用SSH授權"><a href="#給VPS設置在Github上的通用SSH授權" class="headerlink" title="給VPS設置在Github上的通用SSH授權"></a>給VPS設置在Github上的通用SSH授權</h1><p>輸入以下代碼創建一個ssh key</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &quot;your_email@example.com&quot;</span><br></pre></td></tr></table></figure><p>然後複製~/.ssh/id_rsa.pub文件内的所有内容，打開github的setting中的<a href="https://github.com/settings/keys" target="_blank" rel="noopener">SSH and GPG keys</a></p><p>添加SSH Key即可<br><img src="/images/github-setssh.png" alt></p><h1 id="在VPS上克隆自己創建的庫"><a href="#在VPS上克隆自己創建的庫" class="headerlink" title="在VPS上克隆自己創建的庫"></a>在VPS上克隆自己創建的庫</h1><p>在第二篇文章中我們創建了一個同步庫，裏面存放著hexo的源碼，用來進行多端同步。現在將他克隆到vps上</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">mkdir auto</span><br><span class="line"><span class="built_in">cd</span> auto</span><br><span class="line">git <span class="built_in">clone</span> git@github.com:yourname/blog.git</span><br><span class="line"><span class="built_in">cd</span> blog</span><br><span class="line">npm install</span><br><span class="line">git pull</span><br></pre></td></tr></table></figure><p>然後安裝pm2管理後臺應用</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g pm2</span><br></pre></td></tr></table></figure><p>之後，在本地創建一個<code>deploy.js</code>，用nodejs寫一個監聽http請求的脚本</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> http = <span class="built_in">require</span>(<span class="string">'http'</span>);</span><br><span class="line"><span class="keyword">var</span> port = <span class="number">3000</span>; <span class="comment">//監聽端口</span></span><br><span class="line"><span class="keyword">var</span> command = <span class="string">'sh ./deploy.sh'</span> <span class="comment">//運行指令</span></span><br><span class="line"></span><br><span class="line">http.createServer(<span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>)</span>&#123;</span><br><span class="line">    res.writeHead(<span class="number">200</span>, &#123;<span class="string">'content-type'</span>: <span class="string">'text/plain'</span>&#125;);</span><br><span class="line">    deploy = <span class="built_in">require</span>(<span class="string">'child_process'</span>).exec(command,&#123;&#125;,<span class="function"><span class="keyword">function</span>(<span class="params">err,stdout,stderr</span>)</span>&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">'deploy.'</span>)</span><br><span class="line">    &#125;);</span><br><span class="line">    res.end(<span class="string">'It works'</span>);</span><br><span class="line">&#125;).listen(port);</span><br></pre></td></tr></table></figure><p>再創建一個<code>deploy.sh</code>進行<code>pull</code>和<code>hexo g -d</code>操作。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line">git pull</span><br><span class="line">hexo clean</span><br><span class="line">hexo g -d</span><br></pre></td></tr></table></figure><p>這時候監聽服務應該可以運作了。先在別的設備更改一下hexo源碼並push到github，然後試著運行以下代碼。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">node ./deploy.js</span><br></pre></td></tr></table></figure><p>訪問vps的<code>http://ip:3000</code>。若你的ip為<code>100.100.100.100</code>，則訪問<code>http://100.100.100.100:3000</code>，不出意外網頁會返回<code>It works</code>，vps控制臺會輸出<code>deploy.</code></p><p>按下<code>Ctrl</code>+<code>C</code>關閉node，輸入<code>pm2 start deploy.js</code>將服務運行在後臺，然後開始配置github</p><h1 id="Github端的配置"><a href="#Github端的配置" class="headerlink" title="Github端的配置"></a>Github端的配置</h1><p>進入你的同步代碼倉庫，點擊上方的Setting。<br><img src="/images/github-repo-setting.png" alt></p><p>然後點擊左方的Webhooks，添加新的webhook<br><img src="/images/github-repo-webhooks.png" alt></p><p>進入后，</p><ol><li>在Payload URL中填入你剛剛訪問的網址（<strong>包括端口</strong>）</li><li>直接點擊Add webhook。<br><img src="/images/github-repo-newwebhooks.png" alt></li></ol><p>然後使用另一臺機器，更改一下你的文章，將blog文件夾更新到github，觀察博客頁面有沒有變化。</p>]]></content>
     
