@@ -25,6 +25,17 @@
       </tags>
   </entry>
   <entry>
+    <title><![CDATA[manjaro的KDE安裝包之默認密碼]]></title>
+    <url>%2F2019%2F11%2F10%2Fmanjaro_kde_passwd%2F</url>
+    <content type="text"><![CDATA[manjaro安裝過程中會自動鎖屏，而且系統自帶密碼，manjaro賬戶的默認密碼為manjaro。]]></content>
+      <categories>
+        <category>技術相關</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[RSA非對稱加密算法學習筆記]]></title>
     <url>%2F2019%2F11%2F10%2Fstudy_of_rsa%2F</url>
     <content type="text"><![CDATA[這是啥RSA算法是一種非對稱加密算法，他的原理完全基於歐拉定理，而歐拉定理基於歐拉函數……歐拉函數基於互質……互質則確定了兩個數字之間的唯一性…… 123歐拉函數：φ(n) = n-1歐拉定理：如果兩個正整數a和n互質，則n的歐拉函數 φ(n) 可以讓下面的等式成立：a^φ(n)%n=1其中%是取餘數之含義]]></content>
@@ -35,17 +46,6 @@
         <tag>學習筆記</tag>
         <tag>加密</tag>
         <tag>安全</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[manjaro的KDE安裝包之默認密碼]]></title>
-    <url>%2F2019%2F11%2F10%2Fmanjaro_kde_passwd%2F</url>
-    <content type="text"><![CDATA[manjaro安裝過程中會自動鎖屏，而且系統自帶密碼，manjaro賬戶的默認密碼為manjaro。]]></content>
-      <categories>
-        <category>技術相關</category>
-      </categories>
-      <tags>
-        <tag>Linux</tag>
       </tags>
   </entry>
   <entry>

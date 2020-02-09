@@ -71,6 +71,32 @@
   </entry>
   
   <entry>
+    <title>manjaro的KDE安裝包之默認密碼</title>
+    <link href="https://www.kappu.ml/2019/11/10/manjaro_kde_passwd/"/>
+    <id>https://www.kappu.ml/2019/11/10/manjaro_kde_passwd/</id>
+    <published>2019-11-09T16:00:00.000Z</published>
+    <updated>2019-11-09T18:38:29.508Z</updated>
+    
+    <content type="html"><![CDATA[<p>manjaro安裝過程中會自動鎖屏，而且系統自帶密碼，manjaro賬戶的默認密碼為<code>manjaro</code>。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;manjaro安裝過程中會自動鎖屏，而且系統自帶密碼，manjaro賬戶的默認密碼為&lt;code&gt;manjaro&lt;/code&gt;。&lt;/p&gt;
+
+      
+    
+    </summary>
+    
+      <category term="技術相關" scheme="https://www.kappu.ml/categories/%E6%8A%80%E8%A1%93%E7%9B%B8%E9%97%9C/"/>
+    
+    
+      <category term="Linux" scheme="https://www.kappu.ml/tags/Linux/"/>
+    
+  </entry>
+  
+  <entry>
     <title>RSA非對稱加密算法學習筆記</title>
     <link href="https://www.kappu.ml/2019/11/10/study_of_rsa/"/>
     <id>https://www.kappu.ml/2019/11/10/study_of_rsa/</id>
@@ -96,32 +122,6 @@
       <category term="加密" scheme="https://www.kappu.ml/tags/%E5%8A%A0%E5%AF%86/"/>
     
       <category term="安全" scheme="https://www.kappu.ml/tags/%E5%AE%89%E5%85%A8/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>manjaro的KDE安裝包之默認密碼</title>
-    <link href="https://www.kappu.ml/2019/11/10/manjaro_kde_passwd/"/>
-    <id>https://www.kappu.ml/2019/11/10/manjaro_kde_passwd/</id>
-    <published>2019-11-09T16:00:00.000Z</published>
-    <updated>2019-11-09T18:38:29.508Z</updated>
-    
-    <content type="html"><![CDATA[<p>manjaro安裝過程中會自動鎖屏，而且系統自帶密碼，manjaro賬戶的默認密碼為<code>manjaro</code>。</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;manjaro安裝過程中會自動鎖屏，而且系統自帶密碼，manjaro賬戶的默認密碼為&lt;code&gt;manjaro&lt;/code&gt;。&lt;/p&gt;
-
-      
-    
-    </summary>
-    
-      <category term="技術相關" scheme="https://www.kappu.ml/categories/%E6%8A%80%E8%A1%93%E7%9B%B8%E9%97%9C/"/>
-    
-    
-      <category term="Linux" scheme="https://www.kappu.ml/tags/Linux/"/>
     
   </entry>
   
