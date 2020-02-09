@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Proxmox,黑蘋果,macOS,直通,">
+  <meta name="keywords" content="Github,反向代理,nginx,">
 
 
 
@@ -81,18 +81,24 @@
 
 
 
-<meta name="description" content="在PVE中安裝macOS Mojave並設置直通顯卡先決條件： 8G或以上內存 支持虛擬化以及SSE4.2的cpu   包括AMD與INTEL">
-<meta name="keywords" content="Proxmox,黑蘋果,macOS,直通">
+<meta name="description" content="前言最近在折騰國内vps，實現反向翻墻，方便看國内的正版資源，加速國内網盤的訪問以及免報備B站直播。但是架設各種服務的時候脫離不了Github這個世界上最大的同性交友網站。 於是想到了先前很久都在用的寶塔vps，創建了一個靜態站做反向代理。 需要使用的工具 國内能正常訪問的海外Vps 寶塔面板  過程若沒有安裝寶塔面板，先用以下命令安裝寶塔 1curl -sSO http://download.b">
+<meta name="keywords" content="Github,反向代理,nginx">
 <meta property="og:type" content="article">
-<meta property="og:title" content="在Proxmox中安裝macOS Mojave並設置直通顯卡">
-<meta property="og:url" content="https://www.kappu.ml/2019/08/20/在Proxmox中安裝macOS Mojave並設置直通顯卡/index.html">
+<meta property="og:title" content="反向代理Github，加速國內vps從Github扒文件的速度">
+<meta property="og:url" content="https://www.kappu.ml/2020/02/09/反向代理github/index.html">
 <meta property="og:site_name" content="木不子的窒息小茶室">
-<meta property="og:description" content="在PVE中安裝macOS Mojave並設置直通顯卡先決條件： 8G或以上內存 支持虛擬化以及SSE4.2的cpu   包括AMD與INTEL">
+<meta property="og:description" content="前言最近在折騰國内vps，實現反向翻墻，方便看國内的正版資源，加速國内網盤的訪問以及免報備B站直播。但是架設各種服務的時候脫離不了Github這個世界上最大的同性交友網站。 於是想到了先前很久都在用的寶塔vps，創建了一個靜態站做反向代理。 需要使用的工具 國内能正常訪問的海外Vps 寶塔面板  過程若沒有安裝寶塔面板，先用以下命令安裝寶塔 1curl -sSO http://download.b">
 <meta property="og:locale" content="zh-hk">
-<meta property="og:updated_time" content="2019-08-22T10:25:33.713Z">
+<meta property="og:image" content="https://www.kappu.ml/2020/02/09/反向代理github/1581231888685.png">
+<meta property="og:image" content="https://www.kappu.ml/2020/02/09/反向代理github/1581232119934.png">
+<meta property="og:image" content="https://www.kappu.ml/2020/02/09/反向代理github/1581232312244.png">
+<meta property="og:image" content="https://www.kappu.ml/2020/02/09/反向代理github/1581232436903.png">
+<meta property="og:image" content="https://www.kappu.ml/2020/02/09/反向代理github/1581232503464.png">
+<meta property="og:updated_time" content="2020-02-09T07:22:05.157Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="在Proxmox中安裝macOS Mojave並設置直通顯卡">
-<meta name="twitter:description" content="在PVE中安裝macOS Mojave並設置直通顯卡先決條件： 8G或以上內存 支持虛擬化以及SSE4.2的cpu   包括AMD與INTEL">
+<meta name="twitter:title" content="反向代理Github，加速國內vps從Github扒文件的速度">
+<meta name="twitter:description" content="前言最近在折騰國内vps，實現反向翻墻，方便看國内的正版資源，加速國内網盤的訪問以及免報備B站直播。但是架設各種服務的時候脫離不了Github這個世界上最大的同性交友網站。 於是想到了先前很久都在用的寶塔vps，創建了一個靜態站做反向代理。 需要使用的工具 國内能正常訪問的海外Vps 寶塔面板  過程若沒有安裝寶塔面板，先用以下命令安裝寶塔 1curl -sSO http://download.b">
+<meta name="twitter:image" content="https://www.kappu.ml/2020/02/09/反向代理github/1581231888685.png">
 
 
 
@@ -122,13 +128,13 @@
 
 
 
-  <link rel="canonical" href="https://www.kappu.ml/2019/08/20/在Proxmox中安裝macOS Mojave並設置直通顯卡/">
+  <link rel="canonical" href="https://www.kappu.ml/2020/02/09/反向代理github/">
 
 
 
 
 
-  <title>在Proxmox中安裝macOS Mojave並設置直通顯卡 | 木不子的窒息小茶室</title>
+  <title>反向代理Github，加速國內vps從Github扒文件的速度 | 木不子的窒息小茶室</title>
   
 
 
@@ -287,7 +293,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://www.kappu.ml/2019/08/20/在Proxmox中安裝macOS Mojave並設置直通顯卡/">
+    <link itemprop="mainEntityOfPage" href="https://www.kappu.ml/2020/02/09/反向代理github/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="木不子">
@@ -304,7 +310,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">在Proxmox中安裝macOS Mojave並設置直通顯卡</h1>
+          <h1 class="post-title" itemprop="name headline">反向代理Github，加速國內vps從Github扒文件的速度</h1>
         
 
         <div class="post-meta">
@@ -316,8 +322,8 @@
               
                 <span class="post-meta-item-text">發表於</span>
               
-              <time title="創建於" itemprop="dateCreated datePublished" datetime="2019-08-20T00:00:00+08:00">
-                2019-08-20
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2020-02-09T14:55:30+08:00">
+                2020-02-09
               </time>
             
 
@@ -357,8 +363,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2019/08/20/在Proxmox中安裝macOS Mojave並設置直通顯卡/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/08/20/在Proxmox中安裝macOS Mojave並設置直通顯卡/" itemprop="commentCount"></span>
+                <a href="/2020/02/09/反向代理github/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/02/09/反向代理github/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -386,105 +392,30 @@
       
 
       
-        <h1 id="在PVE中安裝macOS-Mojave並設置直通顯卡"><a href="#在PVE中安裝macOS-Mojave並設置直通顯卡" class="headerlink" title="在PVE中安裝macOS Mojave並設置直通顯卡"></a>在PVE中安裝macOS Mojave並設置直通顯卡</h1><h2 id="先決條件："><a href="#先決條件：" class="headerlink" title="先決條件："></a>先決條件：</h2><ul>
-<li>8G或以上內存</li>
-<li>支持虛擬化以及SSE4.2的cpu</li>
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>最近在折騰國内vps，實現反向翻墻，方便看國内的正版資源，加速國内網盤的訪問以及免報備B站直播。但是架設各種服務的時候脫離不了Github這個世界上最大的同性交友網站。</p>
+<p>於是想到了先前很久都在用的寶塔vps，創建了一個靜態站做反向代理。</p>
+<h1 id="需要使用的工具"><a href="#需要使用的工具" class="headerlink" title="需要使用的工具"></a>需要使用的工具</h1><ul>
+<li>國内能正常訪問的海外Vps</li>
+<li>寶塔面板</li>
 </ul>
+<h1 id="過程"><a href="#過程" class="headerlink" title="過程"></a>過程</h1><p>若沒有安裝寶塔面板，先用以下命令安裝寶塔</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -sSO http://download.bt.cn/install/new_install.sh &amp;&amp; bash new_install.sh</span><br></pre></td></tr></table></figure>
+
 <blockquote>
-<p><em>包括AMD與INTEL</em></p>
+<p>建議使用screen命令後臺安裝，安裝寶塔面板有編譯過程，耗時較久。</p>
 </blockquote>
-<a id="more"></a>
-
-<h2 id="1-安裝PVE"><a href="#1-安裝PVE" class="headerlink" title="1 安裝PVE"></a>1 安裝PVE</h2><p><a href="http://www.kappu.ml/index.php/archives/3/">安裝教程</a><br>此處安裝方法與一般的方法相同，推薦將pve系統安裝到usb設備</p>
-<h2 id="2-創建macos安裝鏡像"><a href="#2-創建macos安裝鏡像" class="headerlink" title="2 創建macos安裝鏡像"></a>2 創建macos安裝鏡像</h2><p>在linux或macos系統下運行以下命令</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">wget  https://raw.githubusercontent.com/thenickdude/OSX-KVM/master/fetch-macOS.py</span><br><span class="line">chmod +x fetch-macOS.py</span><br><span class="line">./fetch-macOS.py</span><br></pre></td></tr></table></figure>
-
-<p>在選單中選擇最新的iso，等待下載完成後，運行以下命令，將dmg包轉換成iso包</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># 安裝dmg2img 若你是deb包管理系以外的系統，可以自行查找如何安裝dmg2img</span><br><span class="line">apt-get install dmg2img -y</span><br><span class="line"># 利用dmg2img將基本系統dmg鏡像轉為iso鏡像</span><br><span class="line">dmg2img BaseSystem.dmg Mojave-installer.iso</span><br><span class="line"></span><br><span class="line"># 若你是macOS，請使用以下命令</span><br><span class="line">hdiutil convert BaseSystem.dmg -format RdWr -o Mojave-installer.iso</span><br><span class="line">mv Mojave-installer.iso.img Mojave-installer.iso</span><br></pre></td></tr></table></figure>
-
-<p>然後下載Clover</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># Ubuntu &amp; Debian</span><br><span class="line">apt-get install unzip -y</span><br><span class="line"># Centos &amp; RHEL</span><br><span class="line">yum install unzip -y</span><br><span class="line"># 取得clover</span><br><span class="line">wget https://github.com/thenickdude/OSX-KVM/releases/download/clover-r4920/clover-r4920.iso.zip &amp;&amp; unzip clover-r4920.iso.zip</span><br></pre></td></tr></table></figure>
-
-<p>然後將clover-r4920.iso與Mojave-installer.iso上傳到PVE中</p>
-<h2 id="3-在網頁中創建虛擬機"><a href="#3-在網頁中創建虛擬機" class="headerlink" title="3 在網頁中創建虛擬機"></a>3 在網頁中創建虛擬機</h2><ol>
-<li>OS頁面選擇Clover ISO進行引導</li>
-<li>系統選擇其他（other）</li>
-<li>System頁面的顯示卡選擇VMware兼容</li>
-<li>BIOS選擇OVMF</li>
-<li>Machine選擇q35</li>
-<li>硬盤選擇SATA，緩存設置成Write back（不安全）</li>
-<li>CPU的類型設置成Penryn</li>
-<li>網卡設置成Vmware vmxnet3</li>
-</ol>
-<p>點開虛擬機的硬件選項卡，添加Mojave-installer.iso，選擇ide通道的cd-ram</p>
-<p>先不要啟動虛擬機，在ssh中打開/etc/pve/qemu-server/你的VMID.conf</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nano /etc/pve/qemu-server/你的VMID.conf</span><br></pre></td></tr></table></figure>
-
-<p>然後輸入以下代碼</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">args: -device isa-applesmc,osk=&quot;ourhardworkbythesewordsguardedpleasedontsteal(c)AppleComputerInc&quot; -smbios type=2 -cpu Penryn,kvm=on,vendor=GenuineIntel,+invtsc,vmware-cpuid-freq=on,+pcid,+ssse3,+sse4.2,+popcnt,+avx,+aes,+xsave,+xsaveopt,check -device usb-kbd,bus=ehci.0,port=2</span><br></pre></td></tr></table></figure>
-
-<p>將兩個驅動器的配置中的cdrom刪除，加入cache=unsafe<br>最後的文檔應該看起來像這樣</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">args: -device isa-applesmc,osk=&quot;ourhardworkbythesewordsguardedpleasedontsteal(c)AppleComputerInc&quot; -smbios type=2 -cpu Penryn,kvm=on,vendor=GenuineIntel,+invtsc,vmware-cpuid-freq=on,+pcid,+ssse3,+sse4.2,+popcnt,+avx,+aes,+xsave,+xsaveopt,check -device usb-kbd,bus=ehci.0,port=2</span><br><span class="line">balloon: 0</span><br><span class="line">bios: ovmf</span><br><span class="line">boot: cdn</span><br><span class="line">bootdisk: ide2</span><br><span class="line">cores: 4</span><br><span class="line">cpu: Penryn</span><br><span class="line">efidisk0: vms:vm-144-disk-1,size=128K</span><br><span class="line">ide0: isos:iso/Mojave.iso,cache=unsafe</span><br><span class="line">ide2: isos:iso/clover-r4920.iso,cache=unsafe</span><br><span class="line">machine: q35</span><br><span class="line">memory: 8192</span><br><span class="line">name: mojave</span><br><span class="line">net0: vmxnet3=xx:xx:xx:xx:xx:xx,bridge=vmbr0,firewall=1</span><br><span class="line">numa: 0</span><br><span class="line">ostype: other</span><br><span class="line">sata0: vms:vm-144-disk-0,cache=unsafe,size=64G</span><br><span class="line">smbios1: uuid=xxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx</span><br><span class="line">sockets: 1</span><br><span class="line">vga: vmware</span><br></pre></td></tr></table></figure>
-
-<p>設置完畢後，根據<a href="https://www.nicksherlock.com/2018/04/patch-ovmf-to-support-macos-in-proxmox-5-1/" target="_blank" rel="noopener">patch-ovmf-to-support-macos-in-proxmox-5-1 </a>來安裝OVMF庫</p>
-<blockquote>
-<p>For PVE 6</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"># Add missing locale</span><br><span class="line">echo &quot;en_US.UTF-8 UTF-8&quot; &gt;&gt; /etc/locale.gen</span><br><span class="line">locale-gen</span><br><span class="line">export LC_ALL=en_US.UTF-8</span><br><span class="line"></span><br><span class="line"># Add tools and build dependencies:</span><br><span class="line">apt update</span><br><span class="line">apt install build-essential git lintian debhelper iasl nasm \</span><br><span class="line">  python uuid-dev gcc-aarch64-linux-gnu bc python3-distutils -y</span><br><span class="line"></span><br><span class="line"># Clone my patched source</span><br><span class="line">git clone -b macos-support-proxmox-6.0 https://github.com/thenickdude/pve-edk2-firmware.git</span><br><span class="line"></span><br><span class="line"># Build it</span><br><span class="line">cd pve-edk2-firmware</span><br><span class="line">make</span><br><span class="line"></span><br><span class="line">dpkg -i pve-edk2-firmware_*.deb</span><br><span class="line"></span><br><span class="line"># Prevent it from being replaced later by apt upgrade:</span><br><span class="line">apt-mark hold pve-edk2-firmware</span><br></pre></td></tr></table></figure>
-
-<h2 id="4-設置直通"><a href="#4-設置直通" class="headerlink" title="4 設置直通"></a>4 設置直通</h2><p>首先，編輯grub<code>vim /etc/default/grub</code><br>將<code>GRUB_CMDLINE_LINUX_DEFAULT=&quot;quiet&quot;</code>改為<code>GRUB_CMDLINE_LINUX_DEFAULT=&quot;quiet intel_iommu=on video=efifb:off&quot;</code><br><strong>（若是amd則改為amd_iommu=on）</strong></p>
-<p>執行<code>update-grub</code>命令更新grub信息<br>最後輸入<code>dmesg | grep -e DMAR -e IOMMU</code>命令檢查是否有錯<br>然後編輯/etc/modules <code>nano /etc/modules</code><br>在最尾加入以下四行</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">vfio</span><br><span class="line">vfio_iommu_type1</span><br><span class="line">vfio_pci</span><br><span class="line">vfio_virqfd</span><br></pre></td></tr></table></figure>
-
-<p>再次輸入<code>dmesg | grep ecap</code>命令檢查設備是否支持iommu<br>然後執行以下命令將驅動加入黑名單</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">echo &quot;blacklist radeon&quot; &gt;&gt; /etc/modprobe.d/blacklist.conf</span><br><span class="line">echo &quot;blacklist nouveau&quot; &gt;&gt; /etc/modprobe.d/blacklist.conf</span><br><span class="line">echo &quot;blacklist nvidia&quot; &gt;&gt; /etc/modprobe.d/blacklist.conf</span><br></pre></td></tr></table></figure>
-
-<p>執行<code>update-initramfs -u</code>命令更新信息<br>執行<code>lspci</code>，找出顯卡的代號（例如01：00），然後執行<code>lspci -n -s 01:00</code><br>得到類似以下的輸出</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">01:00.0 0300: 10de:1d01 (rev a1)</span><br><span class="line">01:00.1 0403: 10de:0fb8 (rev a1)</span><br></pre></td></tr></table></figure>
-
-<p>其中<code>10de:1d01</code>與<code>10de:0fb8</code>是vendor IDs<br>將vendor IDs指定到VFIO模塊</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo &quot;options vfio-pci ids=10de:1d01,10de:0fb8&quot; &gt; /etc/modprobe.d/vfio.conf</span><br></pre></td></tr></table></figure>
-
-<p>進入web管理介面</p>
-<ul>
-<li>在vm的硬件選項卡中編輯添加PCI設備</li>
-<li>選定顯卡對應的<code>01:00.0</code>與<code>01:00.1</code></li>
-<li>在<code>01:00.0</code>（顯示設備）中勾選<ul>
-<li>PCI-Express</li>
-<li>All Functions</li>
-<li>主GPU</li>
-</ul>
-</li>
-<li>檢查文件<code>/etc/pve/qemu-server/YOUR-VM-ID.conf</code><ul>
-<li>確保01:00後的參數正確</li>
-</ul>
-</li>
-</ul>
-<p><strong>e.g.</strong><code>hostpci0: 01:00,x-vga=1,pcie=1</code></p>
-<p>然後，直通鼠標鍵盤到VM中，添加USB設備，選擇鼠標鍵盤，然後添加到VM</p>
-<h2 id="5-安裝Mojave"><a href="#5-安裝Mojave" class="headerlink" title="5 安裝Mojave"></a>5 安裝Mojave</h2><p>現在啟動你的虛擬機，若你設置了直通，啟動的一瞬間會發生以下事情</p>
-<ul>
-<li>連接在你顯卡的顯示器應該會從PVE的ttl介面變為黑屏，然後變成OVMF UEFI啟動介面。</li>
-<li>你的鍵盤鼠標這時候也可以直接控制虛擬機。</li>
-</ul>
-<p>在啟動的時候趕快按下F2以進入OVMF設置畫面。</p>
-<ol>
-<li>進入Device Manager</li>
-<li>選擇OVMF platform configuration</li>
-<li>設置分辨率為1920x1080</li>
-<li>保存設置</li>
-<li>在根菜單下選擇Reset（不是continue）</li>
-</ol>
-<p>然後你應該進入了Clover，接下來跟著指引安裝系統<br>全部安裝完畢之後，再次啟動時</p>
-<ol>
-<li>手動按下F2</li>
-<li>選定Clover啟動項</li>
-</ol>
-<p>然後才會看到磁盤內的Mac系統。<br>進入Mac系統後，打開終端，輸入<code>diskutil list</code><br>以檢查設備<br>然後輸入<code>sudo dd if=&lt;Clover CD的EFI分區&gt; of=&lt;硬盤的EFI分區&gt;</code><br>將Clover安裝到硬盤中</p>
-<blockquote>
-<p>你也可以忽略這一步，將Clover CD永久掛載在虛擬機下</p>
-</blockquote>
-<p>關機，移除CLover CD，從硬盤啟動。</p>
+<p>過程可以把自己擁有的域名解析到你的vps，若沒有域名建議使用<a href="https://www.freenom.com" target="_blank" rel="noopener">Freenom</a>注冊免費域名。這裏不再演示如何注冊與解析域名。</p>
+<p>安裝完成後，根據推薦安裝套件<strong>安裝LNMP套裝</strong>。安裝完畢后打開網站選項卡，添加站點。</p>
+<p><img src="1581231888685.png" alt></p>
+<p>然後輸入自己的域名（把your.domain填寫為其他已經解析的域名），填寫備注和更改php版本為純靜態。</p>
+<p><img src="1581232119934.png" alt></p>
+<p>創建完成後，點擊網站名，會進入設置頁面，設置頁面先選擇SSL選項卡，然後選擇Let’s Encrypt，創建免費的SSL證書（當然你可以選擇不使用https，只使用http）</p>
+<p><img src="1581232312244.png" alt></p>
+<p>然後勾上域名的勾勾，點擊申請（注意申請的時候必須已經解析好域名），申請完畢之後就會出現部署成功的，顯示密鑰與證書的畫面。</p>
+<p><img src="1581232436903.png" alt></p>
+<p>點擊左邊選項卡的反向代理，添加反向代理，然後如下填寫</p>
+<p><img src="1581232503464.png" alt></p>
+<p>提交之後，你的反向代理應該已經生效了，可以試著訪問自己的網站看看是否可以正常使用。</p>
 
       
     </div>
@@ -505,7 +436,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>Post link：</strong>
-    <a href="https://www.kappu.ml/2019/08/20/在Proxmox中安裝macOS Mojave並設置直通顯卡/" title="在Proxmox中安裝macOS Mojave並設置直通顯卡">https://www.kappu.ml/2019/08/20/在Proxmox中安裝macOS Mojave並設置直通顯卡/</a>
+    <a href="https://www.kappu.ml/2020/02/09/反向代理github/" title="反向代理Github，加速國內vps從Github扒文件的速度">https://www.kappu.ml/2020/02/09/反向代理github/</a>
   </li>
   <li class="post-copyright-license">
     <strong>Copyright Notice： </strong>
@@ -520,13 +451,11 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Proxmox/" rel="tag"># Proxmox</a>
+            <a href="/tags/Github/" rel="tag"># Github</a>
           
-            <a href="/tags/黑蘋果/" rel="tag"># 黑蘋果</a>
+            <a href="/tags/反向代理/" rel="tag"># 反向代理</a>
           
-            <a href="/tags/macOS/" rel="tag"># macOS</a>
-          
-            <a href="/tags/直通/" rel="tag"># 直通</a>
+            <a href="/tags/nginx/" rel="tag"># nginx</a>
           
         </div>
       
@@ -539,8 +468,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/08/20/安裝Proxmox VE/" rel="next" title="安裝Proxmox VE">
-                <i class="fa fa-chevron-left"></i> 安裝Proxmox VE
+              <a href="/2020/01/13/記錄B站ban了海外直播之後的艱辛反向翻墻歷程/" rel="next" title="記錄B站ban了海外直播后的艱辛反向翻墻歷程">
+                <i class="fa fa-chevron-left"></i> 記錄B站ban了海外直播后的艱辛反向翻墻歷程
               </a>
             
           </div>
@@ -548,10 +477,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/08/20/HEXO_STUDY_1/" rel="prev" title="Hexo學習筆記 —— 多端同步、Github Pages部署、更改主題、評論功能（一）">
-                Hexo學習筆記 —— 多端同步、Github Pages部署、更改主題、評論功能（一） <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -716,7 +641,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#在PVE中安裝macOS-Mojave並設置直通顯卡"><span class="nav-number">1.</span> <span class="nav-text">在PVE中安裝macOS Mojave並設置直通顯卡</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#先決條件："><span class="nav-number">1.1.</span> <span class="nav-text">先決條件：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-安裝PVE"><span class="nav-number">1.2.</span> <span class="nav-text">1 安裝PVE</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-創建macos安裝鏡像"><span class="nav-number">1.3.</span> <span class="nav-text">2 創建macos安裝鏡像</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-在網頁中創建虛擬機"><span class="nav-number">1.4.</span> <span class="nav-text">3 在網頁中創建虛擬機</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-設置直通"><span class="nav-number">1.5.</span> <span class="nav-text">4 設置直通</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-安裝Mojave"><span class="nav-number">1.6.</span> <span class="nav-text">5 安裝Mojave</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#需要使用的工具"><span class="nav-number">2.</span> <span class="nav-text">需要使用的工具</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#過程"><span class="nav-number">3.</span> <span class="nav-text">過程</span></a></li></ol></div>
             
 
           </div>
@@ -930,9 +855,9 @@ show_date_time();
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'https://www.kappu.ml/2019/08/20/在Proxmox中安裝macOS Mojave並設置直通顯卡/';
-          this.page.identifier = '2019/08/20/在Proxmox中安裝macOS Mojave並設置直通顯卡/';
-          this.page.title = '在Proxmox中安裝macOS Mojave並設置直通顯卡';
+          this.page.url = 'https://www.kappu.ml/2020/02/09/反向代理github/';
+          this.page.identifier = '2020/02/09/反向代理github/';
+          this.page.title = '反向代理Github，加速國內vps從Github扒文件的速度';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://cupkappu-blog.disqus.com/embed.js';
