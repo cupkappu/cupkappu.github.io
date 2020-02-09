@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.kappu.ml/"/>
-  <updated>2020-02-09T07:22:05.157Z</updated>
+  <updated>2020-02-09T07:27:43.740Z</updated>
   <id>https://www.kappu.ml/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="https://www.kappu.ml/2020/02/09/%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86github/"/>
     <id>https://www.kappu.ml/2020/02/09/反向代理github/</id>
     <published>2020-02-09T06:55:30.000Z</published>
-    <updated>2020-02-09T07:22:05.157Z</updated>
+    <updated>2020-02-09T07:27:43.740Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>最近在折騰國内vps，實現反向翻墻，方便看國内的正版資源，加速國内網盤的訪問以及免報備B站直播。但是架設各種服務的時候脫離不了Github這個世界上最大的同性交友網站。</p><p>於是想到了先前很久都在用的寶塔vps，創建了一個靜態站做反向代理。</p><h1 id="需要使用的工具"><a href="#需要使用的工具" class="headerlink" title="需要使用的工具"></a>需要使用的工具</h1><ul><li>國内能正常訪問的海外Vps</li><li>寶塔面板</li></ul><h1 id="過程"><a href="#過程" class="headerlink" title="過程"></a>過程</h1><p>若沒有安裝寶塔面板，先用以下命令安裝寶塔</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -sSO http://download.bt.cn/install/new_install.sh &amp;&amp; bash new_install.sh</span><br></pre></td></tr></table></figure><blockquote><p>建議使用screen命令後臺安裝，安裝寶塔面板有編譯過程，耗時較久。</p></blockquote><p>過程可以把自己擁有的域名解析到你的vps，若沒有域名建議使用<a href="https://www.freenom.com" target="_blank" rel="noopener">Freenom</a>注冊免費域名。這裏不再演示如何注冊與解析域名。</p><p>安裝完成後，根據推薦安裝套件<strong>安裝LNMP套裝</strong>。安裝完畢后打開網站選項卡，添加站點。</p><p><img src="1581231888685.png" alt></p><p>然後輸入自己的域名（把your.domain填寫為其他已經解析的域名），填寫備注和更改php版本為純靜態。</p><p><img src="1581232119934.png" alt></p><p>創建完成後，點擊網站名，會進入設置頁面，設置頁面先選擇SSL選項卡，然後選擇Let’s Encrypt，創建免費的SSL證書（當然你可以選擇不使用https，只使用http）</p><p><img src="1581232312244.png" alt></p><p>然後勾上域名的勾勾，點擊申請（注意申請的時候必須已經解析好域名），申請完畢之後就會出現部署成功的，顯示密鑰與證書的畫面。</p><p><img src="1581232436903.png" alt></p><p>點擊左邊選項卡的反向代理，添加反向代理，然後如下填寫</p><p><img src="1581232503464.png" alt></p><p>提交之後，你的反向代理應該已經生效了，可以試著訪問自己的網站看看是否可以正常使用。</p>]]></content>
+    <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>最近在折騰國内vps，實現反向翻墻，方便看國内的正版資源，加速國内網盤的訪問以及免報備B站直播。但是架設各種服務的時候脫離不了Github這個世界上最大的同性交友網站。</p><p>於是想到了先前很久都在用的寶塔vps，創建了一個靜態站做反向代理。</p><h1 id="需要使用的工具"><a href="#需要使用的工具" class="headerlink" title="需要使用的工具"></a>需要使用的工具</h1><ul><li>國内能正常訪問的海外Vps</li><li>寶塔面板</li></ul><h1 id="過程"><a href="#過程" class="headerlink" title="過程"></a>過程</h1><p>若沒有安裝寶塔面板，先用以下命令安裝寶塔</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -sSO http://download.bt.cn/install/new_install.sh &amp;&amp; bash new_install.sh</span><br></pre></td></tr></table></figure><blockquote><p>建議使用screen命令後臺安裝，安裝寶塔面板有編譯過程，耗時較久。</p></blockquote><p>過程可以把自己擁有的域名解析到你的vps，若沒有域名建議使用<a href="https://www.freenom.com" target="_blank" rel="noopener">Freenom</a>注冊免費域名。這裏不再演示如何注冊與解析域名。</p><p>安裝完成後，根據推薦安裝套件<strong>安裝LNMP套裝</strong>。安裝完畢后打開網站選項卡，添加站點。</p><p><img src="/images/1581231888685.png" alt></p><p>然後輸入自己的域名（把your.domain填寫為其他已經解析的域名），填寫備注和更改php版本為純靜態。</p><p><img src="/images/1581232119934.png" alt></p><p>創建完成後，點擊網站名，會進入設置頁面，設置頁面先選擇SSL選項卡，然後選擇Let’s Encrypt，創建免費的SSL證書（當然你可以選擇不使用https，只使用http）</p><p><img src="/images/1581232312244.png" alt></p><p>然後勾上域名的勾勾，點擊申請（注意申請的時候必須已經解析好域名），申請完畢之後就會出現部署成功的，顯示密鑰與證書的畫面。</p><p><img src="/images/1581232436903.png" alt></p><p>點擊左邊選項卡的反向代理，添加反向代理，然後如下填寫</p><p><img src="/images/1581232503464.png" alt></p><p>提交之後，你的反向代理應該已經生效了，可以試著訪問自己的網站看看是否可以正常使用。</p>]]></content>
     
     <summary type="html">
     
