@@ -410,6 +410,32 @@
   </entry>
   
   <entry>
+    <title>實現家庭綜合服務器——給Proxmox VE中的Win10直通顯卡</title>
+    <link href="https://www.kappu.ml/2019/08/20/%E5%AF%A6%E7%8F%BE%E5%AE%B6%E5%BA%AD%E7%B6%9C%E5%90%88%E6%9C%8D%E5%8B%99%E5%99%A8%E2%80%94%E2%80%94%E7%B5%A6Proxmox%20VE%E4%B8%AD%E7%9A%84Win10%E7%9B%B4%E9%80%9A%E9%A1%AF%E5%8D%A1/"/>
+    <id>https://www.kappu.ml/2019/08/20/實現家庭綜合服務器——給Proxmox VE中的Win10直通顯卡/</id>
+    <published>2019-08-19T16:00:00.000Z</published>
+    <updated>2019-08-22T10:25:33.714Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="前情提要"><a href="#前情提要" class="headerlink" title="前情提要"></a>前情提要</h1><p>話説我弟最近上中學，他開始需要使用電腦做學校的課業，而我家裏有一臺chromebook、台機和一臺特別破舊的超極本。</p><p>超極本的發熱已經接近70度，可以把人手烤焦，chromebook的系統不支援他學校的CD軟體，而我的臺機，有太多的不可見人的東西，更是不能給他使用。</p><p>但是教育乃一切之本，他的生日也臨近，想給他送個禮物，於是看到了我家不斷跑著OVM、ikuai、web-server和域名ddns的伺服器，突然覺得，可以壓縮一下前面幾個服務的性能，給他搭建一個能用的電腦操作平臺。</p><a id="more"></a><p><strong>大致的想法就是買個基礎顯卡，買個固態硬盤直通到虛擬機，然後直通USB口，把這些綫捆成一坨拉到他的房間，給他個電腦屏幕和鍵盤。</strong></p><p><strong><em>我還想把成本控制在1000塊錢以内來著</em></strong></p><h1 id="原有機件介紹"><a href="#原有機件介紹" class="headerlink" title="原有機件介紹"></a>原有機件介紹</h1><p>服務器是一臺大致如下配置的服務器</p><table><thead><tr><th align="center">配件</th><th align="center">型號</th><th align="center">已用</th></tr></thead><tbody><tr><td align="center">主板</td><td align="center">B75</td><td align="center">/</td></tr><tr><td align="center">SATA口</td><td align="center">2*3.0+4*2.0</td><td align="center">已用3</td></tr><tr><td align="center">PCI-E插槽</td><td align="center">2条PCI-E*16</td><td align="center">已用一條用於網卡</td></tr><tr><td align="center">CPU</td><td align="center">i5-3330</td><td align="center">虛擬機1+1+4+4+2</td></tr><tr><td align="center">RAM</td><td align="center">8G*2 DDR3 1600</td><td align="center">已用512M*3+1.5G+2G=5G</td></tr></tbody></table><p><img src="/images/01.png" alt="Screenshot 2019-08-19 at 14.01.22.png"></p><p>可以看到CPU部分略微吃緊，而RAM依然有機會分配8G給虛擬機使用，PCI-E插槽可以容納一張獨立顯卡，硬盤也可以插多一張SSD。</p><p>找時間把各種吃CPU的服務搬出伺服器為上策。</p><h1 id="需要添置的硬件"><a href="#需要添置的硬件" class="headerlink" title="需要添置的硬件"></a>需要添置的硬件</h1><p>由於我是要給現有的伺服器增加一個Win10，並給他加上顯卡與硬盤等等外設，還要讓他可以在遠處傳輸，於是這需要以下配件。</p><table><thead><tr><th align="center">配件</th><th align="center">名稱</th><th align="center">價格</th></tr></thead><tbody><tr><td align="center">顯卡</td><td align="center">RX550 2G半高顯卡</td><td align="center">333港幣</td></tr><tr><td align="center">硬盤</td><td align="center">240G臺電SSD</td><td align="center">210港幣</td></tr><tr><td align="center">USB延長綫</td><td align="center">/</td><td align="center">142港幣</td></tr><tr><td align="center">HDMI延長綫</td><td align="center">/</td><td align="center">128港幣</td></tr><tr><td align="center">總價</td><td align="center"></td><td align="center">814港幣</td></tr></tbody></table><p>總而言之價格是控制在了1000港幣以内，算是完成目标。</p><p><em>等到我有空，買完所有需要的配件就開搞</em></p><hr>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;前情提要&quot;&gt;&lt;a href=&quot;#前情提要&quot; class=&quot;headerlink&quot; title=&quot;前情提要&quot;&gt;&lt;/a&gt;前情提要&lt;/h1&gt;&lt;p&gt;話説我弟最近上中學，他開始需要使用電腦做學校的課業，而我家裏有一臺chromebook、台機和一臺特別破舊的超極本。&lt;/p&gt;
+&lt;p&gt;超極本的發熱已經接近70度，可以把人手烤焦，chromebook的系統不支援他學校的CD軟體，而我的臺機，有太多的不可見人的東西，更是不能給他使用。&lt;/p&gt;
+&lt;p&gt;但是教育乃一切之本，他的生日也臨近，想給他送個禮物，於是看到了我家不斷跑著OVM、ikuai、web-server和域名ddns的伺服器，突然覺得，可以壓縮一下前面幾個服務的性能，給他搭建一個能用的電腦操作平臺。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="技術相關" scheme="https://www.kappu.ml/categories/%E6%8A%80%E8%A1%93%E7%9B%B8%E9%97%9C/"/>
+    
+    
+      <category term="Proxmox" scheme="https://www.kappu.ml/tags/Proxmox/"/>
+    
+      <category term="直通" scheme="https://www.kappu.ml/tags/%E7%9B%B4%E9%80%9A/"/>
+    
+  </entry>
+  
+  <entry>
     <title>在Proxmox中安裝macOS Mojave並設置直通顯卡</title>
     <link href="https://www.kappu.ml/2019/08/20/%E5%9C%A8Proxmox%E4%B8%AD%E5%AE%89%E8%A3%9DmacOS%20Mojave%E4%B8%A6%E8%A8%AD%E7%BD%AE%E7%9B%B4%E9%80%9A%E9%A1%AF%E5%8D%A1/"/>
     <id>https://www.kappu.ml/2019/08/20/在Proxmox中安裝macOS Mojave並設置直通顯卡/</id>
@@ -435,11 +461,11 @@
     
       <category term="Proxmox" scheme="https://www.kappu.ml/tags/Proxmox/"/>
     
+      <category term="直通" scheme="https://www.kappu.ml/tags/%E7%9B%B4%E9%80%9A/"/>
+    
       <category term="黑蘋果" scheme="https://www.kappu.ml/tags/%E9%BB%91%E8%98%8B%E6%9E%9C/"/>
     
       <category term="macOS" scheme="https://www.kappu.ml/tags/macOS/"/>
-    
-      <category term="直通" scheme="https://www.kappu.ml/tags/%E7%9B%B4%E9%80%9A/"/>
     
   </entry>
   
@@ -470,32 +496,6 @@
       <category term="Proxmox" scheme="https://www.kappu.ml/tags/Proxmox/"/>
     
       <category term="教程" scheme="https://www.kappu.ml/tags/%E6%95%99%E7%A8%8B/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>實現家庭綜合服務器——給Proxmox VE中的Win10直通顯卡</title>
-    <link href="https://www.kappu.ml/2019/08/20/%E5%AF%A6%E7%8F%BE%E5%AE%B6%E5%BA%AD%E7%B6%9C%E5%90%88%E6%9C%8D%E5%8B%99%E5%99%A8%E2%80%94%E2%80%94%E7%B5%A6Proxmox%20VE%E4%B8%AD%E7%9A%84Win10%E7%9B%B4%E9%80%9A%E9%A1%AF%E5%8D%A1/"/>
-    <id>https://www.kappu.ml/2019/08/20/實現家庭綜合服務器——給Proxmox VE中的Win10直通顯卡/</id>
-    <published>2019-08-19T16:00:00.000Z</published>
-    <updated>2019-08-22T10:25:33.714Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="前情提要"><a href="#前情提要" class="headerlink" title="前情提要"></a>前情提要</h1><p>話説我弟最近上中學，他開始需要使用電腦做學校的課業，而我家裏有一臺chromebook、台機和一臺特別破舊的超極本。</p><p>超極本的發熱已經接近70度，可以把人手烤焦，chromebook的系統不支援他學校的CD軟體，而我的臺機，有太多的不可見人的東西，更是不能給他使用。</p><p>但是教育乃一切之本，他的生日也臨近，想給他送個禮物，於是看到了我家不斷跑著OVM、ikuai、web-server和域名ddns的伺服器，突然覺得，可以壓縮一下前面幾個服務的性能，給他搭建一個能用的電腦操作平臺。</p><a id="more"></a><p><strong>大致的想法就是買個基礎顯卡，買個固態硬盤直通到虛擬機，然後直通USB口，把這些綫捆成一坨拉到他的房間，給他個電腦屏幕和鍵盤。</strong></p><p><strong><em>我還想把成本控制在1000塊錢以内來著</em></strong></p><h1 id="原有機件介紹"><a href="#原有機件介紹" class="headerlink" title="原有機件介紹"></a>原有機件介紹</h1><p>服務器是一臺大致如下配置的服務器</p><table><thead><tr><th align="center">配件</th><th align="center">型號</th><th align="center">已用</th></tr></thead><tbody><tr><td align="center">主板</td><td align="center">B75</td><td align="center">/</td></tr><tr><td align="center">SATA口</td><td align="center">2*3.0+4*2.0</td><td align="center">已用3</td></tr><tr><td align="center">PCI-E插槽</td><td align="center">2条PCI-E*16</td><td align="center">已用一條用於網卡</td></tr><tr><td align="center">CPU</td><td align="center">i5-3330</td><td align="center">虛擬機1+1+4+4+2</td></tr><tr><td align="center">RAM</td><td align="center">8G*2 DDR3 1600</td><td align="center">已用512M*3+1.5G+2G=5G</td></tr></tbody></table><p><img src="/images/01.png" alt="Screenshot 2019-08-19 at 14.01.22.png"></p><p>可以看到CPU部分略微吃緊，而RAM依然有機會分配8G給虛擬機使用，PCI-E插槽可以容納一張獨立顯卡，硬盤也可以插多一張SSD。</p><p>找時間把各種吃CPU的服務搬出伺服器為上策。</p><h1 id="需要添置的硬件"><a href="#需要添置的硬件" class="headerlink" title="需要添置的硬件"></a>需要添置的硬件</h1><p>由於我是要給現有的伺服器增加一個Win10，並給他加上顯卡與硬盤等等外設，還要讓他可以在遠處傳輸，於是這需要以下配件。</p><table><thead><tr><th align="center">配件</th><th align="center">名稱</th><th align="center">價格</th></tr></thead><tbody><tr><td align="center">顯卡</td><td align="center">RX550 2G半高顯卡</td><td align="center">333港幣</td></tr><tr><td align="center">硬盤</td><td align="center">240G臺電SSD</td><td align="center">210港幣</td></tr><tr><td align="center">USB延長綫</td><td align="center">/</td><td align="center">142港幣</td></tr><tr><td align="center">HDMI延長綫</td><td align="center">/</td><td align="center">128港幣</td></tr><tr><td align="center">總價</td><td align="center"></td><td align="center">814港幣</td></tr></tbody></table><p>總而言之價格是控制在了1000港幣以内，算是完成目标。</p><p><em>等到我有空，買完所有需要的配件就開搞</em></p><hr>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;前情提要&quot;&gt;&lt;a href=&quot;#前情提要&quot; class=&quot;headerlink&quot; title=&quot;前情提要&quot;&gt;&lt;/a&gt;前情提要&lt;/h1&gt;&lt;p&gt;話説我弟最近上中學，他開始需要使用電腦做學校的課業，而我家裏有一臺chromebook、台機和一臺特別破舊的超極本。&lt;/p&gt;
-&lt;p&gt;超極本的發熱已經接近70度，可以把人手烤焦，chromebook的系統不支援他學校的CD軟體，而我的臺機，有太多的不可見人的東西，更是不能給他使用。&lt;/p&gt;
-&lt;p&gt;但是教育乃一切之本，他的生日也臨近，想給他送個禮物，於是看到了我家不斷跑著OVM、ikuai、web-server和域名ddns的伺服器，突然覺得，可以壓縮一下前面幾個服務的性能，給他搭建一個能用的電腦操作平臺。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="技術相關" scheme="https://www.kappu.ml/categories/%E6%8A%80%E8%A1%93%E7%9B%B8%E9%97%9C/"/>
-    
-    
-      <category term="Proxmox" scheme="https://www.kappu.ml/tags/Proxmox/"/>
-    
-      <category term="直通" scheme="https://www.kappu.ml/tags/%E7%9B%B4%E9%80%9A/"/>
     
   </entry>
   
