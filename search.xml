@@ -1,6 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[雲筏科技 歐洲9元NAT-VPS Cloudflare純IPV6建站]]></title>
+    <url>%2F2020%2F09%2F08%2F%E4%BA%91%E7%AD%8F%E7%A7%91%E6%8A%80%20%E6%AC%A7%E6%B4%B29%E5%85%83NAT-VPS%E8%AF%84%E6%B5%8B%2F</url>
+    <content type="text"><![CDATA[雲筏科技 歐洲9元NAT-VPS Cloudflare純IPV6建站雲筏科技最近改版了，之前用過他家的大盤雞，現在改版後反而下架了。但是出了個9元最低配的歐洲NAT主機，還有IPv6。 基本信息 E5 1650 v3 1 x Core 1G RAM 40G系統盤+10G數據盤 網絡30Mbps（測 試中為上載限速30M） 提供10個IPv4端口 1個IPv6地址 實際測試ifconfig中，有兩個IPv6，一個是128長度的，一個是64長度的。 NAT IPv4與兩個IPv6都位於德國 基本測試使用以下腳本跑了基本測試 1wget -qO- bench.sh | bash 測試結果 1234567891011121314151617181920212223242526272829303132333435---------------------------------------------------------------------- CPU Model : Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz CPU Cores : 1 CPU Frequency : 3491.912 MHz CPU Cache : 15360 KB Total Disk : 49.8 GB (1.7 GB Used) Total Mem : 908 MB (527 MB Used) Total Swap : 0 MB (0 MB Used) System uptime : 0 days, 0 hour 22 min Load average : 0.00, 0.02, 0.11 OS : CentOS 7.7.1908 Arch : x86_64 (64 Bit) Kernel : 3.10.0-1062.4.3.el7.x86_64 TCP CC : cubic Virtualization : Hyper-V Organization : AS24940 Hetzner Online GmbH Location : Frankfurt am Main / DE Region : Hesse---------------------------------------------------------------------- I/O Speed(1st run) : 304 MB/s I/O Speed(2nd run) : 313 MB/s I/O Speed(3rd run) : 313 MB/s Average I/O speed : 310.0 MB/s---------------------------------------------------------------------- Node Name Upload Speed Download Speed Latency Speedtest.net 29.17 Mbps 605.76 Mbps 0.94 ms Beijing CU 27.21 Mbps 355.66 Mbps 245.48 ms Shanghai CT 0.49 Mbps 25.68 Mbps 236.93 ms Shanghai CU 27.23 Mbps 381.04 Mbps 286.30 ms Shenzhen CU 28.06 Mbps 360.45 Mbps 324.82 ms Shenzhen CM 28.32 Mbps 427.49 Mbps 233.97 ms Hongkong CN 26.26 Mbps 312.03 Mbps 196.09 ms Singapore SG 23.95 Mbps 413.83 Mbps 252.61 ms Tokyo JP 27.87 Mbps 124.35 Mbps 273.54 ms---------------------------------------------------------------------- 可以看見，這款VPS與中國電信、中國移動的連接相當不錯，可以跑滿30Mbps的帶寬。而中國聯通則有點凄慘，上載只能跑到500Kbps左右。 連接海外的鏈路十分不錯，也能幾乎跑滿。可能是因爲云筏科技對服務器進行了升級，整體表現比之前他家的大盤鷄要好上一些。 IPv6架設Nextcloud實戰純IPv6也可以架設網站，并且讓純IPv4用戶可以正常訪問。原理是使用CDN中轉網站的流量，讓CDN服務商幫我們把IPv4請求轉發成IPv6請求。這裏使用最常用的Cloudflare輔助純IPv6的網站架設。 這裏使用輕量化的Caddy作爲主要的網頁伺服器。雲筏科技即便改版後加配到大數據盤也不算很貴，拿來當作Nextcloud網盤為封鎖地區中轉Google Drive也挺不錯的。 配置Cloudflare前文提到，Cloudflare可以將IPv4流量透過他們的CDN伺服器，轉發到我們的IPv6 VPS上。 如果你在Cloudflare上沒有域名，可以將自己的域名綁定到Cloudflare。如果你沒有域名，可以去Freenom免費注冊一個域名。 打開Cloudflare，進入自己的域名。打開域名的DNS頁面 按下新增記錄，將左邊的類型改成AAAA，名稱取一個自己習慣的名稱，然後將伺服器的IPv6位址填在右邊IPv6位址裏面，最後確保Proxy狀態下面的那朵云是橙色的（這代表你的流量會經過Cloudflare代理），便可以按下儲存等待DNS生效。 方法一：使用Caddy+PHP安裝Nextcloud上網找了個自動化脚本自動安裝Caddy和PHP。 1wget https://git.io/vra5C -O - -o /dev/null|bash 這個脚本是Caddy管理工具，跑完之後應該會提示輸入caddy使用脚本。官方自帶的使用説明如下 12345678910111213141516caddy start - Start Caddy Web Server.caddy stop - Stop/Shutdown Caddy Web Server.caddy reload - Reload Caddy Web Server.caddy restart - Restart Caddy Web Server.caddy status - Check Caddy Web Server is running or not or just run &apos;caddy&apos;.caddy install - Install Caddy Web Server on fresh OS.caddy install-naked - Install only Caddy Web Server and no prompt.caddy edit - Edit Caddyfile using nano or default editor.caddy service - Make Caddy Web Server start on boot (upstart/systemd). Not required because we install service on install.caddy update - Update Caddy Web Server.caddy delete - Uninstall Caddy Web Server and data. We would prompt you if you want to keep data.caddy version - Print version information.caddy about - About Caddy Web Server Installer. 輸入caddy install安裝Caddy與PHP 1234567[root@ ~]# caddy install Downloading Caddy Web Server v1.0.4 for 64bit... Extracting Caddy Web Server to /opt/caddyserver... [DONE] Are you gonna run php site? [y/N]: y 詢問你是否架設PHP網站，脚本自動輸入了y。如果選擇y的話會安裝PHP依賴文件，因爲要架設基於PHP編寫的Nextcloud，這裏只需要直接按回車即可，不需要輸入y。輸入之後便會繼續安裝，安裝完成之後會提示你輸入網站信息。 123456789101112131415Installing required php files... [DONE]Installed &apos;php-fpm php-cli php-curl curl sudo&apos;Fixing php sock issue... [DONE]Creating user &apos;caddy&apos;... [DONE]Binding port using setcap... [DONE]Creating startup service... DONECreated symlink from /etc/systemd/system/multi-user.target.wants/caddy.service to /etc/systemd/system/caddy.service.Enter your domain nameSeperated by commaDomain name:Enter your email for automated sslEmail: 提示輸入申請SSL證書的Email，輸入off，表示不需要SSL，待會用自簽證書替代letsencrypt的證書。 1234567891011/etc/Caddyfile createdindex file created/var/caddywww/index.htmlPHP-info file created/var/caddywww/info.phpDone. Caddy has been installed :)Run caddy start to start Caddy Web Server[root@nzZKNJ1000562 ~]# 先打開/etc/Caddyfile編輯網站詳情 1[root@ ~]# vi /etc/Caddyfile 修改成類似以下格式 12345678example.com,:80 &#123; root /var/caddywww gzip tls self_signed log /var/log/caddy/access.log errors /var/log/caddy/error.log fastcgi / 127.0.0.1:9000 php&#125; 其中，tls行後面的self_signed表示讓Caddy自簽證書，用於加密伺服器到Cloudflare的流量。example.com是你的域名。填寫完之後按下esc，輸入:wq保存退出。 安裝Nextcloud在伺服器目錄裏面下載Nextcloud的在綫安裝脚本，並啓動Caddy。 12345cd /var/caddywww &amp;&amp; wget https://download.nextcloud.com/server/installer/setup-nextcloud.php &amp;&amp; caddy start# 如果你是Centos7，需要輸入以下命令開啓端口firewall-cmd --add-port=443/tcp --permanentfirewall-cmd --add-port=80/tcp --permanentfirewall-cmd --reload 然後，在瀏覽器打開https://你的域名/setup-nextcloud.php。安裝Nextcloud。 下一步，選擇Nextcloud的子目錄，輸入.以安裝在網站的根目錄 等待安裝完成即可。 方法二：使用snap安裝Nextcloud（推薦）輸入以下命令安裝snap和Nextcloud 1yum install snapd -y &amp;&amp; systemctl enable --now snapd.socket &amp;&amp; sleep 10 &amp;&amp; snap install nextcloud 然後，在瀏覽器打開https://你的域名/setup-nextcloud.php。注冊管理員賬號即可。 總結雲筏科技這款VPS速度尚可，要這麽迷你款的vps跑Nextcloud這種級別的軟件的確有點吃不消。後續可能會安裝V2ray測試一下實際的代理連接速度。]]></content>
+      <categories>
+        <category>生活心得</category>
+      </categories>
+      <tags>
+        <tag>心得</tag>
+        <tag>技術相關</tag>
+        <tag>VPS</tag>
+        <tag>建站</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[反向代理Github，加速國內vps從Github扒文件的速度]]></title>
     <url>%2F2020%2F02%2F09%2F%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86github%2F</url>
     <content type="text"><![CDATA[前言最近在折騰國内vps，實現反向翻墻，方便看國内的正版資源，加速國内網盤的訪問以及免報備B站直播。但是架設各種服務的時候脫離不了Github這個世界上最大的同性交友網站。 於是想到了先前很久都在用的寶塔vps，創建了一個靜態站做反向代理。 需要使用的工具 國内能正常訪問的海外Vps 寶塔面板 過程若沒有安裝寶塔面板，先用以下命令安裝寶塔 1curl -sSO http://download.bt.cn/install/new_install.sh &amp;&amp; bash new_install.sh 建議使用screen命令後臺安裝，安裝寶塔面板有編譯過程，耗時較久。 過程可以把自己擁有的域名解析到你的vps，若沒有域名建議使用Freenom注冊免費域名。這裏不再演示如何注冊與解析域名。 安裝完成後，根據推薦安裝套件安裝LNMP套裝。安裝完畢后打開網站選項卡，添加站點。 然後輸入自己的域名（把your.domain填寫為其他已經解析的域名），填寫備注和更改php版本為純靜態。 創建完成後，點擊網站名，會進入設置頁面，設置頁面先選擇SSL選項卡，然後選擇Let’s Encrypt，創建免費的SSL證書（當然你可以選擇不使用https，只使用http） 然後勾上域名的勾勾，點擊申請（注意申請的時候必須已經解析好域名），申請完畢之後就會出現部署成功的，顯示密鑰與證書的畫面。 點擊左邊選項卡的反向代理，添加反向代理，然後如下填寫 提交之後，你的反向代理應該已經生效了，可以試著訪問自己的網站看看是否可以正常使用。]]></content>
@@ -25,17 +39,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[manjaro的KDE安裝包之默認密碼]]></title>
-    <url>%2F2019%2F11%2F10%2Fmanjaro_kde_passwd%2F</url>
-    <content type="text"><![CDATA[manjaro安裝過程中會自動鎖屏，而且系統自帶密碼，manjaro賬戶的默認密碼為manjaro。]]></content>
-      <categories>
-        <category>技術相關</category>
-      </categories>
-      <tags>
-        <tag>Linux</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[RSA非對稱加密算法學習筆記]]></title>
     <url>%2F2019%2F11%2F10%2Fstudy_of_rsa%2F</url>
     <content type="text"><![CDATA[這是啥RSA算法是一種非對稱加密算法，他的原理完全基於歐拉定理，而歐拉定理基於歐拉函數……歐拉函數基於互質……互質則確定了兩個數字之間的唯一性…… 123歐拉函數：φ(n) = n-1歐拉定理：如果兩個正整數a和n互質，則n的歐拉函數 φ(n) 可以讓下面的等式成立：a^φ(n)%n=1其中%是取餘數之含義]]></content>
@@ -46,6 +49,17 @@
         <tag>學習筆記</tag>
         <tag>加密</tag>
         <tag>安全</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[manjaro的KDE安裝包之默認密碼]]></title>
+    <url>%2F2019%2F11%2F10%2Fmanjaro_kde_passwd%2F</url>
+    <content type="text"><![CDATA[manjaro安裝過程中會自動鎖屏，而且系統自帶密碼，manjaro賬戶的默認密碼為manjaro。]]></content>
+      <categories>
+        <category>技術相關</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
       </tags>
   </entry>
   <entry>
