@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="Wireguard,V2ray,翻墙,代理,隧道,">
 
 
 
@@ -81,16 +81,18 @@
 
 
 
-<meta name="description" content="我 太 菜 了 請 教 教 我">
-<meta property="og:type" content="website">
-<meta property="og:title" content="木不子的窒息小茶室">
-<meta property="og:url" content="https://www.kappu.ml/index.html">
+<meta name="description" content="老早就有这个想法了，由于v2ray只是一个四层代理，相比VPN三层代理不够透明，所以有用VPN的倾向。 但是VPN协议早已被GFW摸得清清楚楚，断流、QoS管控绝对不会手软。所以肯定需要一个隧道来对接VPN协议。 原因选用Wireguard单纯是因为Linux原生支持Wireguard，配置相比于别的VPN协议实在是方便太多而且性能相对最好，而且由于是三层协议，还可以在这上面再添加GRE套娃变成G">
+<meta name="keywords" content="Wireguard,V2ray,翻墙,代理,隧道">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Wireguard over Vmess&#x2F;Vless - 安全隐蔽且容易配置的VPN三层隧道">
+<meta property="og:url" content="https://www.kappu.ml/2020/09/27/Wireguard-over-V2ray/index.html">
 <meta property="og:site_name" content="木不子的窒息小茶室">
-<meta property="og:description" content="我 太 菜 了 請 教 教 我">
+<meta property="og:description" content="老早就有这个想法了，由于v2ray只是一个四层代理，相比VPN三层代理不够透明，所以有用VPN的倾向。 但是VPN协议早已被GFW摸得清清楚楚，断流、QoS管控绝对不会手软。所以肯定需要一个隧道来对接VPN协议。 原因选用Wireguard单纯是因为Linux原生支持Wireguard，配置相比于别的VPN协议实在是方便太多而且性能相对最好，而且由于是三层协议，还可以在这上面再添加GRE套娃变成G">
 <meta property="og:locale" content="zh-hk">
+<meta property="og:updated_time" content="2020-09-27T12:54:39.966Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="木不子的窒息小茶室">
-<meta name="twitter:description" content="我 太 菜 了 請 教 教 我">
+<meta name="twitter:title" content="Wireguard over Vmess&#x2F;Vless - 安全隐蔽且容易配置的VPN三层隧道">
+<meta name="twitter:description" content="老早就有这个想法了，由于v2ray只是一个四层代理，相比VPN三层代理不够透明，所以有用VPN的倾向。 但是VPN协议早已被GFW摸得清清楚楚，断流、QoS管控绝对不会手软。所以肯定需要一个隧道来对接VPN协议。 原因选用Wireguard单纯是因为Linux原生支持Wireguard，配置相比于别的VPN协议实在是方便太多而且性能相对最好，而且由于是三层协议，还可以在这上面再添加GRE套娃变成G">
 
 
 
@@ -120,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="https://www.kappu.ml/">
+  <link rel="canonical" href="https://www.kappu.ml/2020/09/27/Wireguard-over-V2ray/">
 
 
 
 
 
-  <title>木不子的窒息小茶室</title>
+  <title>Wireguard over Vmess/Vless - 安全隐蔽且容易配置的VPN三层隧道 | 木不子的窒息小茶室</title>
   
 
 
@@ -145,8 +147,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -271,9 +272,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -303,9 +304,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/09/27/Wireguard-over-V2ray/" itemprop="url">Wireguard over Vmess/Vless - 安全隐蔽且容易配置的VPN三层隧道</a></h1>
+          <h1 class="post-title" itemprop="name headline">Wireguard over Vmess/Vless - 安全隐蔽且容易配置的VPN三层隧道</h1>
         
 
         <div class="post-meta">
@@ -387,9 +386,7 @@
       
 
       
-        
-          
-            <p>老早就有这个想法了，由于v2ray只是一个四层代理，相比VPN三层代理不够透明，所以有用VPN的倾向。</p>
+        <p>老早就有这个想法了，由于v2ray只是一个四层代理，相比VPN三层代理不够透明，所以有用VPN的倾向。</p>
 <p>但是VPN协议早已被GFW摸得清清楚楚，断流、QoS管控绝对不会手软。所以肯定需要一个隧道来对接VPN协议。</p>
 <h2 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h2><p>选用Wireguard单纯是因为Linux原生支持Wireguard，配置相比于别的VPN协议实在是方便太多而且性能相对最好，而且由于是三层协议，还可以在这上面再添加GRE套娃变成GRE over Wireguard over Vmess….</p>
 <p>但是无论是GFW对于Wireguard的识别，还是ISP对于udp流量的QoS管控限制，都让裸Wireguard变得难以使用。所以这里还需要一个隧道，让数据包表层看起来安稳一些，不会受到ISP的特别关照。</p>
@@ -620,8 +617,6 @@
 
 <p>最后在客户端输入<code>ping 10.101.1.1</code>，如果ping通了则算是打通了GRE隧道。</p>
 
-          
-        
       
     </div>
     
@@ -633,1531 +628,65 @@
     
 
     
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://www.kappu.ml/2020/09/08/云筏科技 欧洲9元NAT-VPS评测/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="木不子">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="木不子的窒息小茶室">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/09/08/云筏科技 欧洲9元NAT-VPS评测/" itemprop="url">雲筏科技 歐洲9元NAT-VPS Cloudflare純IPV6建站</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">發表於</span>
-              
-              <time title="創建於" itemprop="dateCreated datePublished" datetime="2020-09-08T00:00:00+08:00">
-                2020-09-08
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分類於</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/生活心得/" itemprop="url" rel="index">
-                    <span itemprop="name">生活心得</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2020/09/08/云筏科技 欧洲9元NAT-VPS评测/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/09/08/云筏科技 欧洲9元NAT-VPS评测/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="雲筏科技-歐洲9元NAT-VPS-Cloudflare純IPV6建站"><a href="#雲筏科技-歐洲9元NAT-VPS-Cloudflare純IPV6建站" class="headerlink" title="雲筏科技 歐洲9元NAT-VPS Cloudflare純IPV6建站"></a>雲筏科技 歐洲9元NAT-VPS Cloudflare純IPV6建站</h1><p><a href="https://my.cloudraft.cn/?u=954186" target="_blank" rel="noopener">雲筏科技</a>最近改版了，之前用過他家的大盤雞，現在改版後反而下架了。但是出了個9元最低配的歐洲NAT主機，還有IPv6。</p>
-<h2 id="基本信息"><a href="#基本信息" class="headerlink" title="基本信息"></a>基本信息</h2><ul>
-<li><p>E5 1650 v3 1 x Core</p>
-</li>
-<li><p>1G RAM</p>
-</li>
-<li><p>40G系統盤+10G數據盤</p>
-</li>
-<li><p>網絡30Mbps（測 試中為上載限速30M）</p>
-<ul>
-<li><p>提供10個IPv4端口</p>
-</li>
-<li><p>1個IPv6地址</p>
-<blockquote>
-<p>實際測試<code>ifconfig</code>中，有<strong>兩個</strong>IPv6，一個是128長度的，一個是64長度的。</p>
-<p>NAT IPv4與兩個IPv6都位於德國</p>
-</blockquote>
-</li>
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>Post author：</strong>
+    木不子
+  </li>
+  <li class="post-copyright-link">
+    <strong>Post link：</strong>
+    <a href="https://www.kappu.ml/2020/09/27/Wireguard-over-V2ray/" title="Wireguard over Vmess/Vless - 安全隐蔽且容易配置的VPN三层隧道">https://www.kappu.ml/2020/09/27/Wireguard-over-V2ray/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice： </strong>
+    All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> unless stating additionally.
+  </li>
 </ul>
-</li>
-</ul>
-<h2 id="基本測試"><a href="#基本測試" class="headerlink" title="基本測試"></a>基本測試</h2><p>使用以下腳本跑了基本測試</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget -qO- bench.sh | bash</span><br></pre></td></tr></table></figure>
 
-<p>測試結果</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">----------------------------------------------------------------------</span><br><span class="line"> CPU Model             : Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz</span><br><span class="line"> CPU Cores             : 1</span><br><span class="line"> CPU Frequency         : 3491.912 MHz</span><br><span class="line"> CPU Cache             : 15360 KB</span><br><span class="line"> Total Disk            : 49.8 GB (1.7 GB Used)</span><br><span class="line"> Total Mem             : 908 MB (527 MB Used)</span><br><span class="line"> Total Swap            : 0 MB (0 MB Used)</span><br><span class="line"> System uptime         : 0 days, 0 hour 22 min</span><br><span class="line"> Load average          : 0.00, 0.02, 0.11</span><br><span class="line"> OS                    : CentOS 7.7.1908</span><br><span class="line"> Arch                  : x86_64 (64 Bit)</span><br><span class="line"> Kernel                : 3.10.0-1062.4.3.el7.x86_64</span><br><span class="line"> TCP CC                : cubic</span><br><span class="line"> Virtualization        : Hyper-V</span><br><span class="line"> Organization          : AS24940 Hetzner Online GmbH</span><br><span class="line"> Location              : Frankfurt am Main / DE</span><br><span class="line"> Region                : Hesse</span><br><span class="line">----------------------------------------------------------------------</span><br><span class="line"> I/O Speed(1st run)    : 304 MB/s</span><br><span class="line"> I/O Speed(2nd run)    : 313 MB/s</span><br><span class="line"> I/O Speed(3rd run)    : 313 MB/s</span><br><span class="line"> Average I/O speed     : 310.0 MB/s</span><br><span class="line">----------------------------------------------------------------------</span><br><span class="line"> Node Name        Upload Speed      Download Speed      Latency</span><br><span class="line"> Speedtest.net    29.17 Mbps        605.76 Mbps         0.94 ms</span><br><span class="line"> Beijing    CU    27.21 Mbps        355.66 Mbps         245.48 ms</span><br><span class="line"> Shanghai   CT    0.49 Mbps         25.68 Mbps          236.93 ms</span><br><span class="line"> Shanghai   CU    27.23 Mbps        381.04 Mbps         286.30 ms</span><br><span class="line"> Shenzhen   CU    28.06 Mbps        360.45 Mbps         324.82 ms</span><br><span class="line"> Shenzhen   CM    28.32 Mbps        427.49 Mbps         233.97 ms</span><br><span class="line"> Hongkong   CN    26.26 Mbps        312.03 Mbps         196.09 ms</span><br><span class="line"> Singapore  SG    23.95 Mbps        413.83 Mbps         252.61 ms</span><br><span class="line"> Tokyo      JP    27.87 Mbps        124.35 Mbps         273.54 ms</span><br><span class="line">----------------------------------------------------------------------</span><br></pre></td></tr></table></figure>
-
-<p>可以看見，這款VPS與中國聯通、中國移動的連接相當不錯，可以跑滿30Mbps的帶寬。而中國電信則有點凄慘，上載只能跑到500Kbps左右。</p>
-<p>連接海外的鏈路十分不錯，也能幾乎跑滿。可能是因爲云筏科技對服務器進行了升級，整體表現比之前他家的大盤鷄要好上一些。</p>
-<h2 id="IPv6架設Nextcloud實戰"><a href="#IPv6架設Nextcloud實戰" class="headerlink" title="IPv6架設Nextcloud實戰"></a>IPv6架設Nextcloud實戰</h2><p>純IPv6也可以架設網站，并且讓純IPv4用戶可以正常訪問。原理是使用CDN中轉網站的流量，讓CDN服務商幫我們把IPv4請求轉發成IPv6請求。這裏使用最常用的Cloudflare輔助純IPv6的網站架設。</p>
-<p>這裏使用輕量化的Caddy作爲主要的網頁伺服器。雲筏科技即便改版後加配到大數據盤也不算很貴，拿來當作Nextcloud網盤為封鎖地區中轉Google Drive也挺不錯的。</p>
-<h3 id="配置Cloudflare"><a href="#配置Cloudflare" class="headerlink" title="配置Cloudflare"></a>配置Cloudflare</h3><p>前文提到，Cloudflare可以將IPv4流量透過他們的CDN伺服器，轉發到我們的IPv6 VPS上。</p>
-<p>如果你在Cloudflare上沒有域名，可以將自己的域名綁定到Cloudflare。如果你沒有域名，可以去<a href="https://www.freenom.com" target="_blank" rel="noopener">Freenom</a>免費注冊一個域名。</p>
-<p>打開Cloudflare，進入自己的域名。打開域名的DNS頁面</p>
-<p><img src="/images/1599569124350.png" alt></p>
-<p>按下新增記錄，將左邊的類型改成AAAA，名稱取一個自己習慣的名稱，然後將伺服器的IPv6位址填在右邊IPv6位址裏面，最後確保Proxy狀態下面的那朵云是橙色的（這代表你的流量會經過Cloudflare代理），便可以按下儲存等待DNS生效。</p>
-<p><img src="/images/1599569367942.png" alt></p>
-<h3 id="方法一：使用Caddy-PHP安裝Nextcloud"><a href="#方法一：使用Caddy-PHP安裝Nextcloud" class="headerlink" title="方法一：使用Caddy+PHP安裝Nextcloud"></a>方法一：使用Caddy+PHP安裝Nextcloud</h3><p>上網找了個自動化脚本自動安裝Caddy和PHP。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://git.io/vra5C -O - -o /dev/null|bash</span><br></pre></td></tr></table></figure>
-
-<p>這個脚本是Caddy管理工具，跑完之後應該會提示輸入<code>caddy</code>使用脚本。官方自帶的使用説明如下</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">caddy start          - Start Caddy Web Server.</span><br><span class="line">caddy stop           - Stop/Shutdown Caddy Web Server.</span><br><span class="line">caddy reload         - Reload Caddy Web Server.</span><br><span class="line">caddy restart        - Restart Caddy Web Server.</span><br><span class="line">caddy status         - Check Caddy Web Server is running or not</span><br><span class="line">                       or just run &apos;caddy&apos;.</span><br><span class="line">caddy install        - Install Caddy Web Server on fresh OS.</span><br><span class="line">caddy install-naked  - Install only Caddy Web Server and no prompt.</span><br><span class="line">caddy edit           - Edit Caddyfile using nano or default editor.</span><br><span class="line">caddy service        - Make Caddy Web Server start on boot (upstart/systemd).</span><br><span class="line">                       Not required because we install service on install.</span><br><span class="line">caddy update         - Update Caddy Web Server.</span><br><span class="line">caddy delete         - Uninstall Caddy Web Server and data.</span><br><span class="line">                       We would prompt you if you want to keep data.</span><br><span class="line">caddy version        - Print version information.</span><br><span class="line">caddy about          - About Caddy Web Server Installer.</span><br></pre></td></tr></table></figure>
-
-<p>輸入<code>caddy install</code>安裝Caddy與PHP</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[root@ ~]# caddy install</span><br><span class="line"></span><br><span class="line">  Downloading Caddy Web Server v1.0.4 for 64bit...</span><br><span class="line"></span><br><span class="line">  Extracting Caddy Web Server to /opt/caddyserver... [DONE]</span><br><span class="line"></span><br><span class="line">  Are you gonna run php site? [y/N]: y</span><br></pre></td></tr></table></figure>
-
-<p>詢問你是否架設PHP網站，脚本自動輸入了y。如果選擇y的話會安裝PHP依賴文件，因爲要架設基於PHP編寫的Nextcloud，這裏只需要直接按回車即可，不需要輸入y。輸入之後便會繼續安裝，安裝完成之後會提示你輸入網站信息。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">Installing required php files...</span><br><span class="line"> [DONE]</span><br><span class="line">Installed &apos;php-fpm php-cli php-curl curl sudo&apos;</span><br><span class="line">Fixing php sock issue...  [DONE]</span><br><span class="line">Creating user &apos;caddy&apos;...  [DONE]</span><br><span class="line">Binding port using setcap...  [DONE]</span><br><span class="line">Creating startup service...  DONE</span><br><span class="line"></span><br><span class="line">Created symlink from /etc/systemd/system/multi-user.target.wants/caddy.service to /etc/systemd/system/caddy.service.</span><br><span class="line"></span><br><span class="line">Enter your domain name</span><br><span class="line">Seperated by comma</span><br><span class="line">Domain name:</span><br><span class="line">Enter your email for automated ssl</span><br><span class="line">Email:</span><br></pre></td></tr></table></figure>
-
-<p>提示輸入申請SSL證書的Email，輸入off，表示不需要SSL，待會用自簽證書替代letsencrypt的證書。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">/etc/Caddyfile created</span><br><span class="line">index file created</span><br><span class="line">/var/caddywww/index.html</span><br><span class="line"></span><br><span class="line">PHP-info file created</span><br><span class="line">/var/caddywww/info.php</span><br><span class="line"></span><br><span class="line">Done. Caddy has been installed :)</span><br><span class="line">Run caddy start to start Caddy Web Server</span><br><span class="line"></span><br><span class="line">[root@nzZKNJ1000562 ~]#</span><br></pre></td></tr></table></figure>
-
-<p>先打開<code>/etc/Caddyfile</code>編輯網站詳情</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@ ~]# vi /etc/Caddyfile</span><br></pre></td></tr></table></figure>
-
-<p>修改成類似以下格式</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">example.com,:80 &#123;</span><br><span class="line">        root /var/caddywww</span><br><span class="line">        gzip</span><br><span class="line">        tls self_signed</span><br><span class="line">        log /var/log/caddy/access.log</span><br><span class="line">        errors /var/log/caddy/error.log</span><br><span class="line">        fastcgi / 127.0.0.1:9000 php</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>其中，tls行後面的<code>self_signed</code>表示讓Caddy自簽證書，用於加密伺服器到Cloudflare的流量。<code>example.com</code>是你的域名。填寫完之後按下<code>esc</code>，輸入<code>:wq</code>保存退出。</p>
-<h4 id="安裝Nextcloud"><a href="#安裝Nextcloud" class="headerlink" title="安裝Nextcloud"></a>安裝Nextcloud</h4><p>在伺服器目錄裏面下載Nextcloud的在綫安裝脚本，並啓動Caddy。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /var/caddywww &amp;&amp; wget https://download.nextcloud.com/server/installer/setup-nextcloud.php &amp;&amp; caddy start</span><br><span class="line"><span class="comment"># 如果你是Centos7，需要輸入以下命令開啓端口</span></span><br><span class="line">firewall-cmd --add-port=443/tcp --permanent</span><br><span class="line">firewall-cmd --add-port=80/tcp --permanent</span><br><span class="line">firewall-cmd --reload</span><br></pre></td></tr></table></figure>
-
-<p>然後，在瀏覽器打開<code>https://你的域名/setup-nextcloud.php</code>。安裝Nextcloud。</p>
-<p><img src="/images/1599571539419.png" alt></p>
-<p>下一步，選擇Nextcloud的子目錄，輸入<code>.</code>以安裝在網站的根目錄</p>
-<p><img src="/images/1599571599821.png" alt></p>
-<p>等待安裝完成即可。</p>
-<h3 id="方法二：使用snap安裝Nextcloud（推薦）"><a href="#方法二：使用snap安裝Nextcloud（推薦）" class="headerlink" title="方法二：使用snap安裝Nextcloud（推薦）"></a>方法二：使用snap安裝Nextcloud（推薦）</h3><p>輸入以下命令安裝snap和Nextcloud</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install snapd -y &amp;&amp; systemctl <span class="built_in">enable</span> --now snapd.socket &amp;&amp; sleep 10 &amp;&amp; snap install nextcloud</span><br></pre></td></tr></table></figure>
-
-<p>然後，在瀏覽器打開<code>https://你的域名/setup-nextcloud.php</code>。注冊管理員賬號即可。</p>
-<h2 id="總結"><a href="#總結" class="headerlink" title="總結"></a>總結</h2><p>雲筏科技這款VPS速度尚可，要這麽迷你款的vps跑Nextcloud這種級別的軟件的確有點吃不消。後續可能會安裝V2ray測試一下實際的代理連接速度。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
+      </div>
     
 
     <footer class="post-footer">
       
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://www.kappu.ml/2020/02/09/反向代理github/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="木不子">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="木不子的窒息小茶室">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/02/09/反向代理github/" itemprop="url">反向代理Github，加速國內vps從Github扒文件的速度</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">發表於</span>
-              
-              <time title="創建於" itemprop="dateCreated datePublished" datetime="2020-02-09T14:55:30+08:00">
-                2020-02-09
-              </time>
-            
-
-            
-
-            
-          </span>
-
+        <div class="post-tags">
           
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分類於</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/技術相關/" itemprop="url" rel="index">
-                    <span itemprop="name">技術相關</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
+            <a href="/tags/Wireguard/" rel="tag"># Wireguard</a>
           
-
+            <a href="/tags/V2ray/" rel="tag"># V2ray</a>
           
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2020/02/09/反向代理github/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/02/09/反向代理github/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
+            <a href="/tags/翻墙/" rel="tag"># 翻墙</a>
           
-
+            <a href="/tags/代理/" rel="tag"># 代理</a>
           
+            <a href="/tags/隧道/" rel="tag"># 隧道</a>
           
-
-          
-
-          
-
-          
-
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>最近在折騰國内vps，實現反向翻墻，方便看國内的正版資源，加速國内網盤的訪問以及免報備B站直播。但是架設各種服務的時候脫離不了Github這個世界上最大的同性交友網站。</p>
-<p>於是想到了先前很久都在用的寶塔vps，創建了一個靜態站做反向代理。</p>
-<h1 id="需要使用的工具"><a href="#需要使用的工具" class="headerlink" title="需要使用的工具"></a>需要使用的工具</h1><ul>
-<li>國内能正常訪問的海外Vps</li>
-<li>寶塔面板</li>
-</ul>
-<h1 id="過程"><a href="#過程" class="headerlink" title="過程"></a>過程</h1><p>若沒有安裝寶塔面板，先用以下命令安裝寶塔</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -sSO http://download.bt.cn/install/new_install.sh &amp;&amp; bash new_install.sh</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>建議使用screen命令後臺安裝，安裝寶塔面板有編譯過程，耗時較久。</p>
-</blockquote>
-<p>過程可以把自己擁有的域名解析到你的vps，若沒有域名建議使用<a href="https://www.freenom.com" target="_blank" rel="noopener">Freenom</a>注冊免費域名。這裏不再演示如何注冊與解析域名。</p>
-<p>安裝完成後，根據推薦安裝套件<strong>安裝LNMP套裝</strong>。安裝完畢后打開網站選項卡，添加站點。</p>
-<p><img src="/images/1581231888685.png" alt></p>
-<p>然後輸入自己的域名（把your.domain填寫為其他已經解析的域名），填寫備注和更改php版本為純靜態。</p>
-<p><img src="/images/1581232119934.png" alt></p>
-<p>創建完成後，點擊網站名，會進入設置頁面，設置頁面先選擇SSL選項卡，然後選擇Let’s Encrypt，創建免費的SSL證書（當然你可以選擇不使用https，只使用http）</p>
-<p><img src="/images/1581232312244.png" alt></p>
-<p>然後勾上域名的勾勾，點擊申請（注意申請的時候必須已經解析好域名），申請完畢之後就會出現部署成功的，顯示密鑰與證書的畫面。</p>
-<p><img src="/images/1581232436903.png" alt></p>
-<p>點擊左邊選項卡的反向代理，添加反向代理，然後如下填寫</p>
-<p><img src="/images/1581232503464.png" alt></p>
-<p>提交之後，你的反向代理應該已經生效了，可以試著訪問自己的網站看看是否可以正常使用。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
       
 
       
       
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
       
 
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://www.kappu.ml/2020/01/13/記錄B站ban了海外直播之後的艱辛反向翻墻歷程/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="木不子">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="木不子的窒息小茶室">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/01/13/記錄B站ban了海外直播之後的艱辛反向翻墻歷程/" itemprop="url">記錄B站ban了海外直播后的艱辛反向翻墻歷程</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">發表於</span>
-              
-              <time title="創建於" itemprop="dateCreated datePublished" datetime="2020-01-13T00:00:00+08:00">
-                2020-01-13
-              </time>
+              <a href="/2020/09/08/云筏科技 欧洲9元NAT-VPS评测/" rel="next" title="雲筏科技 歐洲9元NAT-VPS Cloudflare純IPV6建站">
+                <i class="fa fa-chevron-left"></i> 雲筏科技 歐洲9元NAT-VPS Cloudflare純IPV6建站
+              </a>
             
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分類於</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/生活心得/" itemprop="url" rel="index">
-                    <span itemprop="name">生活心得</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2020/01/13/記錄B站ban了海外直播之後的艱辛反向翻墻歷程/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/01/13/記錄B站ban了海外直播之後的艱辛反向翻墻歷程/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="發生了什麽"><a href="#發生了什麽" class="headerlink" title="發生了什麽"></a>發生了什麽</h1><p>事情緣起于2018年我有一天突發奇想想在Bilibili直播玩游戲，或者稍微編編曲。於是我開開心心的打開了我常用的B站賬號，打開直播中心，按下開始直播按鍵，<strong>它提示我系統升級維護中</strong>。我就乖乖的等了幾天，再次打開，仍然是升級維護中。</p>
-<p>於是我找了客服，詢問是什麽升級維護。客服回答得含含糊糊，口齒不清，就是一股不想回答的氣息，<strong>氣得我反向抽烟燙到自己嘴巴</strong>。我放下這個事情，把心思擺回到工作學習上。慢慢忘了這檔子事情。</p>
-<p>三個月後，開始看vtuber。那時候已經是9102年，vtuber也時不時會在b站做做b限。在dd的途中，我突然又想起來關於我直播間的那檔事情。再去開了一下，<strong>依然是系統升級維護中</strong>。這時候我感到事情并不簡單。</p>
-<p>質問了一輪客服，問了問不同的大佬，大概瞭解到是部分海外人士在b站直播的時候提及敏感話題（就是台灣香港南北韓兩伊印度新疆西藏balabala），導致只有b站做了這種一刀切的劣質處理。本來作爲一個剛剛起步的小公司，一刀切一段時間整頓這個玩意也是無可厚非，畢竟是在中國大陸做生意，有些規則確實需要遵循。我心想沒準過多幾個月就能研討出整套的解決方案了吧。</p>
-<p>於是到了2019年年尾，我想給群友演示編曲和游戲的時候，感覺qq的直播極爲弱智，突然又回想到了b站的事情。再上去一看，<strong>仍然是系統升級維護中</strong>。</p>
-<p>成，那我自己看看你到底在維護什麽。</p>
-<h1 id="身份認同與身份證明"><a href="#身份認同與身份證明" class="headerlink" title="身份認同與身份證明"></a>身份認同與身份證明</h1><p>香港居民不配當中國人，全中國的互聯網公司都是這麽定義的。現在，港臺居民注冊b站想要“開通直播功能”，据b站官方所稱需要拍護照或者回鄉證進行實名認證。實際上，我早在2016年已經完成實名認證，2017年也確實可以正常直播，但到了2018年，這個條款説明也沒有變更，不過我就是無法正常開啓直播功能了。</p>
-<p>据不同的消息來源所稱，現在免報備直播主要受到以下兩點限制：</p>
-<ol>
-<li>僅允許大陸IP進行免報備直播</li>
-<li>僅允許大陸居民身份證實名認證用戶進行免報備直播</li>
-</ol>
-<blockquote>
-<p>報備：向b站官方進行活動審核，以進行直播</p>
-</blockquote>
-<p>據我所知，無大陸居民身份證實名認證的賬戶無論是否大陸IP與是否報備，一般都不會允許進行直播。也就是説，在B站現今實際情況下，港澳臺與海外用戶是無法通過正常的手段進行個人直播的。而且，包括港澳臺和海外用戶，<strong>所有的實名認證操作均不可逆不可更改</strong>。</p>
-<p><em>在B站，你想自由的直播，需要僞裝成一個住在大陸的大陸人。</em></p>
-<h1 id="手段"><a href="#手段" class="headerlink" title="手段"></a>手段</h1><p>進入正篇。</p>
-<p><strong>第一個問題：</strong> 僅允許大陸IP進行免報備直播。解決方法其實挺簡單明瞭。只需要在大陸購置一臺vps架設代理服務器便解決了問題。</p>
-<p>不過，畢竟只有直播軟件和瀏覽器會受到b站的ip審查，如果通過普通的代理方法，要麽只能代理瀏覽器，要麽就是全局代理。這個情況和大陸居民翻出來YouTube進行直播的情況是極爲類似的。我在這裏使用了以下兩個工具：</p>
-<ol>
-<li>SSR-win：將SSR協議轉換爲HTTP協議。</li>
-<li>Proxifier：為不同的軟件配置不同的網路方案，這軟件支持HTTP代理協議。</li>
-</ol>
-<p>Proxifier的教程不少，如果有一點點代理相關知識的人應該知道代理實際上就是讓你的代理服務器成爲你的軟件請求的代理人。我們只需要把OBS以及一個專門用來訪問B站的瀏覽器（例如Firefox）代理到大陸，別的軟件不需要回國。具體的教程網上很多，這裏不過多贅述，僅僅提一點。</p>
-<p><strong>規則設置中，OBS安裝目錄下的所有exe麻煩全部勾上去，完成後，方案下被代理的軟件列表應如下：</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">obs64.exe; obs-ffmpeg-mux.exe; obs-browser-page.exe; vlc.exe; node.exe</span><br></pre></td></tr></table></figure>
-
-<p>再提一個比較重要的事情。大陸的Vps服務器近兩年價格愈加嚇人，一般的1M VPS月租都要六七十塊錢，3M帶寬的甚至需要上三四百塊錢的月租，所以現在可能有許多人會選擇<strong>NAT VPS</strong>。</p>
-<p><strong>但要注意，NAT VPS在不同的綫路下的表現差距特別大</strong>。一般來説，接近上海和深圳這兩個出口點的服務器都會比較優質，電信的出口綫路質量一般都比另外兩大運營商要優秀。如果你和我一樣在香港，便宜的NAT VPS服務器裏可能只有東莞的VPS可以選擇。深圳地價高沒什麽小廠商會去開機房，大部分機房都在江蘇安徽浙江一帶，那一帶的對外綫路質量又參差不齊。具體可以上網查找別人關於翻墻中轉NAT VPS的選擇心得。</p>
-<p>第二點，或許有兩個方法。</p>
-<p>第一個方法，也是我本人用的方法，就是<strong>請求信任的人幫忙認證，注冊新的賬號，成爲你在B站上的靈魂</strong>。這個方法簡單且快捷，但是實行起來卻會有不少疑慮和擔心。而且，如果是特純種香港人台灣人，和大陸聯係不多，這個方法更是比較難適用。</p>
-<p>第二個方法，就是返回大陸申請居住證，用居住證進行實名認證。這個方法我沒有實證過，關於如何申請居住證以及有什麽條件，我也沒有實際操作過。這裏僅僅是提出一種可能性。（但僅僅爲了閑暇時間直播而申請居住證，未免太大費周章）</p>
-<h1 id="怠惰"><a href="#怠惰" class="headerlink" title="怠惰"></a>怠惰</h1><p>總而言之，B站作爲一個互聯網公司，坐擁全國最多的綜合視頻流量，身爲全國綜合視頻和直播的壟斷龍頭，理應有相應的執行力和技術能力解決政治言論上的杯葛。即便是報備，也可以將報備流程做的系統化和程序化，在網頁上實現類似視頻和封面審核的報備流程。但是這并沒有發生，實際原因爲何，也不得而知，只能任我們猜想。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://www.kappu.ml/2019/11/10/manjaro_kde_passwd/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="木不子">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="木不子的窒息小茶室">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/11/10/manjaro_kde_passwd/" itemprop="url">manjaro的KDE安裝包之默認密碼</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">發表於</span>
-              
-              <time title="創建於" itemprop="dateCreated datePublished" datetime="2019-11-10T00:00:00+08:00">
-                2019-11-10
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分類於</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/技術相關/" itemprop="url" rel="index">
-                    <span itemprop="name">技術相關</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2019/11/10/manjaro_kde_passwd/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/11/10/manjaro_kde_passwd/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>manjaro安裝過程中會自動鎖屏，而且系統自帶密碼，manjaro賬戶的默認密碼為<code>manjaro</code>。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://www.kappu.ml/2019/11/10/study_of_rsa/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="木不子">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="木不子的窒息小茶室">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/11/10/study_of_rsa/" itemprop="url">RSA非對稱加密算法學習筆記</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">發表於</span>
-              
-              <time title="創建於" itemprop="dateCreated datePublished" datetime="2019-11-10T00:00:00+08:00">
-                2019-11-10
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分類於</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/技術相關/" itemprop="url" rel="index">
-                    <span itemprop="name">技術相關</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2019/11/10/study_of_rsa/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/11/10/study_of_rsa/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="這是啥"><a href="#這是啥" class="headerlink" title="這是啥"></a>這是啥</h1><p>RSA算法是一種非對稱加密算法，他的原理完全基於歐拉定理，而歐拉定理基於歐拉函數……歐拉函數基於互質……互質則確定了兩個數字之間的唯一性……</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">歐拉函數：φ(n) = n-1</span><br><span class="line">歐拉定理：如果兩個正整數a和n互質，則n的歐拉函數 φ(n) 可以讓下面的等式成立：a^φ(n)%n=1</span><br><span class="line">其中%是取餘數之含義</span><br></pre></td></tr></table></figure>
-
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://www.kappu.ml/2019/10/27/Studying_system_theory/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="木不子">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="木不子的窒息小茶室">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/10/27/Studying_system_theory/" itemprop="url">系統學習框架 —— 如何開始學習完全不懂的一樣學科</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">發表於</span>
-              
-              <time title="創建於" itemprop="dateCreated datePublished" datetime="2019-10-27T00:08:00+08:00">
-                2019-10-27
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分類於</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/生活心得/" itemprop="url" rel="index">
-                    <span itemprop="name">生活心得</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2019/10/27/Studying_system_theory/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/10/27/Studying_system_theory/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>任何的學習都需要一定的耐心、通過不斷的實踐纍積經驗。不過，“學習”具體是什麽，我們是如何學習的？老師是如何教導我們知識的？</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/10/27/Studying_system_theory/#more" rel="contents">
-              閱讀全文 &raquo;
-            </a>
           </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
 
-    
+          <span class="post-nav-divider"></span>
 
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://www.kappu.ml/2019/11/09/Usege_dd_for_windows/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="木不子">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="木不子的窒息小茶室">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/11/09/Usege_dd_for_windows/" itemprop="url">如何使用Windows版本的dd工具</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
+          <div class="post-nav-prev post-nav-item">
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">發表於</span>
-              
-              <time title="創建於" itemprop="dateCreated datePublished" datetime="2019-11-09T22:30:00+08:00">
-                2019-11-09
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分類於</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/技術相關/" itemprop="url" rel="index">
-                    <span itemprop="name">技術相關</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2019/11/09/Usege_dd_for_windows/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/11/09/Usege_dd_for_windows/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>Windows版本的dd與Linux / macOS下的差異不大，只不過驅動器名稱相當的詭異。<br>在windows下，dd命令使用以下標識來代表驅動器</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\\.\a: #a代表盤符</span><br></pre></td></tr></table></figure>
-
-<p>將<code>1.img</code>刻入e盤即為</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dd.exe if=1.img of=\\.\e</span><br></pre></td></tr></table></figure>
-
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://www.kappu.ml/2019/08/24/MISSION_MANAGEMENT_3/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="木不子">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="木不子的窒息小茶室">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/08/24/MISSION_MANAGEMENT_3/" itemprop="url">時間管理（三） —— 初步實踐：拆分一首曲子的創作流程</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">發表於</span>
-              
-              <time title="創建於" itemprop="dateCreated datePublished" datetime="2019-08-24T09:13:17+08:00">
-                2019-08-24
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分類於</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/生活心得/" itemprop="url" rel="index">
-                    <span itemprop="name">生活心得</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2019/08/24/MISSION_MANAGEMENT_3/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/08/24/MISSION_MANAGEMENT_3/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p><a href="/2019/08/23/MISSION_MANAGEMENT_2">上一篇</a>討論了如何將需要連續進行的事情拆分爲小事件。</p>
-<p>先開坑，之後有空補上。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://www.kappu.ml/2019/08/23/MISSION_MANAGEMENT_2/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="木不子">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="木不子的窒息小茶室">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/08/23/MISSION_MANAGEMENT_2/" itemprop="url">時間管理（二） —— 利用間隙時間慢慢完成麻煩的事情</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">發表於</span>
-              
-              <time title="創建於" itemprop="dateCreated datePublished" datetime="2019-08-23T13:30:20+08:00">
-                2019-08-23
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分類於</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/生活心得/" itemprop="url" rel="index">
-                    <span itemprop="name">生活心得</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2019/08/23/MISSION_MANAGEMENT_2/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/08/23/MISSION_MANAGEMENT_2/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>生活中經常遇到步驟復雜，麻煩但是影響又很深遠的事情。</p>
-<p>這類事情都是看起來需要花很長時間處理的事情，而且看起來很有用，但是短時間內不會有任何收益的事情。結果經常拖到死線前才開始急急忙忙糊弄過去，弄得質量不佳之餘很是狼狽。</p>
-<p>即便是學習，都算是長周期的事情：每次聽課都需要做筆記，做完筆記之後可能需要整理，整理後需要復習，在考試前都需要拿出相關的筆記。</p>
-<p>既然如此，爲什麼不在一開始寫好這類經常出現的事情的「處理事項列表」，每個事情拆解成五分鍾內能夠完成的小事項，一有空閒就完成一點呢？</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/08/23/MISSION_MANAGEMENT_2/#more" rel="contents">
-              閱讀全文 &raquo;
-            </a>
           </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
+        </div>
       
 
       
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -2167,14 +696,11 @@
   </article>
 
 
-    
-  </section>
 
-  
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
-  </nav>
-
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -2182,6 +708,20 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+  
+
 
         </div>
         
@@ -2202,8 +742,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目錄
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            本站概覽
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -2286,6 +835,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#原因"><span class="nav-number">1.</span> <span class="nav-text">原因</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#原理"><span class="nav-number">2.</span> <span class="nav-text">原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实验"><span class="nav-number">3.</span> <span class="nav-text">实验</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#实验测试结果"><span class="nav-number">3.1.</span> <span class="nav-text">实验测试结果</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#iperf"><span class="nav-number">3.1.1.</span> <span class="nav-text">iperf</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Ping"><span class="nav-number">3.1.2.</span> <span class="nav-text">Ping</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实装测试结果"><span class="nav-number">3.2.</span> <span class="nav-text">实装测试结果</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#PING"><span class="nav-number">3.2.1.</span> <span class="nav-text">PING</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Iperf测速"><span class="nav-number">3.2.2.</span> <span class="nav-text">Iperf测速</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GRE-over-Wireguard-over-Vless-WebsocketSecurity-Web-over-Cloudflare-CDN-with-Web"><span class="nav-number">4.</span> <span class="nav-text">GRE over Wireguard over Vless-WebsocketSecurity-Web over Cloudflare CDN with Web</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#服务端"><span class="nav-number">4.1.</span> <span class="nav-text">服务端</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Vless-WebsocketSecurity-over-Cloudflare-CDN-with-Web"><span class="nav-number">4.1.1.</span> <span class="nav-text">Vless-WebsocketSecurity over Cloudflare CDN with Web</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Wireguard服务接口"><span class="nav-number">4.1.2.</span> <span class="nav-text">Wireguard服务接口</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#GRE接口"><span class="nav-number">4.1.3.</span> <span class="nav-text">GRE接口</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#客户端"><span class="nav-number">4.2.</span> <span class="nav-text">客户端</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#V2ray接入"><span class="nav-number">4.2.1.</span> <span class="nav-text">V2ray接入</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Wireguard接入"><span class="nav-number">4.2.2.</span> <span class="nav-text">Wireguard接入</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#GRE接入"><span class="nav-number">4.2.3.</span> <span class="nav-text">GRE接入</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -2470,6 +1035,10 @@ show_date_time();
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
@@ -2487,6 +1056,18 @@ show_date_time();
       <script id="dsq-count-scr" src="https://cupkappu-blog.disqus.com/count.js" async></script>
     
 
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'https://www.kappu.ml/2020/09/27/Wireguard-over-V2ray/';
+          this.page.identifier = '2020/09/27/Wireguard-over-V2ray/';
+          this.page.title = 'Wireguard over Vmess/Vless - 安全隐蔽且容易配置的VPN三层隧道';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://cupkappu-blog.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
     
 
   
