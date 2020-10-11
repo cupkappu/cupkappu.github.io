@@ -286,6 +286,228 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://www.kappu.ml/2020/10/11/GOST_Startup/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="木不子">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="木不子的窒息小茶室">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/10/11/GOST_Startup/" itemprop="url">试玩TUN/TAP over GOST-WSS</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">發表於</span>
+              
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2020-10-11T18:39:08+08:00">
+                2020-10-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分類於</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/技術相關/" itemprop="url" rel="index">
+                    <span itemprop="name">技術相關</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2020/10/11/GOST_Startup/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/10/11/GOST_Startup/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>在上个星期我试着搭建了<a href="https://blog.kifuko.moe/2020/09/27/Wireguard-over-V2ray/" target="_blank" rel="noopener">Wireguard over Vless-Websocket</a>，稳定性虽然不错但是性能实在是太差了，实在是不适合放在性能比较低下的NAT VPS上做中转之类的操作。即便是树莓派4b，跑满100M带宽也需要吃掉超过100%的CPU。再加上V2ray的功能是专门为了一站式应用层穿透代理设计的，端口转发只是V2ray自带的一个额外的功能罢了，并不是他的核心功能。由于没有研究过V2ray的代码也无法判断在跑端口转发的时候会不会运行了一些与端口转发无关的代码占用资源，不过最近看到了<a href="https://github.com/v2ray/discussion/issues/454" target="_blank" rel="noopener">v2ray/discussion里面的一则讨论</a>，测试显示GOST的ws+tls速度比v2ray快了一倍有余。</p>
+<p>本篇将尝试使用GOST直接搭建使用Websocket-TLS传输层隧道进行通讯的TAP VPN，实现穿隧与组网。为了理解本篇内容，读者最少需要了解基本的网络、路由原理，需要懂得基础的OSI模型。</p>
+<h2 id="实践"><a href="#实践" class="headerlink" title="实践"></a>实践</h2><p>这次使用一台内地的NAT VPS与日本NTT VPS进行测试，使用GOST创建TAP设备，底层传输层走Websocket-TLS协议，让协议可实现套CDN等操作。</p>
+<p>先在服务端和客户端下载GOST，安装到<code>/usr/local/bin</code>里面</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl https://github.com/ginuerzh/gost/releases/download/v2.11.1/gost-linux-amd64-2.11.1.gz | gzip -dc &gt; /usr/local/bin/gost &amp;&amp; chmod +x /usr/local/bin/gost</span><br></pre></td></tr></table></figure>
+
+<p>在服务端安装caddy</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://git.io/vra5C -O - -o /dev/null|bash</span><br></pre></td></tr></table></figure>
+
+<p>在服务端配置Systemd</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">cat &gt; gost.service &lt;&lt; EOF</span><br><span class="line">[Unit]</span><br><span class="line">Description=Gost Proxy</span><br><span class="line">After=network.target</span><br><span class="line">Wants=network.target</span><br><span class="line"></span><br><span class="line">[Service]</span><br><span class="line">Type=simple</span><br><span class="line">ExecStart=/usr/local/bin/gost -L tap://127.0.0.1:8421 -L relay+ws://user:pass@127.0.0.1:48101?path=/gost</span><br><span class="line">Restart=always</span><br><span class="line"></span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target</span><br><span class="line">EOF</span><br></pre></td></tr></table></figure>
+
+<p>上面的user和pass修改一下，path的意思是路径。然后8421是TAP协议设备的端口，48101是relay+ws的端口。</p>
+<p>配置Caddy。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">cat &gt; /etc/Caddyfile &lt;&lt; EOF</span><br><span class="line">serverdomain &#123;</span><br><span class="line">        gzip</span><br><span class="line">        tls example@mail.com</span><br><span class="line">        log /var/log/caddy.log</span><br><span class="line">        proxy /gost localhost:48101 &#123;</span><br><span class="line">                websocket</span><br><span class="line">                header_upstream -Origin</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br><span class="line">EOF</span><br></pre></td></tr></table></figure>
+
+<p>启动Caddy和GOST。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">caddy start</span><br><span class="line"></span><br><span class="line">systemctl start gost</span><br><span class="line">systemctl enable gost</span><br></pre></td></tr></table></figure>
+
+<p>配置网桥并将GOST的TAP设备桥接到网桥上。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ip link add taps_bridge type bridge</span><br><span class="line">ip link set taps_bridge up</span><br><span class="line">ip address add 100.66.0.1/24 dev taps_bridge</span><br><span class="line">ip link set tap0 master taps_bridge</span><br></pre></td></tr></table></figure>
+
+<p>在客户端配置GOST的systemd。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">cat &gt; gost.service &lt;&lt; EOF</span><br><span class="line">[Unit]</span><br><span class="line">Description=Gost Proxy</span><br><span class="line">After=network.target</span><br><span class="line">Wants=network.target</span><br><span class="line"></span><br><span class="line">[Service]</span><br><span class="line">Type=simple</span><br><span class="line">ExecStart=/usr/local/bin/gost -L tap://:8421/127.0.0.1:8421?net=100.66.0.2/24 -F relay+wss://user:pass@serverdomain:443?path=/gost</span><br><span class="line">Restart=always</span><br><span class="line"></span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target</span><br><span class="line">EOF</span><br></pre></td></tr></table></figure>
+
+<p>然后在客户端启动GOST服务。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">systemctl enable gost</span><br><span class="line">systemctl start gost</span><br></pre></td></tr></table></figure>
+
+<p>到这一步应该已经将GOST的TAP over WSS搭建完成，若你想套CDN之类的可以自己操作看看。</p>
+<h2 id="性能测试"><a href="#性能测试" class="headerlink" title="性能测试"></a>性能测试</h2><p>上面搭建的是wss协议的GOST，下面会一并测试TAP设备在TLS、KCP、QUIC传输层协议上的表现。</p>
+<p>香港HKT搭建的iperf3服务器，宿迁联通百兆宽带，性能如下。</p>
+<table>
+<thead>
+<tr>
+<th>协议</th>
+<th>上传</th>
+<th>下载</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Direct</td>
+<td>16.4Mbps</td>
+<td>3.22Mbps</td>
+</tr>
+<tr>
+<td>TLS</td>
+<td>14.9Mbps</td>
+<td>6.87Mbps</td>
+</tr>
+<tr>
+<td>KCP</td>
+<td>7.92Mbps</td>
+<td>1.39Mbps</td>
+</tr>
+<tr>
+<td>QUIC</td>
+<td>8.66Mbps</td>
+<td>8.20Mbps</td>
+</tr>
+<tr>
+<td>Relay+MTLS</td>
+<td>12.6Mbps</td>
+<td>9.42Mbps</td>
+</tr>
+<tr>
+<td>Relay+KCP</td>
+<td>13.1Mbps</td>
+<td>11.6Mbps</td>
+</tr>
+</tbody></table>
+<p>实测下来性能还不如GRE over Wireguard over Vless-WSS，不知道纯中转性能如何，之后有机会再更新吧。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://www.kappu.ml/2020/09/27/Wireguard-over-V2ray/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2009,165 +2231,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://www.kappu.ml/2019/08/23/MISSION_MANAGEMENT_2/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="木不子">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="木不子的窒息小茶室">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/08/23/MISSION_MANAGEMENT_2/" itemprop="url">時間管理（二） —— 利用間隙時間慢慢完成麻煩的事情</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">發表於</span>
-              
-              <time title="創建於" itemprop="dateCreated datePublished" datetime="2019-08-23T13:30:20+08:00">
-                2019-08-23
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分類於</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/生活心得/" itemprop="url" rel="index">
-                    <span itemprop="name">生活心得</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2019/08/23/MISSION_MANAGEMENT_2/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/08/23/MISSION_MANAGEMENT_2/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>生活中經常遇到步驟復雜，麻煩但是影響又很深遠的事情。</p>
-<p>這類事情都是看起來需要花很長時間處理的事情，而且看起來很有用，但是短時間內不會有任何收益的事情。結果經常拖到死線前才開始急急忙忙糊弄過去，弄得質量不佳之餘很是狼狽。</p>
-<p>即便是學習，都算是長周期的事情：每次聽課都需要做筆記，做完筆記之後可能需要整理，整理後需要復習，在考試前都需要拿出相關的筆記。</p>
-<p>既然如此，爲什麼不在一開始寫好這類經常出現的事情的「處理事項列表」，每個事情拆解成五分鍾內能夠完成的小事項，一有空閒就完成一點呢？</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/08/23/MISSION_MANAGEMENT_2/#more" rel="contents">
-              閱讀全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2218,7 +2281,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-count">20</span>
                   <span class="site-state-item-name">文章</span>
                 </a>
               </div>
@@ -2240,7 +2303,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">31</span>
+                  <span class="site-state-item-count">35</span>
                   <span class="site-state-item-name">標籤</span>
                 </a>
               </div>

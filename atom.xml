@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.kappu.ml/"/>
-  <updated>2020-09-27T12:54:39.966Z</updated>
+  <updated>2020-10-11T10:51:39.939Z</updated>
   <id>https://www.kappu.ml/</id>
   
   <author>
@@ -15,6 +15,43 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>试玩TUN/TAP over GOST-WSS</title>
+    <link href="https://www.kappu.ml/2020/10/11/GOST_Startup/"/>
+    <id>https://www.kappu.ml/2020/10/11/GOST_Startup/</id>
+    <published>2020-10-11T10:39:08.000Z</published>
+    <updated>2020-10-11T10:51:39.939Z</updated>
+    
+    <content type="html"><![CDATA[<p>在上个星期我试着搭建了<a href="https://blog.kifuko.moe/2020/09/27/Wireguard-over-V2ray/" target="_blank" rel="noopener">Wireguard over Vless-Websocket</a>，稳定性虽然不错但是性能实在是太差了，实在是不适合放在性能比较低下的NAT VPS上做中转之类的操作。即便是树莓派4b，跑满100M带宽也需要吃掉超过100%的CPU。再加上V2ray的功能是专门为了一站式应用层穿透代理设计的，端口转发只是V2ray自带的一个额外的功能罢了，并不是他的核心功能。由于没有研究过V2ray的代码也无法判断在跑端口转发的时候会不会运行了一些与端口转发无关的代码占用资源，不过最近看到了<a href="https://github.com/v2ray/discussion/issues/454" target="_blank" rel="noopener">v2ray/discussion里面的一则讨论</a>，测试显示GOST的ws+tls速度比v2ray快了一倍有余。</p><p>本篇将尝试使用GOST直接搭建使用Websocket-TLS传输层隧道进行通讯的TAP VPN，实现穿隧与组网。为了理解本篇内容，读者最少需要了解基本的网络、路由原理，需要懂得基础的OSI模型。</p><h2 id="实践"><a href="#实践" class="headerlink" title="实践"></a>实践</h2><p>这次使用一台内地的NAT VPS与日本NTT VPS进行测试，使用GOST创建TAP设备，底层传输层走Websocket-TLS协议，让协议可实现套CDN等操作。</p><p>先在服务端和客户端下载GOST，安装到<code>/usr/local/bin</code>里面</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl https://github.com/ginuerzh/gost/releases/download/v2.11.1/gost-linux-amd64-2.11.1.gz | gzip -dc &gt; /usr/local/bin/gost &amp;&amp; chmod +x /usr/local/bin/gost</span><br></pre></td></tr></table></figure><p>在服务端安装caddy</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://git.io/vra5C -O - -o /dev/null|bash</span><br></pre></td></tr></table></figure><p>在服务端配置Systemd</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">cat &gt; gost.service &lt;&lt; EOF</span><br><span class="line">[Unit]</span><br><span class="line">Description=Gost Proxy</span><br><span class="line">After=network.target</span><br><span class="line">Wants=network.target</span><br><span class="line"></span><br><span class="line">[Service]</span><br><span class="line">Type=simple</span><br><span class="line">ExecStart=/usr/local/bin/gost -L tap://127.0.0.1:8421 -L relay+ws://user:pass@127.0.0.1:48101?path=/gost</span><br><span class="line">Restart=always</span><br><span class="line"></span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target</span><br><span class="line">EOF</span><br></pre></td></tr></table></figure><p>上面的user和pass修改一下，path的意思是路径。然后8421是TAP协议设备的端口，48101是relay+ws的端口。</p><p>配置Caddy。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">cat &gt; /etc/Caddyfile &lt;&lt; EOF</span><br><span class="line">serverdomain &#123;</span><br><span class="line">        gzip</span><br><span class="line">        tls example@mail.com</span><br><span class="line">        log /var/log/caddy.log</span><br><span class="line">        proxy /gost localhost:48101 &#123;</span><br><span class="line">                websocket</span><br><span class="line">                header_upstream -Origin</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br><span class="line">EOF</span><br></pre></td></tr></table></figure><p>启动Caddy和GOST。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">caddy start</span><br><span class="line"></span><br><span class="line">systemctl start gost</span><br><span class="line">systemctl enable gost</span><br></pre></td></tr></table></figure><p>配置网桥并将GOST的TAP设备桥接到网桥上。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ip link add taps_bridge type bridge</span><br><span class="line">ip link set taps_bridge up</span><br><span class="line">ip address add 100.66.0.1/24 dev taps_bridge</span><br><span class="line">ip link set tap0 master taps_bridge</span><br></pre></td></tr></table></figure><p>在客户端配置GOST的systemd。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">cat &gt; gost.service &lt;&lt; EOF</span><br><span class="line">[Unit]</span><br><span class="line">Description=Gost Proxy</span><br><span class="line">After=network.target</span><br><span class="line">Wants=network.target</span><br><span class="line"></span><br><span class="line">[Service]</span><br><span class="line">Type=simple</span><br><span class="line">ExecStart=/usr/local/bin/gost -L tap://:8421/127.0.0.1:8421?net=100.66.0.2/24 -F relay+wss://user:pass@serverdomain:443?path=/gost</span><br><span class="line">Restart=always</span><br><span class="line"></span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target</span><br><span class="line">EOF</span><br></pre></td></tr></table></figure><p>然后在客户端启动GOST服务。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">systemctl enable gost</span><br><span class="line">systemctl start gost</span><br></pre></td></tr></table></figure><p>到这一步应该已经将GOST的TAP over WSS搭建完成，若你想套CDN之类的可以自己操作看看。</p><h2 id="性能测试"><a href="#性能测试" class="headerlink" title="性能测试"></a>性能测试</h2><p>上面搭建的是wss协议的GOST，下面会一并测试TAP设备在TLS、KCP、QUIC传输层协议上的表现。</p><p>香港HKT搭建的iperf3服务器，宿迁联通百兆宽带，性能如下。</p><table><thead><tr><th>协议</th><th>上传</th><th>下载</th></tr></thead><tbody><tr><td>Direct</td><td>16.4Mbps</td><td>3.22Mbps</td></tr><tr><td>TLS</td><td>14.9Mbps</td><td>6.87Mbps</td></tr><tr><td>KCP</td><td>7.92Mbps</td><td>1.39Mbps</td></tr><tr><td>QUIC</td><td>8.66Mbps</td><td>8.20Mbps</td></tr><tr><td>Relay+MTLS</td><td>12.6Mbps</td><td>9.42Mbps</td></tr><tr><td>Relay+KCP</td><td>13.1Mbps</td><td>11.6Mbps</td></tr></tbody></table><p>实测下来性能还不如GRE over Wireguard over Vless-WSS，不知道纯中转性能如何，之后有机会再更新吧。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;在上个星期我试着搭建了&lt;a href=&quot;https://blog.kifuko.moe/2020/09/27/Wireguard-over-V2ray/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Wireguard over Vless-Websock
+      
+    
+    </summary>
+    
+      <category term="技術相關" scheme="https://www.kappu.ml/categories/%E6%8A%80%E8%A1%93%E7%9B%B8%E9%97%9C/"/>
+    
+    
+      <category term="翻墙" scheme="https://www.kappu.ml/tags/%E7%BF%BB%E5%A2%99/"/>
+    
+      <category term="代理" scheme="https://www.kappu.ml/tags/%E4%BB%A3%E7%90%86/"/>
+    
+      <category term="隧道" scheme="https://www.kappu.ml/tags/%E9%9A%A7%E9%81%93/"/>
+    
+      <category term="GOST" scheme="https://www.kappu.ml/tags/GOST/"/>
+    
+      <category term="游戏加速" scheme="https://www.kappu.ml/tags/%E6%B8%B8%E6%88%8F%E5%8A%A0%E9%80%9F/"/>
+    
+      <category term="VPN" scheme="https://www.kappu.ml/tags/VPN/"/>
+    
+      <category term="组网" scheme="https://www.kappu.ml/tags/%E7%BB%84%E7%BD%91/"/>
+    
+  </entry>
   
   <entry>
     <title>Wireguard over Vmess/Vless - 安全隐蔽且容易配置的VPN三层隧道</title>
