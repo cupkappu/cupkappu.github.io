@@ -1,6 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[科学上网、翻墙|仅需一台VPS，让宽带拥有公网固定IP、翻越GFW|软路由网关]]></title>
+    <url>%2F2020%2F10%2F11%2F2020-10-11-%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91%E3%80%81%E7%BF%BB%E5%A2%99%E4%BB%85%E9%9C%80%E4%B8%80%E5%8F%B0VPS%EF%BC%8C%E8%AE%A9%E5%AE%BD%E5%B8%A6%E6%8B%A5%E6%9C%89%E5%85%AC%E7%BD%91%E5%9B%BA%E5%AE%9AIP%E3%80%81%E7%BF%BB%E8%B6%8AGFW%E8%BD%AF%E8%B7%AF%E7%94%B1%E7%BD%91%E5%85%B3%2F</url>
+    <content type="text"><![CDATA[本教程会介绍VPN技术，并提到VPN在翻越GFW时会遇到的一些问题，然后会提供一种更加安全的、跨越GFW组建VPN二层网络的思路 0. GFW能管控什么？GFW如何对网络进行管控？网络这是你的家庭网络架构，你的笔记本电脑会连接到你的无线路由器，通过防火墙后连接上互联网。 图片来源：Draw.io 你发送的每个对外访问的数据包都会发送到你的家庭网关，通过电信商提供的宽带服务接入互联网后，家庭网关会根据路由表，向路由表指示的网关询问IP地址是否可以到达。再上一层的网关也会执行同样的操作，直到最后访问到你需要访问的IP地址。 有时候，应用访问的是域名。设备在接收到访问域名的请求后会向DNS服务器查询域名的IP地址，然后才会进行上面一套流程。 假设你要访问Youtube，域名是youtube.com在不考虑防火墙的情况下，你的电脑会先向DNS询问youtube.com的IP地址（A记录）。 图片来源：GFW是如何阻止我们访问国外网站的？（https://www.youtube.com/watch?v=f6dFKFeFntw） DNS服务器会返回一个域名的IP地址，然后设备会根据这个IP地址，将数据包发送到网关，最后访问到目标IP地址。 图片来源：GFW是如何阻止我们访问国外网站的？（https://www.youtube.com/watch?v=f6dFKFeFntw） GFW如果说你在中国大陆地区，你接入的网络架构应该是这样的。 你的设备询问访问国内的IP地址，运营商的网关会根据路由表自动路由到不同的网关。若访问海外的地址，运营商会将你的数据包转发到GFW里面进行审查，数据包通过审查则继续转发到海外的网关，未通过审查的数据包会被丢弃、替换、攻击等。（维基百科：防火长城） 现阶段，GFW会对以下的内容，在技术层面上进行网络攻击。 内容 封禁原因 技术手段 被屏蔽的域名 网站不符合言论审查要求 DNS污染 被屏蔽的IP IP提供不符合言论审查要求的服务 TCP阻断重置、UDP严格限速、黑洞路由、端口封锁 明文关键词 关键词不符合言论审查要求 TCP阻断重置 VPN流量 防范个人/团体不遵守言论审查 TCP阻断重置、UDP严格限速、黑洞路由、端口封锁 现在近乎明确会被GFW阻断、屏蔽、封禁的，数据包直接标识自己是隧道数据包的VPN有以下几种。 PPTP、L2TP、OpenVPN over UDP 有机会被屏蔽、限速、黑洞的VPN有以下几种。 Wireguard、GRE、IPSec、IKEv2、SSTP、Anyconnect 有较大机会被封锁的传输层以上的代理协议有以下几种。 SSH、Socks、HTTP代理、ShadowsocksR、Tor 1. 现阶段什么翻墙方式较难被封锁现阶段较为隐蔽的VPN和代理协议，根据底层传输层特征，隐蔽性由高至低排列（仅代表笔者观点） 传输层特征 VPN或代理类型 Websocks-TLS/HTTPS VPN-WS、V2ray-WSS、Trojan-WSS、GOST-WSS、Shadowsocks with Obfs WSS、HTTPS TLS SSL VPN、V2ray-TLS、Trojan、GOST、Socks over TLS、Shadowsocks with Obfs TLS QUIC V2ray-QUIC、GOST-QUIC KCP V2ray-KCP、GOST-KCP 无特征协议 V2ray-Vmess、Shadowsocks P2P网络 I2P 隐蔽性与性能、安全性无关 当下资料显示，GFW对待HTTPS和SSL/TLS流量最为宽松。根据《2019年6月翻墙快报》，GFW对于基于无加密Socks代理与VPN较为敏感，而对于非HTTPS、WSS的流量会随机阻断。在去年6月敏感时间，V2ray搭建在基于HTTPS的Websocket TLS传输层上、或是别的代理协议通过HTTPS Tunnel进行传输，都不会被GFW过度干扰。而I2P由于自身坚挺的P2P技术，只要即时补种可以作为轻度使用的良好方案。在特殊情况下，WSS传输层会被限速，但还尚未被完全封锁。可以总结，基于HTTPS传输层的代理和VPN是现行使用公网翻墙的最佳方法。 后续更新 维基百科：防火长城，https://zh.wikipedia.org/wiki/%E9%98%B2%E7%81%AB%E9%95%BF%E5%9F%8E，2020年10月13日读取。 GFW的封杀手段以及常见的翻墙手段，https://note.hzy.pw/1798.html，2020年10月13日读取。 《2019年6月翻墙快报》，2019年7月11日，https://medium.com/@programthink/2019%E5%B9%B46%E6%9C%88%E7%BF%BB%E5%A2%99%E5%BF%AB%E6%8A%A5-%E5%85%BC%E8%B0%88%E7%94%A8-i2p-%E7%AA%81%E7%A0%B4%E5%B0%81%E9%94%81-f460a86f154f，2020年10月14日读取。]]></content>
+      <categories>
+        <category>技術相關</category>
+      </categories>
+      <tags>
+        <tag>翻墙</tag>
+        <tag>代理</tag>
+        <tag>隧道</tag>
+        <tag>VPN</tag>
+        <tag>组网</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[试玩TUN/TAP over GOST-WSS]]></title>
     <url>%2F2020%2F10%2F11%2FGOST_Startup%2F</url>
     <content type="text"><![CDATA[在上个星期我试着搭建了Wireguard over Vless-Websocket，稳定性虽然不错但是性能实在是太差了，实在是不适合放在性能比较低下的NAT VPS上做中转之类的操作。即便是树莓派4b，跑满100M带宽也需要吃掉超过100%的CPU。再加上V2ray的功能是专门为了一站式应用层穿透代理设计的，端口转发只是V2ray自带的一个额外的功能罢了，并不是他的核心功能。由于没有研究过V2ray的代码也无法判断在跑端口转发的时候会不会运行了一些与端口转发无关的代码占用资源，不过最近看到了v2ray/discussion里面的一则讨论，测试显示GOST的ws+tls速度比v2ray快了一倍有余。 本篇将尝试使用GOST直接搭建使用Websocket-TLS传输层隧道进行通讯的TAP VPN，实现穿隧与组网。为了理解本篇内容，读者最少需要了解基本的网络、路由原理，需要懂得基础的OSI模型。 实践这次使用一台内地的NAT VPS与日本NTT VPS进行测试，使用GOST创建TAP设备，底层传输层走Websocket-TLS协议，让协议可实现套CDN等操作。 先在服务端和客户端下载GOST，安装到/usr/local/bin里面 1curl https://github.com/ginuerzh/gost/releases/download/v2.11.1/gost-linux-amd64-2.11.1.gz | gzip -dc &gt; /usr/local/bin/gost &amp;&amp; chmod +x /usr/local/bin/gost 在服务端安装caddy 1wget https://git.io/vra5C -O - -o /dev/null|bash 在服务端配置Systemd 1234567891011121314cat &gt; gost.service &lt;&lt; EOF[Unit]Description=Gost ProxyAfter=network.targetWants=network.target[Service]Type=simpleExecStart=/usr/local/bin/gost -L tap://127.0.0.1:8421 -L relay+ws://user:pass@127.0.0.1:48101?path=/gostRestart=always[Install]WantedBy=multi-user.targetEOF 上面的user和pass修改一下，path的意思是路径。然后8421是TAP协议设备的端口，48101是relay+ws的端口。 配置Caddy。 1234567891011cat &gt; /etc/Caddyfile &lt;&lt; EOFserverdomain &#123; gzip tls example@mail.com log /var/log/caddy.log proxy /gost localhost:48101 &#123; websocket header_upstream -Origin &#125;&#125;EOF 启动Caddy和GOST。 1234caddy startsystemctl start gostsystemctl enable gost 配置网桥并将GOST的TAP设备桥接到网桥上。 1234ip link add taps_bridge type bridgeip link set taps_bridge upip address add 100.66.0.1/24 dev taps_bridgeip link set tap0 master taps_bridge 在客户端配置GOST的systemd。 1234567891011121314cat &gt; gost.service &lt;&lt; EOF[Unit]Description=Gost ProxyAfter=network.targetWants=network.target[Service]Type=simpleExecStart=/usr/local/bin/gost -L tap://:8421/127.0.0.1:8421?net=100.66.0.2/24 -F relay+wss://user:pass@serverdomain:443?path=/gostRestart=always[Install]WantedBy=multi-user.targetEOF 然后在客户端启动GOST服务。 12systemctl enable gostsystemctl start gost 到这一步应该已经将GOST的TAP over WSS搭建完成，若你想套CDN之类的可以自己操作看看。 性能测试上面搭建的是wss协议的GOST，下面会一并测试TAP设备在TLS、KCP、QUIC传输层协议上的表现。 香港HKT搭建的iperf3服务器，宿迁联通百兆宽带，性能如下。 协议 上传 下载 Direct 16.4Mbps 3.22Mbps TLS 14.9Mbps 6.87Mbps KCP 7.92Mbps 1.39Mbps QUIC 8.66Mbps 8.20Mbps Relay+MTLS 12.6Mbps 9.42Mbps Relay+KCP 13.1Mbps 11.6Mbps 实测下来性能还不如GRE over Wireguard over Vless-WSS，不知道纯中转性能如何，之后有机会再更新吧。]]></content>
@@ -11,10 +26,10 @@
         <tag>翻墙</tag>
         <tag>代理</tag>
         <tag>隧道</tag>
-        <tag>GOST</tag>
-        <tag>游戏加速</tag>
         <tag>VPN</tag>
         <tag>组网</tag>
+        <tag>GOST</tag>
+        <tag>游戏加速</tag>
       </tags>
   </entry>
   <entry>
@@ -25,11 +40,11 @@
         <category>技術相關</category>
       </categories>
       <tags>
-        <tag>Wireguard</tag>
-        <tag>V2ray</tag>
         <tag>翻墙</tag>
         <tag>代理</tag>
         <tag>隧道</tag>
+        <tag>Wireguard</tag>
+        <tag>V2ray</tag>
       </tags>
   </entry>
   <entry>

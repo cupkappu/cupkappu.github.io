@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.kappu.ml/"/>
-  <updated>2020-10-11T10:51:39.939Z</updated>
+  <updated>2020-10-13T17:47:01.000Z</updated>
   <id>https://www.kappu.ml/</id>
   
   <author>
@@ -15,6 +15,42 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>科学上网、翻墙|仅需一台VPS，让宽带拥有公网固定IP、翻越GFW|软路由网关</title>
+    <link href="https://www.kappu.ml/2020/10/11/2020-10-11-%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91%E3%80%81%E7%BF%BB%E5%A2%99%E4%BB%85%E9%9C%80%E4%B8%80%E5%8F%B0VPS%EF%BC%8C%E8%AE%A9%E5%AE%BD%E5%B8%A6%E6%8B%A5%E6%9C%89%E5%85%AC%E7%BD%91%E5%9B%BA%E5%AE%9AIP%E3%80%81%E7%BF%BB%E8%B6%8AGFW%E8%BD%AF%E8%B7%AF%E7%94%B1%E7%BD%91%E5%85%B3/"/>
+    <id>https://www.kappu.ml/2020/10/11/2020-10-11-科学上网、翻墙仅需一台VPS，让宽带拥有公网固定IP、翻越GFW软路由网关/</id>
+    <published>2020-10-11T10:39:08.000Z</published>
+    <updated>2020-10-13T17:47:01.000Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p><strong>本教程会介绍VPN技术，并提到VPN在翻越GFW时会遇到的一些问题，然后会提供一种更加安全的、跨越GFW组建VPN二层网络的思路</strong></p></blockquote><h2 id="0-GFW能管控什么？GFW如何对网络进行管控？"><a href="#0-GFW能管控什么？GFW如何对网络进行管控？" class="headerlink" title="0. GFW能管控什么？GFW如何对网络进行管控？"></a>0. GFW能管控什么？GFW如何对网络进行管控？</h2><h3 id="网络"><a href="#网络" class="headerlink" title="网络"></a>网络</h3><p>这是你的家庭网络架构，你的笔记本电脑会连接到你的无线路由器，通过防火墙后连接上互联网。</p><p><img src="C:%5CUsers%5Calink%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20201013224606757.png" alt="image-20201013224606757"></p><p><em>图片来源：Draw.io</em></p><p>你发送的每个对外访问的数据包都会发送到你的家庭网关，通过电信商提供的宽带服务接入互联网后，家庭网关会根据路由表，向路由表指示的网关询问IP地址是否可以到达。再上一层的网关也会执行同样的操作，直到最后访问到你需要访问的IP地址。</p><p><img src="C:%5CUsers%5Calink%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20201013233902331.png" alt="image-20201013233902331"></p><p>有时候，应用访问的是域名。设备在接收到访问域名的请求后会向DNS服务器查询域名的IP地址，然后才会进行上面一套流程。</p><p>假设你要访问Youtube，域名是<code>youtube.com</code>在不考虑防火墙的情况下，你的电脑会先向DNS询问<code>youtube.com</code>的IP地址（A记录）。</p><p><img src="C:%5CUsers%5Calink%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20201013235429516.png" alt="image-20201013235429516"></p><p><em>图片来源：GFW是如何阻止我们访问国外网站的？（<a href="https://www.youtube.com/watch?v=f6dFKFeFntw）" target="_blank" rel="noopener">https://www.youtube.com/watch?v=f6dFKFeFntw）</a></em></p><p>DNS服务器会返回一个域名的IP地址，然后设备会根据这个IP地址，将数据包发送到网关，最后访问到目标IP地址。</p><p><img src="C:%5CUsers%5Calink%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20201013235521850.png" alt="image-20201013235521850"></p><p><em>图片来源：GFW是如何阻止我们访问国外网站的？（<a href="https://www.youtube.com/watch?v=f6dFKFeFntw）" target="_blank" rel="noopener">https://www.youtube.com/watch?v=f6dFKFeFntw）</a></em></p><h3 id="GFW"><a href="#GFW" class="headerlink" title="GFW"></a>GFW</h3><p>如果说你在中国大陆地区，你接入的网络架构应该是这样的。</p><p><img src="C:%5CUsers%5Calink%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20201013232524535.png" alt="image-20201013232524535"></p><p>你的设备询问访问国内的IP地址，运营商的网关会根据路由表自动路由到不同的网关。若访问海外的地址，运营商会将你的数据包转发到GFW里面进行审查，数据包通过审查则继续转发到海外的网关，未通过审查的数据包会被丢弃、替换、攻击等。<em>（维基百科：防火长城）</em></p><p>现阶段，GFW会对以下的内容，在技术层面上进行网络攻击。</p><table><thead><tr><th>内容</th><th>封禁原因</th><th>技术手段</th></tr></thead><tbody><tr><td>被屏蔽的域名</td><td>网站不符合言论审查要求</td><td>DNS污染</td></tr><tr><td>被屏蔽的IP</td><td>IP提供不符合言论审查要求的服务</td><td>TCP阻断重置、UDP严格限速、黑洞路由、端口封锁</td></tr><tr><td>明文关键词</td><td>关键词不符合言论审查要求</td><td>TCP阻断重置</td></tr><tr><td>VPN流量</td><td>防范个人/团体不遵守言论审查</td><td>TCP阻断重置、UDP严格限速、黑洞路由、端口封锁</td></tr></tbody></table><p>现在近乎明确会被GFW阻断、屏蔽、封禁的，数据包直接标识自己是隧道数据包的VPN有以下几种。</p><blockquote><p>PPTP、L2TP、OpenVPN over UDP</p></blockquote><p>有机会被屏蔽、限速、黑洞的VPN有以下几种。</p><blockquote><p>Wireguard、GRE、IPSec、IKEv2、SSTP、Anyconnect</p></blockquote><p>有较大机会被封锁的传输层以上的代理协议有以下几种。</p><blockquote><p>SSH、Socks、HTTP代理、ShadowsocksR、Tor</p></blockquote><h2 id="1-现阶段什么翻墙方式较难被封锁"><a href="#1-现阶段什么翻墙方式较难被封锁" class="headerlink" title="1. 现阶段什么翻墙方式较难被封锁"></a>1. 现阶段什么翻墙方式较难被封锁</h2><p>现阶段较为隐蔽的VPN和代理协议，根据底层传输层特征，隐蔽性由高至低排列（仅代表笔者观点）</p><table><thead><tr><th>传输层特征</th><th>VPN或代理类型</th></tr></thead><tbody><tr><td>Websocks-TLS/HTTPS</td><td><a href="https://github.com/unbit/vpn-ws" target="_blank" rel="noopener">VPN-WS</a>、V2ray-WSS、Trojan-WSS、GOST-WSS、Shadowsocks with Obfs WSS、HTTPS</td></tr><tr><td>TLS</td><td>SSL VPN、V2ray-TLS、Trojan、GOST、Socks over TLS、Shadowsocks with Obfs TLS</td></tr><tr><td>QUIC</td><td>V2ray-QUIC、GOST-QUIC</td></tr><tr><td>KCP</td><td>V2ray-KCP、GOST-KCP</td></tr><tr><td>无特征协议</td><td>V2ray-Vmess、Shadowsocks</td></tr><tr><td>P2P网络</td><td>I2P</td></tr></tbody></table><p><em>隐蔽性与性能、安全性无关</em></p><p>当下资料显示，GFW对待HTTPS和SSL/TLS流量最为宽松。根据<a href="https://medium.com/@programthink/2019%E5%B9%B46%E6%9C%88%E7%BF%BB%E5%A2%99%E5%BF%AB%E6%8A%A5-%E5%85%BC%E8%B0%88%E7%94%A8-i2p-%E7%AA%81%E7%A0%B4%E5%B0%81%E9%94%81-f460a86f154f" target="_blank" rel="noopener">《2019年6月翻墙快报》</a>，GFW对于基于无加密Socks代理与VPN较为敏感，而对于非HTTPS、WSS的流量会随机阻断。在去年6月敏感时间，V2ray搭建在基于HTTPS的Websocket TLS传输层上、或是别的代理协议通过HTTPS Tunnel进行传输，都不会被GFW过度干扰。而I2P由于自身坚挺的P2P技术，只要即时补种可以作为轻度使用的良好方案。在<a href="https://groups.google.com/g/fqlt/c/axPUoCDa_rE/m/UCSVxS2SCAAJ" target="_blank" rel="noopener">特殊情况</a>下，WSS传输层会被限速，但还尚未被完全封锁。<strong>可以总结，基于HTTPS传输层的代理和VPN是现行使用公网翻墙的最佳方法。</strong></p><blockquote><p>后续更新</p></blockquote><hr><ol><li><p>维基百科：防火长城，<a href="https://zh.wikipedia.org/wiki/%E9%98%B2%E7%81%AB%E9%95%BF%E5%9F%8E，2020年10月13日读取。" target="_blank" rel="noopener">https://zh.wikipedia.org/wiki/%E9%98%B2%E7%81%AB%E9%95%BF%E5%9F%8E，2020年10月13日读取。</a></p></li><li><p>GFW的封杀手段以及常见的翻墙手段，<a href="https://note.hzy.pw/1798.html，2020年10月13日读取。" target="_blank" rel="noopener">https://note.hzy.pw/1798.html，2020年10月13日读取。</a></p></li><li><p>《2019年6月翻墙快报》，2019年7月11日，<a href="https://medium.com/@programthink/2019%E5%B9%B46%E6%9C%88%E7%BF%BB%E5%A2%99%E5%BF%AB%E6%8A%A5-%E5%85%BC%E8%B0%88%E7%94%A8-i2p-%E7%AA%81%E7%A0%B4%E5%B0%81%E9%94%81-f460a86f154f，2020年10月14日读取。" target="_blank" rel="noopener">https://medium.com/@programthink/2019%E5%B9%B46%E6%9C%88%E7%BF%BB%E5%A2%99%E5%BF%AB%E6%8A%A5-%E5%85%BC%E8%B0%88%E7%94%A8-i2p-%E7%AA%81%E7%A0%B4%E5%B0%81%E9%94%81-f460a86f154f，2020年10月14日读取。</a></p></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;本教程会介绍VPN技术，并提到VPN在翻越GFW时会遇到的一些问题，然后会提供一种更加安全的、跨越GFW组建VPN二层网络的思路&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;0-GFW能管控什么？GFW如何
+      
+    
+    </summary>
+    
+      <category term="技術相關" scheme="https://www.kappu.ml/categories/%E6%8A%80%E8%A1%93%E7%9B%B8%E9%97%9C/"/>
+    
+    
+      <category term="翻墙" scheme="https://www.kappu.ml/tags/%E7%BF%BB%E5%A2%99/"/>
+    
+      <category term="代理" scheme="https://www.kappu.ml/tags/%E4%BB%A3%E7%90%86/"/>
+    
+      <category term="隧道" scheme="https://www.kappu.ml/tags/%E9%9A%A7%E9%81%93/"/>
+    
+      <category term="VPN" scheme="https://www.kappu.ml/tags/VPN/"/>
+    
+      <category term="组网" scheme="https://www.kappu.ml/tags/%E7%BB%84%E7%BD%91/"/>
+    
+  </entry>
   
   <entry>
     <title>试玩TUN/TAP over GOST-WSS</title>
@@ -43,13 +79,13 @@
     
       <category term="隧道" scheme="https://www.kappu.ml/tags/%E9%9A%A7%E9%81%93/"/>
     
-      <category term="GOST" scheme="https://www.kappu.ml/tags/GOST/"/>
-    
-      <category term="游戏加速" scheme="https://www.kappu.ml/tags/%E6%B8%B8%E6%88%8F%E5%8A%A0%E9%80%9F/"/>
-    
       <category term="VPN" scheme="https://www.kappu.ml/tags/VPN/"/>
     
       <category term="组网" scheme="https://www.kappu.ml/tags/%E7%BB%84%E7%BD%91/"/>
+    
+      <category term="GOST" scheme="https://www.kappu.ml/tags/GOST/"/>
+    
+      <category term="游戏加速" scheme="https://www.kappu.ml/tags/%E6%B8%B8%E6%88%8F%E5%8A%A0%E9%80%9F/"/>
     
   </entry>
   
@@ -76,15 +112,15 @@
       <category term="技術相關" scheme="https://www.kappu.ml/categories/%E6%8A%80%E8%A1%93%E7%9B%B8%E9%97%9C/"/>
     
     
-      <category term="Wireguard" scheme="https://www.kappu.ml/tags/Wireguard/"/>
-    
-      <category term="V2ray" scheme="https://www.kappu.ml/tags/V2ray/"/>
-    
       <category term="翻墙" scheme="https://www.kappu.ml/tags/%E7%BF%BB%E5%A2%99/"/>
     
       <category term="代理" scheme="https://www.kappu.ml/tags/%E4%BB%A3%E7%90%86/"/>
     
       <category term="隧道" scheme="https://www.kappu.ml/tags/%E9%9A%A7%E9%81%93/"/>
+    
+      <category term="Wireguard" scheme="https://www.kappu.ml/tags/Wireguard/"/>
+    
+      <category term="V2ray" scheme="https://www.kappu.ml/tags/V2ray/"/>
     
   </entry>
   
@@ -573,32 +609,6 @@
       <category term="Proxmox" scheme="https://www.kappu.ml/tags/Proxmox/"/>
     
       <category term="教程" scheme="https://www.kappu.ml/tags/%E6%95%99%E7%A8%8B/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>實現家庭綜合服務器——給Proxmox VE中的Win10直通顯卡</title>
-    <link href="https://www.kappu.ml/2019/08/20/%E5%AF%A6%E7%8F%BE%E5%AE%B6%E5%BA%AD%E7%B6%9C%E5%90%88%E6%9C%8D%E5%8B%99%E5%99%A8%E2%80%94%E2%80%94%E7%B5%A6Proxmox%20VE%E4%B8%AD%E7%9A%84Win10%E7%9B%B4%E9%80%9A%E9%A1%AF%E5%8D%A1/"/>
-    <id>https://www.kappu.ml/2019/08/20/實現家庭綜合服務器——給Proxmox VE中的Win10直通顯卡/</id>
-    <published>2019-08-19T16:00:00.000Z</published>
-    <updated>2019-08-22T10:25:33.714Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="前情提要"><a href="#前情提要" class="headerlink" title="前情提要"></a>前情提要</h1><p>話説我弟最近上中學，他開始需要使用電腦做學校的課業，而我家裏有一臺chromebook、台機和一臺特別破舊的超極本。</p><p>超極本的發熱已經接近70度，可以把人手烤焦，chromebook的系統不支援他學校的CD軟體，而我的臺機，有太多的不可見人的東西，更是不能給他使用。</p><p>但是教育乃一切之本，他的生日也臨近，想給他送個禮物，於是看到了我家不斷跑著OVM、ikuai、web-server和域名ddns的伺服器，突然覺得，可以壓縮一下前面幾個服務的性能，給他搭建一個能用的電腦操作平臺。</p><a id="more"></a><p><strong>大致的想法就是買個基礎顯卡，買個固態硬盤直通到虛擬機，然後直通USB口，把這些綫捆成一坨拉到他的房間，給他個電腦屏幕和鍵盤。</strong></p><p><strong><em>我還想把成本控制在1000塊錢以内來著</em></strong></p><h1 id="原有機件介紹"><a href="#原有機件介紹" class="headerlink" title="原有機件介紹"></a>原有機件介紹</h1><p>服務器是一臺大致如下配置的服務器</p><table><thead><tr><th align="center">配件</th><th align="center">型號</th><th align="center">已用</th></tr></thead><tbody><tr><td align="center">主板</td><td align="center">B75</td><td align="center">/</td></tr><tr><td align="center">SATA口</td><td align="center">2*3.0+4*2.0</td><td align="center">已用3</td></tr><tr><td align="center">PCI-E插槽</td><td align="center">2条PCI-E*16</td><td align="center">已用一條用於網卡</td></tr><tr><td align="center">CPU</td><td align="center">i5-3330</td><td align="center">虛擬機1+1+4+4+2</td></tr><tr><td align="center">RAM</td><td align="center">8G*2 DDR3 1600</td><td align="center">已用512M*3+1.5G+2G=5G</td></tr></tbody></table><p><img src="/images/01.png" alt="Screenshot 2019-08-19 at 14.01.22.png"></p><p>可以看到CPU部分略微吃緊，而RAM依然有機會分配8G給虛擬機使用，PCI-E插槽可以容納一張獨立顯卡，硬盤也可以插多一張SSD。</p><p>找時間把各種吃CPU的服務搬出伺服器為上策。</p><h1 id="需要添置的硬件"><a href="#需要添置的硬件" class="headerlink" title="需要添置的硬件"></a>需要添置的硬件</h1><p>由於我是要給現有的伺服器增加一個Win10，並給他加上顯卡與硬盤等等外設，還要讓他可以在遠處傳輸，於是這需要以下配件。</p><table><thead><tr><th align="center">配件</th><th align="center">名稱</th><th align="center">價格</th></tr></thead><tbody><tr><td align="center">顯卡</td><td align="center">RX550 2G半高顯卡</td><td align="center">333港幣</td></tr><tr><td align="center">硬盤</td><td align="center">240G臺電SSD</td><td align="center">210港幣</td></tr><tr><td align="center">USB延長綫</td><td align="center">/</td><td align="center">142港幣</td></tr><tr><td align="center">HDMI延長綫</td><td align="center">/</td><td align="center">128港幣</td></tr><tr><td align="center">總價</td><td align="center"></td><td align="center">814港幣</td></tr></tbody></table><p>總而言之價格是控制在了1000港幣以内，算是完成目标。</p><p><em>等到我有空，買完所有需要的配件就開搞</em></p><hr>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;前情提要&quot;&gt;&lt;a href=&quot;#前情提要&quot; class=&quot;headerlink&quot; title=&quot;前情提要&quot;&gt;&lt;/a&gt;前情提要&lt;/h1&gt;&lt;p&gt;話説我弟最近上中學，他開始需要使用電腦做學校的課業，而我家裏有一臺chromebook、台機和一臺特別破舊的超極本。&lt;/p&gt;
-&lt;p&gt;超極本的發熱已經接近70度，可以把人手烤焦，chromebook的系統不支援他學校的CD軟體，而我的臺機，有太多的不可見人的東西，更是不能給他使用。&lt;/p&gt;
-&lt;p&gt;但是教育乃一切之本，他的生日也臨近，想給他送個禮物，於是看到了我家不斷跑著OVM、ikuai、web-server和域名ddns的伺服器，突然覺得，可以壓縮一下前面幾個服務的性能，給他搭建一個能用的電腦操作平臺。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="技術相關" scheme="https://www.kappu.ml/categories/%E6%8A%80%E8%A1%93%E7%9B%B8%E9%97%9C/"/>
-    
-    
-      <category term="Proxmox" scheme="https://www.kappu.ml/tags/Proxmox/"/>
-    
-      <category term="直通" scheme="https://www.kappu.ml/tags/%E7%9B%B4%E9%80%9A/"/>
     
   </entry>
   
