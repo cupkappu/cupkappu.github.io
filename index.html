@@ -393,19 +393,19 @@
 <p><strong>本教程会介绍VPN技术，并提到VPN在翻越GFW时会遇到的一些问题，然后会提供一种更加安全的、跨越GFW组建VPN二层网络的思路</strong></p>
 </blockquote>
 <h2 id="0-GFW能管控什么？GFW如何对网络进行管控？"><a href="#0-GFW能管控什么？GFW如何对网络进行管控？" class="headerlink" title="0. GFW能管控什么？GFW如何对网络进行管控？"></a>0. GFW能管控什么？GFW如何对网络进行管控？</h2><h3 id="网络"><a href="#网络" class="headerlink" title="网络"></a>网络</h3><p>这是你的家庭网络架构，你的笔记本电脑会连接到你的无线路由器，通过防火墙后连接上互联网。</p>
-<p><img src="/image/image-20201013224606757.png" alt="image-20201013224606757"></p>
+<p><img src="/images/image-20201013224606757.png" alt="image-20201013224606757"></p>
 <p><em>图片来源：Draw.io</em></p>
 <p>你发送的每个对外访问的数据包都会发送到你的家庭网关，通过电信商提供的宽带服务接入互联网后，家庭网关会根据路由表，向路由表指示的网关询问IP地址是否可以到达。再上一层的网关也会执行同样的操作，直到最后访问到你需要访问的IP地址。</p>
-<p><img src="/image/image-20201013233902331.png" alt="image-20201013233902331"></p>
+<p><img src="/images/image-20201013233902331.png" alt="image-20201013233902331"></p>
 <p>有时候，应用访问的是域名。设备在接收到访问域名的请求后会向DNS服务器查询域名的IP地址，然后才会进行上面一套流程。</p>
 <p>假设你要访问Youtube，域名是<code>youtube.com</code>在不考虑防火墙的情况下，你的电脑会先向DNS询问<code>youtube.com</code>的IP地址（A记录）。</p>
-<p><img src="/image/image-20201013235429516.png" alt="image-20201013235429516"></p>
+<p><img src="/images/image-20201013235429516.png" alt="image-20201013235429516"></p>
 <p><em>图片来源：GFW是如何阻止我们访问国外网站的？（<a href="https://www.youtube.com/watch?v=f6dFKFeFntw）" target="_blank" rel="noopener">https://www.youtube.com/watch?v=f6dFKFeFntw）</a></em></p>
 <p>DNS服务器会返回一个域名的IP地址，然后设备会根据这个IP地址，将数据包发送到网关，最后访问到目标IP地址。</p>
-<p><img src="/image/image-20201013235521850.png" alt="image-20201013235521850"></p>
+<p><img src="/images/image-20201013235521850.png" alt="image-20201013235521850"></p>
 <p><em>图片来源：GFW是如何阻止我们访问国外网站的？（<a href="https://www.youtube.com/watch?v=f6dFKFeFntw）" target="_blank" rel="noopener">https://www.youtube.com/watch?v=f6dFKFeFntw）</a></em></p>
 <h3 id="GFW"><a href="#GFW" class="headerlink" title="GFW"></a>GFW</h3><p>如果说你在中国大陆地区，你接入的网络架构应该是这样的。</p>
-<p><img src="/image/image-20201013232524535.png" alt="image-20201013232524535"></p>
+<p><img src="/images/image-20201013232524535.png" alt="image-20201013232524535"></p>
 <p>你的设备询问访问国内的IP地址，运营商的网关会根据路由表自动路由到不同的网关。若访问海外的地址，运营商会将你的数据包转发到GFW里面进行审查，数据包通过审查则继续转发到海外的网关，未通过审查的数据包会被丢弃、替换、攻击等。<em>（维基百科：防火长城）</em></p>
 <p>现阶段，GFW会对以下的内容，在技术层面上进行网络攻击。</p>
 <table>
