@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Linux,">
+  <meta name="keywords" content="隧道,V2ray,GUE,GRE,">
 
 
 
@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="manjaro安裝過程中會自動鎖屏，而且系統自帶密碼，manjaro賬戶的默認密碼為manjaro。">
-<meta name="keywords" content="Linux">
+<meta name="description" content="在这篇文章我试着搭建了WG over V2ray，实际上效果也相当不错。唯独有一点不太好的是Wireguard有加密功能，而这篇文章下的Vless+WS TLS里面，TLS也实现了加密的功能。这样就会产生双重加密，不但没什么意义而且会增加每个数据包的运算负担。所以这段时间一直在寻找一种更加简洁的，能在L4层无加密包装L3/L2的原生、容易配置的隧道。 其实GUE、FOU、VXLAN都可以工作在L4">
+<meta name="keywords" content="隧道,V2ray,GUE,GRE">
 <meta property="og:type" content="article">
-<meta property="og:title" content="manjaro的KDE安裝包之默認密碼">
-<meta property="og:url" content="https://www.kappu.ml/2019/11/10/manjaro_kde_passwd/index.html">
+<meta property="og:title" content="GUE over V2ray - 基于V2ray的L2&#x2F;L3VPN">
+<meta property="og:url" content="https://www.kappu.ml/2020/11/11/GUE-over-V2ray/index.html">
 <meta property="og:site_name" content="木不子的窒息小茶室">
-<meta property="og:description" content="manjaro安裝過程中會自動鎖屏，而且系統自帶密碼，manjaro賬戶的默認密碼為manjaro。">
+<meta property="og:description" content="在这篇文章我试着搭建了WG over V2ray，实际上效果也相当不错。唯独有一点不太好的是Wireguard有加密功能，而这篇文章下的Vless+WS TLS里面，TLS也实现了加密的功能。这样就会产生双重加密，不但没什么意义而且会增加每个数据包的运算负担。所以这段时间一直在寻找一种更加简洁的，能在L4层无加密包装L3/L2的原生、容易配置的隧道。 其实GUE、FOU、VXLAN都可以工作在L4">
 <meta property="og:locale" content="zh-hk">
-<meta property="og:updated_time" content="2019-11-09T18:38:29.508Z">
+<meta property="og:updated_time" content="2020-11-13T09:28:23.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="manjaro的KDE安裝包之默認密碼">
-<meta name="twitter:description" content="manjaro安裝過程中會自動鎖屏，而且系統自帶密碼，manjaro賬戶的默認密碼為manjaro。">
+<meta name="twitter:title" content="GUE over V2ray - 基于V2ray的L2&#x2F;L3VPN">
+<meta name="twitter:description" content="在这篇文章我试着搭建了WG over V2ray，实际上效果也相当不错。唯独有一点不太好的是Wireguard有加密功能，而这篇文章下的Vless+WS TLS里面，TLS也实现了加密的功能。这样就会产生双重加密，不但没什么意义而且会增加每个数据包的运算负担。所以这段时间一直在寻找一种更加简洁的，能在L4层无加密包装L3/L2的原生、容易配置的隧道。 其实GUE、FOU、VXLAN都可以工作在L4">
 
 
 
@@ -122,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="https://www.kappu.ml/2019/11/10/manjaro_kde_passwd/">
+  <link rel="canonical" href="https://www.kappu.ml/2020/11/11/GUE-over-V2ray/">
 
 
 
 
 
-  <title>manjaro的KDE安裝包之默認密碼 | 木不子的窒息小茶室</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title>GUE over V2ray - 基于V2ray的L2/L3VPN | 木不子的窒息小茶室</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 
@@ -287,7 +287,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://www.kappu.ml/2019/11/10/manjaro_kde_passwd/">
+    <link itemprop="mainEntityOfPage" href="https://www.kappu.ml/2020/11/11/GUE-over-V2ray/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="木不子">
@@ -304,7 +304,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">manjaro的KDE安裝包之默認密碼</h1>
+          <h1 class="post-title" itemprop="name headline">GUE over V2ray - 基于V2ray的L2/L3VPN</h1>
         
 
         <div class="post-meta">
@@ -316,8 +316,8 @@
               
                 <span class="post-meta-item-text">發表於</span>
               
-              <time title="創建於" itemprop="dateCreated datePublished" datetime="2019-11-10T00:00:00+08:00">
-                2019-11-10
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2020-11-11T17:28:33+08:00">
+                2020-11-11
               </time>
             
 
@@ -357,8 +357,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2019/11/10/manjaro_kde_passwd/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/11/10/manjaro_kde_passwd/" itemprop="commentCount"></span>
+                <a href="/2020/11/11/GUE-over-V2ray/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/11/11/GUE-over-V2ray/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -386,7 +386,40 @@
       
 
       
-        <p>manjaro安裝過程中會自動鎖屏，而且系統自帶密碼，manjaro賬戶的默認密碼為<code>manjaro</code>。</p>
+        <p>在<a href="https://cupkappu.github.io/2020/09/27/Wireguard-over-V2ray/" target="_blank" rel="noopener">这篇文章</a>我试着搭建了WG over V2ray，实际上效果也相当不错。唯独有一点不太好的是Wireguard有加密功能，而这篇文章下的Vless+WS TLS里面，TLS也实现了加密的功能。这样就会产生双重加密，不但没什么意义而且会增加每个数据包的运算负担。所以这段时间一直在寻找一种更加简洁的，能在L4层无加密包装L3/L2的原生、容易配置的隧道。</p>
+<p>其实GUE、FOU、VXLAN都可以工作在L4上，这里挑选了自己比较用的习惯的GUE，用V2ray实现加密与隐蔽传输。相比于Wireguard，这几个原生的简单隧道协议都需要双端配置一个回传的地址，将数据包传回给对端。由于相比于Wireguard这个是纯粹的对等协议，所以需要使用V2ray进行反向代理，将客户机的端口在本机上暴露出来。</p>
+<h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><table>
+<thead>
+<tr>
+<th>终端</th>
+<th>IP</th>
+<th>GUE端口</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>服务端</td>
+<td>10.33.33.1/32</td>
+<td>3334</td>
+</tr>
+<tr>
+<td>客户端</td>
+<td>10.33.33.2/32</td>
+<td>3333</td>
+</tr>
+</tbody></table>
+<p>先配置V2ray。</p>
+<h3 id="服务端"><a href="#服务端" class="headerlink" title="服务端"></a>服务端</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br></pre></td><td class="code"><pre><span class="line">// 服务端</span><br><span class="line">&#123;</span><br><span class="line">  &quot;reverse&quot;:&#123;</span><br><span class="line">    &quot;portals&quot;:[</span><br><span class="line">      &#123;</span><br><span class="line">        &quot;tag&quot;:&quot;portal&quot;,</span><br><span class="line">        &quot;domain&quot;:&quot;private.cloud.com&quot;</span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">  &#125;,</span><br><span class="line">  &quot;inbounds&quot;: [</span><br><span class="line">    &#123;</span><br><span class="line">      &quot;tag&quot;:&quot;external&quot;,</span><br><span class="line">      &quot;port&quot;:3333,</span><br><span class="line">      &quot;protocol&quot;:&quot;dokodemo-door&quot;,</span><br><span class="line">        &quot;settings&quot;:&#123;</span><br><span class="line">          &quot;address&quot;:&quot;127.0.0.1&quot;,</span><br><span class="line">          &quot;port&quot;:3333,</span><br><span class="line">          &quot;network&quot;:&quot;udp&quot;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      &quot;listen&quot;: &quot;127.0.0.1&quot;,</span><br><span class="line">      &quot;port&quot;: 14444,</span><br><span class="line">      &quot;protocol&quot;: &quot;vless&quot;,</span><br><span class="line">      &quot;settings&quot;: &#123;</span><br><span class="line">        &quot;decryption&quot;: &quot;none&quot;,</span><br><span class="line">        &quot;clients&quot;: [</span><br><span class="line">          &#123;</span><br><span class="line">            &quot;id&quot;: &quot;uuid&quot;</span><br><span class="line">          &#125;</span><br><span class="line">        ]</span><br><span class="line">      &#125;,</span><br><span class="line">      &quot;streamSettings&quot;: &#123;</span><br><span class="line">        &quot;network&quot;: &quot;ws&quot;,</span><br><span class="line">        &quot;wsSettings&quot;: &#123;</span><br><span class="line">          &quot;path&quot;: &quot;/path&quot;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  ],</span><br><span class="line">  &quot;outbounds&quot;: [</span><br><span class="line">    &#123;</span><br><span class="line">      &quot;protocol&quot;: &quot;freedom&quot;,</span><br><span class="line">      &quot;settings&quot;: &#123;&#125;</span><br><span class="line">    &#125;</span><br><span class="line">  ],</span><br><span class="line">  &quot;routing&quot;:&#123;</span><br><span class="line">    &quot;rules&quot;:[</span><br><span class="line">      &#123;</span><br><span class="line">        &quot;type&quot;:&quot;field&quot;,</span><br><span class="line">        &quot;inboundTag&quot;:[</span><br><span class="line">          &quot;external&quot;,</span><br><span class="line">        ],</span><br><span class="line">        &quot;outboundTag&quot;:&quot;portal&quot;</span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        &quot;type&quot;:&quot;field&quot;,</span><br><span class="line">        &quot;domain&quot;:[</span><br><span class="line">          &quot;full:private.cloud.com&quot;</span><br><span class="line">        ],</span><br><span class="line">        &quot;outboundTag&quot;:&quot;portal&quot;</span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 自行配置caddy和CDN将请求转发到V2ray服务器上</span><br></pre></td></tr></table></figure>
+
+<h3 id="客户端"><a href="#客户端" class="headerlink" title="客户端"></a>客户端</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br></pre></td><td class="code"><pre><span class="line">// 客户端</span><br><span class="line">&#123;</span><br><span class="line">  &quot;reverse&quot;:&#123;</span><br><span class="line">    &quot;bridges&quot;:[</span><br><span class="line">      &#123;</span><br><span class="line">        &quot;tag&quot;:&quot;bridge&quot;,</span><br><span class="line">        &quot;domain&quot;:&quot;private.cloud.com&quot;</span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">  &#125;,</span><br><span class="line">  &quot;inbounds&quot;: [</span><br><span class="line">    &#123;</span><br><span class="line">      &quot;tag&quot;:&quot;gue&quot;,</span><br><span class="line">      &quot;port&quot;:3334,</span><br><span class="line">      &quot;protocol&quot;:&quot;dokodemo-door&quot;,</span><br><span class="line">        &quot;settings&quot;:&#123;</span><br><span class="line">          &quot;address&quot;:&quot;127.0.0.1&quot;,</span><br><span class="line">          &quot;port&quot;:3334,</span><br><span class="line">          &quot;network&quot;:&quot;udp&quot;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  ],</span><br><span class="line">  &quot;outbounds&quot;: [</span><br><span class="line">    &#123;</span><br><span class="line">      &quot;tag&quot;: &quot;cdn&quot;,</span><br><span class="line">      &quot;protocol&quot;: &quot;vless&quot;,</span><br><span class="line">      &quot;settings&quot;: &#123;</span><br><span class="line">        &quot;vnext&quot;: [</span><br><span class="line">          &#123;</span><br><span class="line">            &quot;address&quot;: &quot;cdnaddress&quot;,</span><br><span class="line">            &quot;port&quot;: 443,</span><br><span class="line">            &quot;users&quot;: [</span><br><span class="line">              &#123;</span><br><span class="line">                &quot;encryption&quot;: &quot;none&quot;,</span><br><span class="line">                &quot;id&quot;: &quot;uuid&quot;,</span><br><span class="line">                &quot;email&quot;: &quot;t@t.tt&quot;</span><br><span class="line">              &#125;</span><br><span class="line">            ]</span><br><span class="line">          &#125;</span><br><span class="line">        ]</span><br><span class="line">      &#125;,</span><br><span class="line">      &quot;streamSettings&quot;: &#123;</span><br><span class="line">        &quot;network&quot;: &quot;ws&quot;,</span><br><span class="line">        &quot;security&quot;: &quot;tls&quot;,</span><br><span class="line">        &quot;tlsSettings&quot;: &#123;</span><br><span class="line">          &quot;allowInsecure&quot;: true,</span><br><span class="line">          &quot;serverName&quot;: &quot;address&quot;</span><br><span class="line">        &#125;,</span><br><span class="line">        &quot;wsSettings&quot;: &#123;</span><br><span class="line">          &quot;path&quot;: &quot;/path&quot;,</span><br><span class="line">          &quot;headers&quot;: &#123;</span><br><span class="line">            &quot;Host&quot;: &quot;address&quot;</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123; </span><br><span class="line">      &quot;protocol&quot;:&quot;freedom&quot;,</span><br><span class="line">      &quot;settings&quot;:&#123;</span><br><span class="line">      &#125;,</span><br><span class="line">      &quot;tag&quot;:&quot;out&quot;</span><br><span class="line">    &#125;</span><br><span class="line">  ],</span><br><span class="line">  &quot;routing&quot;:&#123;</span><br><span class="line">    &quot;rules&quot;:[</span><br><span class="line">      &#123;</span><br><span class="line">        &quot;type&quot;:&quot;field&quot;,</span><br><span class="line">        &quot;inboundTag&quot;:[</span><br><span class="line">          &quot;gue&quot;</span><br><span class="line">        ],</span><br><span class="line">        &quot;outboundTag&quot;:&quot;cdn&quot;</span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        &quot;type&quot;:&quot;field&quot;,</span><br><span class="line">        &quot;inboundTag&quot;:[</span><br><span class="line">          &quot;bridge&quot;</span><br><span class="line">        ],</span><br><span class="line">        &quot;domain&quot;:[</span><br><span class="line">          &quot;full:private.cloud.com&quot;</span><br><span class="line">        ],</span><br><span class="line">        &quot;outboundTag&quot;:&quot;hkcdn&quot;</span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        &quot;type&quot;:&quot;field&quot;,</span><br><span class="line">        &quot;inboundTag&quot;:[</span><br><span class="line">          &quot;bridge&quot;</span><br><span class="line">        ],</span><br><span class="line">        &quot;outboundTag&quot;:&quot;out&quot;</span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>然后配置GUE</p>
+<h3 id="GRE-over-GUE配置"><a href="#GRE-over-GUE配置" class="headerlink" title="GRE over GUE配置"></a>GRE over GUE配置</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># 服务端</span><br><span class="line">ip fou add port 3334 gue</span><br><span class="line">ip link add gueov2 type gretap remote 127.0.0.1 ttl 225 encap gue encap-sport auto encap-dport 3333 encap-csum encap-remcsum</span><br><span class="line">ip link set gueov2 up</span><br><span class="line">ip link set dev gueov2 mtu 1420</span><br><span class="line">ip address add 10.33.33.1/32 dev gueov2</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># 客户端</span><br><span class="line">ip fou add port 3333 gue</span><br><span class="line">ip link add gueov2 type gretap remote 127.0.0.1 ttl 225 encap gue encap-sport auto encap-dport 3334 encap-csum encap-remcsum</span><br><span class="line">ip link set gueov2 up</span><br><span class="line">ip link set dev gueov2 mtu 1420</span><br><span class="line">ip address add 10.33.33.2/32 dev gueov2</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>留意把MTU改成正常大小，默认的MTU是巨型帧，不一定能通过V2的WSS隧道</p>
+</blockquote>
 
       
     </div>
@@ -407,7 +440,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>Post link：</strong>
-    <a href="https://www.kappu.ml/2019/11/10/manjaro_kde_passwd/" title="manjaro的KDE安裝包之默認密碼">https://www.kappu.ml/2019/11/10/manjaro_kde_passwd/</a>
+    <a href="https://www.kappu.ml/2020/11/11/GUE-over-V2ray/" title="GUE over V2ray - 基于V2ray的L2/L3VPN">https://www.kappu.ml/2020/11/11/GUE-over-V2ray/</a>
   </li>
   <li class="post-copyright-license">
     <strong>Copyright Notice： </strong>
@@ -422,7 +455,13 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Linux/" rel="tag"># Linux</a>
+            <a href="/tags/隧道/" rel="tag"># 隧道</a>
+          
+            <a href="/tags/V2ray/" rel="tag"># V2ray</a>
+          
+            <a href="/tags/GUE/" rel="tag"># GUE</a>
+          
+            <a href="/tags/GRE/" rel="tag"># GRE</a>
           
         </div>
       
@@ -435,8 +474,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/11/10/study_of_rsa/" rel="next" title="RSA非對稱加密算法學習筆記">
-                <i class="fa fa-chevron-left"></i> RSA非對稱加密算法學習筆記
+              <a href="/2020/10/14/2020-10-14-科学上网、翻墙仅需一台VPS，让宽带拥有公网固定IP、翻越GFW软路由网关/" rel="next" title="科学上网、翻墙|仅需一台VPS，让宽带拥有公网固定IP、翻越GFW|软路由网关">
+                <i class="fa fa-chevron-left"></i> 科学上网、翻墙|仅需一台VPS，让宽带拥有公网固定IP、翻越GFW|软路由网关
               </a>
             
           </div>
@@ -444,10 +483,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2020/01/13/記錄B站ban了海外直播之後的艱辛反向翻墻歷程/" rel="prev" title="記錄B站ban了海外直播后的艱辛反向翻墻歷程">
-                記錄B站ban了海外直播后的艱辛反向翻墻歷程 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -509,8 +544,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目錄
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            本站概覽
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -593,6 +637,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#配置"><span class="nav-number">1.</span> <span class="nav-text">配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#服务端"><span class="nav-number">1.1.</span> <span class="nav-text">服务端</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#客户端"><span class="nav-number">1.2.</span> <span class="nav-text">客户端</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#GRE-over-GUE配置"><span class="nav-number">1.3.</span> <span class="nav-text">GRE over GUE配置</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -801,9 +861,9 @@ show_date_time();
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'https://www.kappu.ml/2019/11/10/manjaro_kde_passwd/';
-          this.page.identifier = '2019/11/10/manjaro_kde_passwd/';
-          this.page.title = 'manjaro的KDE安裝包之默認密碼';
+          this.page.url = 'https://www.kappu.ml/2020/11/11/GUE-over-V2ray/';
+          this.page.identifier = '2020/11/11/GUE-over-V2ray/';
+          this.page.title = 'GUE over V2ray - 基于V2ray的L2/L3VPN';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://cupkappu-blog.disqus.com/embed.js';
