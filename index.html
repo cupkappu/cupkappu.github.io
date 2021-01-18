@@ -286,6 +286,340 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://www.kappu.ml/2021/01/19/network_note/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="木不子">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="木不子的窒息小茶室">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2021/01/19/network_note/" itemprop="url">网络学习笔记</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">發表於</span>
+              
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2021-01-19T04:39:08+08:00">
+                2021-01-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分類於</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/技術相關/" itemprop="url" rel="index">
+                    <span itemprop="name">技術相關</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2021/01/19/network_note/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/01/19/network_note/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="网络学习笔记"><a href="#网络学习笔记" class="headerlink" title="网络学习笔记"></a>网络学习笔记</h1><blockquote>
+<p>本文为我查漏补缺的时候记下的笔记，不同部分的比重十分不同</p>
+</blockquote>
+<p>网络由两台或者以上的设备互联组成。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">PC1  PC2</span><br></pre></td></tr></table></figure>
+
+<p>设备之间使用以太网传递数据。设备对以太网硬件下达指令，以太网硬件和驱动将数据封包为以太网帧，通过以太网发送出去，到达对端设备。</p>
+<h2 id="以太网同步信号"><a href="#以太网同步信号" class="headerlink" title="以太网同步信号"></a>以太网同步信号</h2><p>以太网帧的起始部分由前同步码和帧开始定界符组成。后面便跟随着MAC帧</p>
+<table>
+<thead>
+<tr>
+<th>前同步码/前导</th>
+<th>帧开始界定符</th>
+<th>MAC帧</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0xAA * 7 （7Byte）</td>
+<td>0xAB （1Byte）</td>
+<td>&gt;=64Bytes</td>
+</tr>
+</tbody></table>
+<p>前同步码用于同步对端设备的时钟，属于数电部分的物理信号，开始界定符表示接下来的内容属于以太网帧。</p>
+<h3 id="帧间隙-（Inter-Frame-Gap-IFG）"><a href="#帧间隙-（Inter-Frame-Gap-IFG）" class="headerlink" title="帧间隙 （Inter Frame Gap, IFG）"></a>帧间隙 （Inter Frame Gap, IFG）</h3><p>在连续的以太网连接中，使用前导来区分前一帧和后一帧。除此之外，每一个帧在发送的时候会相隔有一定的比特间隙，这个间隙称为帧间隙。留意帧间隙使用比特进行衡量。在10/100Mbps以太网中，帧间隙为96Bits（12Byte）</p>
+<h3 id="帧时隙-（Inter-Frame-Slot-IFS）"><a href="#帧时隙-（Inter-Frame-Slot-IFS）" class="headerlink" title="帧时隙 （Inter Frame Slot, IFS）"></a>帧时隙 （Inter Frame Slot, IFS）</h3><p>帧时隙用于定义每个数据帧占用的最小时间长度。在10/100Mbps以太网中，帧时隙为512Bits（MAC帧最小长度，下文讲解）。若在512位Bits的时间内没有收到有效帧，则认为线路是空闲的，而小于512Bits的帧信号则被认为是残帧，会被丢弃。<strong>故连续有效帧的相互时隙需要位于96Bits-512Bits之间</strong>。</p>
+<p>定义帧时隙是为了共享同一条线路，实现多设备共用线路，提高利用率，使用CSMA/CD或CSMA/CA（<strong>带冲突检测的载波侦听多路访问</strong>）实现空闲时刻接收来自其他设备的有效以太网帧。</p>
+<h4 id="CSMA"><a href="#CSMA" class="headerlink" title="CSMA"></a>CSMA</h4><p>指<strong>载波侦听多路访问协议</strong>。</p>
+<h5 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h5><ul>
+<li>载波监听：接收介质上的信息，并加以解析，判断共享信道有没有节点正在传输信息</li>
+<li>多路访问：多个装置可以同时读取、写入媒介</li>
+<li>媒介状态：媒介有繁忙与空闲两种媒介占用状态，空闲指在512Bits单位时间内无有效帧传输，繁忙则是在侦测当下的前512Bits有有效帧传输。</li>
+<li>帧碰撞/帧冲突：在媒介繁忙的时候传送帧，形成帧冲突。</li>
+</ul>
+<p>协议为多路访问协议，部署了CSMA的硬件与非CSMA硬件无法互联通信，故所有节点都需要部署CSMA。</p>
+<p>CSMA节点在发送帧之前先监听媒介是否空闲，如果媒介繁忙，则根据工作模式进行下一步操作。</p>
+<p>协议包括三种工作模式。</p>
+<ol>
+<li><p>1-persistentes CSMA</p>
+<p>节点持续监听媒介，一旦发现媒介空闲，立刻发送帧。</p>
+</li>
+<li><p>0-persistentes CSMA</p>
+<p>节点不持续监听媒介，而是每过一段时间监听一次媒介，只要媒介在监听的时候为空闲，便立刻发送帧。</p>
+</li>
+<li><p>p-persistentes CSMA</p>
+<p>节点持续监听媒介。一旦信道空闲，节点以p的概率发送帧，若此时不发送数据，则等待一段时间后，再次进入监听，并以p的概率再次发送帧</p>
+</li>
+</ol>
+<h4 id="CSMA-CD"><a href="#CSMA-CD" class="headerlink" title="CSMA/CD"></a>CSMA/CD</h4><p>指<strong>带冲突检测的载波侦听多路访问</strong>，实现在半双工介质上，要求设备可以在传送帧的同时监听帧，以确定是否发生碰撞。</p>
+<ol>
+<li>在节点发送帧前，需要持续监听媒介。</li>
+<li>一旦发现媒介空闲，则立刻发送帧。</li>
+<li>在发送帧的同时，节点持续监听媒介，探测是否有别的节点也在同时刻发送帧。<ul>
+<li>若发送帧的过程中没有检测到别的节点也在发送帧到同一媒介，则成功传输</li>
+<li>若发送帧过程中检测到别的节点也在发送帧，则检测到冲突，执行以下操作<ol>
+<li>立刻停止帧发送</li>
+<li>发送特定的干扰序列，用于加强冲突</li>
+<li>进行回退（Backoff），随机等待一个时间，然后尝试重传帧</li>
+</ol>
+</li>
+</ul>
+</li>
+</ol>
+<h3 id="以太网设备之间建立连接的过程"><a href="#以太网设备之间建立连接的过程" class="headerlink" title="以太网设备之间建立连接的过程"></a>以太网设备之间建立连接的过程</h3><p>建立连接的时候协商传输速率和双工模式称为自协商。</p>
+<p>双方以太网接口在链路设置为Up状态前发送FLP（快速连接脉冲）序列，协商信息封装在FLP中（下文描述FLPs的定义），同时会通过FLT获取时钟、数字序列信息，用于调制介质信号。当设备对FLP无法做出有效反应，仅返回NLP（普通连接脉冲）的话，它被视为一个10BASE-T兼容设备。</p>
+<p>以上两种脉冲类型使用在双绞线上，而不能应用在光纤等媒体</p>
+<p><strong>NLPs</strong>：是周期为16ms，脉冲宽度为100ns（10M）、10ns（100M）的脉冲信号</p>
+<p><strong>FLPs</strong>：是连续的17-33个脉冲，用于传输16Bits（2Byte）的链接码以进行自动协商。码宽为125us，在125us中有脉冲为1，无脉冲为0。这组数据只能被硬件接口模块识别而不是以太网连接的有效数据。</p>
+<p>FLPs的报文被称为<strong>基本页</strong>，包含以下信息</p>
+<table>
+<thead>
+<tr>
+<th>位元 Bit</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0-4</td>
+<td>指定自协商数据帧的类型，对于IEEE802.3为10000</td>
+</tr>
+<tr>
+<td>5</td>
+<td>1为支持10base-T半双工</td>
+</tr>
+<tr>
+<td>6</td>
+<td>1为支持10base-T全双工</td>
+</tr>
+<tr>
+<td>7</td>
+<td>1为支持100base-TX半双工</td>
+</tr>
+<tr>
+<td>8</td>
+<td>1为支持100base-TX全双工</td>
+</tr>
+<tr>
+<td>9</td>
+<td>1为支持100base-T4</td>
+</tr>
+<tr>
+<td>10</td>
+<td>1为流控有效，0为流控无效，决定后续通信是否有<strong>PAUSE帧</strong>（下文解释）</td>
+</tr>
+<tr>
+<td>11</td>
+<td>支持全双工连接时的非对称暂停机制</td>
+</tr>
+<tr>
+<td>12</td>
+<td>扩展下一页信息页，仅用于千兆端口</td>
+</tr>
+<tr>
+<td>13</td>
+<td>远程故障指示</td>
+</tr>
+<tr>
+<td>14</td>
+<td>握手信号Ack，当收到三个连续的相同FLP后，此位置1</td>
+</tr>
+<tr>
+<td>15</td>
+<td>指示是否有下一页基本页信息。下一页信息用来传输在自协商过程中已连接节点的额外信息</td>
+</tr>
+</tbody></table>
+<p>关于PAUSE帧的说明转自华为云</p>
+<blockquote>
+<p><strong>PAUSE帧（流量控制）</strong></p>
+<p>为什么要有流量控制呢？现在的网络有10M和100M的以太，那么当10m以太和100m以太共存的时候，那就有可能会产生这种线路速率不匹配的情况，这个时候，当通过交换机一个端口的流量过大，超出了它的处理能力时，就会发生端口拥塞，拥塞的时候那么丢包、重传、时延等都会随之而来，流量控制的作用时防止在出现拥塞的情况下丢帧。<br>这里的流量控制采用的是最常用的一种方式PAUSE帧。<br>在半双工方式下，流量控制是通过后退压力（backpressure）技术实现的，模拟产生碰撞，使得信息源降低发送速度。<br>在全双工方式下流控一般遵循IEEE 802.3X标准。采用一64字节的PAUSE的帧来控制，使用一个保留的组播地址：01-80-C2-00-00-01发送给正在发送的站，发送站接到该帧后，就会暂停或停止发送。这个地址的数据不会被网桥和交换机所转发，所以PAUSE帧不会产生附加信息量。<br>PAUSE功能应用场合：</p>
+<ul>
+<li><p>一对终端（简单的两点网络）</p>
+</li>
+<li><p>一个交换机和一个终端</p>
+</li>
+<li><p>交换机和交换机之间的链路
+　　 </p>
+</li>
+</ul>
+<p>   PAUSE功能的增加主要是为了防止瞬时流量的过载导致的缓冲区溢出而造成以太网帧的丢弃。<br>     PAUSE功能不能解决下列问题：</p>
+<ul>
+<li>稳定状态的网络拥塞</li>
+<li>端到端流量控制</li>
+<li>比简单停启更复杂的机制</li>
+</ul>
+</blockquote>
+<h2 id="MAC帧"><a href="#MAC帧" class="headerlink" title="MAC帧"></a>MAC帧</h2><p>每个MAC帧以DMAC目的MAC地址和SMAC源MAC地址起始（共6+6Byte），然后是承载着数据链路层，最后以一个32位的冗余校验码（4Byte）进行结尾，验证数据是否出现损坏。以太网帧的协议标准有两种，分别是IEEE802.3和Ethernet_II。现在绝大多数的以太网帧都为Ethernet_II帧，故暂时只介绍Ethernet_II</p>
+<h3 id="Ethernet-II"><a href="#Ethernet-II" class="headerlink" title="Ethernet_II"></a>Ethernet_II</h3><table>
+<thead>
+<tr>
+<th>DMAC 目的MAC地址</th>
+<th>SMAC 源MAC地址</th>
+<th>Type &gt;= 0x0600</th>
+<th>Data 数据</th>
+<th>FCS 冗余验证码</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>6Byte</td>
+<td>6Byte</td>
+<td>2Byte</td>
+<td>46-1500Byte</td>
+<td>4Byte</td>
+</tr>
+<tr>
+<td>接收端的网卡MAC地址</td>
+<td>发送端的网卡MAC地址</td>
+<td>协议类型，Ethernet_II大于0x0600</td>
+<td>有效载荷，是有效的传输层数据</td>
+<td>用于检测该帧是否有出错</td>
+</tr>
+</tbody></table>
+<h2 id="TCP-IP协议族"><a href="#TCP-IP协议族" class="headerlink" title="TCP/IP协议族"></a>TCP/IP协议族</h2><p>TCP/IP协议族以IP协议的实现为基础，构建三层及以上的协议层级。</p>
+<blockquote>
+<p>开个坑，有空把TCP/IP协议族全部过一遍</p>
+</blockquote>
+<hr>
+<ol>
+<li>华为，<strong>FAQ-以太网自协商的详细过程</strong>，<a href="https://support.huawei.com/enterprise/en/knowledge/KB1000068108" target="_blank" rel="noopener">https://support.huawei.com/enterprise/en/knowledge/KB1000068108</a></li>
+<li>维基百科，以太网络，<a href="https://zh.wikipedia.org/wiki/%E4%BB%A5%E5%A4%AA%E7%BD%91#CSMA/CD%E5%85%B1%E4%BA%AB%E4%BB%8B%E8%B4%A8%E4%BB%A5%E5%A4%AA%E7%BD%91" target="_blank" rel="noopener">https://zh.wikipedia.org/wiki/%E4%BB%A5%E5%A4%AA%E7%BD%91#CSMA/CD%E5%85%B1%E4%BA%AB%E4%BB%8B%E8%B4%A8%E4%BB%A5%E5%A4%AA%E7%BD%91</a></li>
+<li><a href="https://www.zhihu.com/people/edward_xu" target="_blank" rel="noopener">徐方鑫</a>，802.11协议精读3：CSMA/CD与CSMA/CA，<a href="https://zhuanlan.zhihu.com/p/20731045" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/20731045</a></li>
+<li><a href="https://www.zhihu.com/people/niuhai211" target="_blank" rel="noopener">hai niu</a>，02数据在网络中的传输，<a href="https://zhuanlan.zhihu.com/p/101336720" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/101336720</a></li>
+<li>*<a href="https://www.huaweicloud.com/articles/3b6e771cc602777cbea14821c0686555.html#" target="_blank" rel="noopener">weixin_38848977</a>*，以太网自动协商原理，<a href="https://www.huaweicloud.com/articles/3b6e771cc602777cbea14821c0686555.html" target="_blank" rel="noopener">https://www.huaweicloud.com/articles/3b6e771cc602777cbea14821c0686555.html</a></li>
+<li>维基百科，互联网协议套组，<a href="https://zh.wikipedia.org/wiki/TCP/IP%E5%8D%8F%E8%AE%AE%E6%97%8F" target="_blank" rel="noopener">https://zh.wikipedia.org/wiki/TCP/IP%E5%8D%8F%E8%AE%AE%E6%97%8F</a></li>
+</ol>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://www.kappu.ml/2020/11/11/GUE-over-V2ray/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2208,162 +2542,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://www.kappu.ml/2019/10/27/Studying_system_theory/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="木不子">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="木不子的窒息小茶室">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/10/27/Studying_system_theory/" itemprop="url">系統學習框架 —— 如何開始學習完全不懂的一樣學科</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">發表於</span>
-              
-              <time title="創建於" itemprop="dateCreated datePublished" datetime="2019-10-27T00:08:00+08:00">
-                2019-10-27
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分類於</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/生活心得/" itemprop="url" rel="index">
-                    <span itemprop="name">生活心得</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2019/10/27/Studying_system_theory/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/10/27/Studying_system_theory/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>任何的學習都需要一定的耐心、通過不斷的實踐纍積經驗。不過，“學習”具體是什麽，我們是如何學習的？老師是如何教導我們知識的？</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/10/27/Studying_system_theory/#more" rel="contents">
-              閱讀全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2414,7 +2592,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-count">20</span>
                   <span class="site-state-item-name">文章</span>
                 </a>
               </div>
@@ -2436,7 +2614,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">34</span>
+                  <span class="site-state-item-count">36</span>
                   <span class="site-state-item-name">標籤</span>
                 </a>
               </div>
@@ -2496,7 +2674,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
